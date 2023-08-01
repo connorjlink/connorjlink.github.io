@@ -37,7 +37,7 @@ img {
 }
 
 hr {
-    border-top: 0px dashed #bbb;
+    border-top: 0px solid #bbb;
 }
 
 li {
@@ -52,8 +52,11 @@ li a {
     padding: 5px;
     margin-right: 15px;
     border-radius: 5px;
+    background-color: teal;
+    transition: background-color .5s;
 }
 
 li a:hover {
     background-color: lightseagreen;
+    transition: background-color .5s;
 }
