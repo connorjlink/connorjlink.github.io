@@ -25,17 +25,6 @@ li a:hover {
 }
 
 
-body {
-    text-align: center;
-    overflow-y: scroll;
-}
-
-img {
-    max-width: 40%;
-    margin: 0;
-    padding: 0;
-}
-
 .navbar {
     background: teal;
     padding-left: 15px;
@@ -68,10 +57,25 @@ img {
     margin: 5px;
 }
 
+
+hr {
+    border-top: 0px solid #bbb;
+}
+
+.copyright {
+    text-align: center;
+}
+
+/*here*/
+img {
+    max-width: 40%;
+    margin: 0;
+    padding: 0;
+}
+
 .pensacola img {
     max-width: 20%;
 }
-
 
 
 .gear ul {
@@ -84,31 +88,5 @@ img {
 .gear li {
     display: flex;
     margin: 5px;
-}
-
-/*
-.pensacola .text {
-    position: relative;
-    display: flex;
-}
-
-.pensacola .text t {
-    position: absolute;
-    -webkit-text-stroke: 1px white;
-    font-size: 30pt;
-    font-family: Arial;
-    top: 50%; 
-    left: 50%;  
-    transform: translate(-50%, -50%); 
-}
-
-.pensacola .text img {
-    filter: blur(5px);
-}
-*/
-
-
-hr {
-    border-top: 0px solid #bbb;
 }
 
