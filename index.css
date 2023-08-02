@@ -3,12 +3,12 @@
     font-family: Helvetica;
 }
 
-li {
+.navbar li {
     list-style: none;
     display: inline-block;
 }
 
-li a {
+.navbar li a {
     color:white;
     font: 18px;
     font-weight: bold;
@@ -19,7 +19,7 @@ li a {
     transition: background-color .5s;
 }
 
-li a:hover {
+.navbar li a:hover {
     background-color: lightseagreen;
     transition: background-color .5s;
 }
