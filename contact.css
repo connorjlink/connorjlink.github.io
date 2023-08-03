@@ -77,9 +77,5 @@ hr {
 .contact li {
     display: flex;
     margin: 5px;
-}
-
-
-.contact a {
-
+    padding-bottom: 20px;
 }
