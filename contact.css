@@ -3,6 +3,12 @@
     font-family: Helvetica;
 }
 
+body {
+    text-align: center; 
+    overflow-y: scroll;
+	font-weight: lighter;
+}
+
 .navbar li {
     list-style: none;
     display: inline-block;
@@ -62,10 +68,6 @@ hr {
     border-top: 0px solid #bbb;
 }
 
-.copyright {
-    text-align: center;
-}
-
 /*here*/
 .contact ul {
     list-style-type: none;
@@ -77,5 +79,14 @@ hr {
 .contact li {
     display: flex;
     margin: 5px;
-    padding-bottom: 20px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+}
+
+.left {
+    font-weight: bolder;
+}
+
+.right {
+    font-weight: lighter;
 }
