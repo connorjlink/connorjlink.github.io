@@ -21,12 +21,16 @@
                 </ul>
             </div>
         </nav>
+		
+		<hr>
 
 		<h1>My Projects</h1>
 		
 		<div class="projects">
 			<h2>Titanium</h2>
 		  <p>Curious about programming language design, I set out to build my own several years ago, with the end result being Titanium, my own custom compiled programming lanugage built from scratch using the Flex/Bison toolchain and my own purpose-built code generator. Titanium exclusively targets CL8 assembly, my custom processor architecture's low-level code. While not feature rich, Titanium does offer a number of capabilities that developers have come to expect from modern languages, including function-scope local variables, pointer-based indirection, and descriptive compiler error messages. I am currently working on re-writing my existing implementation in pure C++&mdash;no lexer or parser generators in sight&mdash;the progress of which you can track in my growing YouTube timelapse series <i>Coding a Programming Language</i>.</p>
+			
+		<hr>
 			
 		  <h2>CL8</h2>
 			<p>A technology enthusiast at heart, I had always wondered how a raw stream of 1s and 0s got converted into tangible computation, much less how it could possibly represent a functional desktop operating system. Well, curiosity got the best of me nearing the end of 2022, and so I set forth on a multi-month-long exploration to learn just these things, a research exploration that culminated in the creation of my own custom processor architecture specfication: <i>CL8</i>. Despite lacking modern ease-of-use, security, and virtualization features, CL8 presents a unique take on classically-'60s 8-bit processor design. Featuring just four hardware registers, a mere few arithmetic instructions, and highly-limiting data-movement capabilities, CL8 forces its assembly developers to think like those of yesteryear&mdash;reaching an optimal solution notwithstanding platform constraints.</p>
@@ -45,12 +49,14 @@
 			
 			<p><b>Emulator: </b>A less-clunky solution than repetitive Verilog simulation, <a href="https://github.com/connorjlink/emulator/tree/main"><i>emulator</i> </a> provides a clean and user-friendly way to debug CL8 binaries from the command line</p>
 			
-			<h2>3-D Rendering</h2>
-			<h3>Raytracing</h3>
-			<p></p>
+			<hr>
 			
+			<h2>3-D Rendering</h2>
 			<h3>Rasterization</h3>
 			<p></p>
+			
+			<h3>Raytracing</h3>
+			<p>Frustrated by the limitations of software-accelerated triangle rasterization rendering, I researched alternatives and wound up developing my own raytracing program. Despite starting out simple&mdash;capable only of rendering unlit spheres&mdash;I added more features to the software over time: a user-adjustable camera, sky lighting, reflections, path tracing, and global illumination to name a few.</p>
 		</div>
 		
         <hr>		
