@@ -4,9 +4,14 @@
 }
 
 body {
-    text-align: center; 
     overflow-y: scroll;
 	font-weight: lighter;
+}
+
+.main {
+    margin-left: 10%;
+    font-size: 150%;
+    padding: 0;
 }
 
 .navbar li {
@@ -69,16 +74,21 @@ hr {
 }
 
 /*here*/
+.copyright {
+    text-align: center;
+}
+
 img {
     max-width: 40%;
-    margin: 0;
-    padding: 0;
 }
 
 .airshow img {
-    max-width: 20%;
+    width: calc(20% - 2.25px);
 }
 
+.gallery {
+    text-align: center;
+}
 
 .gear ul {
     list-style-type: none;

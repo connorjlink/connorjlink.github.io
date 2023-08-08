@@ -4,9 +4,13 @@
 }
 
 body {
-    text-align: center; 
     overflow-y: scroll;
 	font-weight: lighter;
+}
+
+.main {
+	margin-left: 10%;
+	font-size: 150%;
 }
 
 .navbar li {
@@ -69,6 +73,10 @@ hr {
 }
 
 /*here*/
+.copyright {
+	text-align: center;
+}
+
 .experience {
     display: inline-block;
     text-align: left;

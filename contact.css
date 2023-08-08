@@ -4,9 +4,13 @@
 }
 
 body {
-    text-align: center; 
     overflow-y: scroll;
 	font-weight: lighter;
+}
+
+.main {
+    margin-left: 10%;
+    font-size: 150%;
 }
 
 .navbar li {
@@ -69,9 +73,14 @@ hr {
 }
 
 /*here*/
+.copyright {
+    text-align: center;
+}
+
 .contact ul {
     list-style-type: none;
     margin: 0;
+    margin-top: -2%;
     padding: 0;
     display: inline-block;
 }
@@ -79,14 +88,6 @@ hr {
 .contact li {
     display: flex;
     margin: 5px;
-   padding-top: 10px;
-   padding-bottom: 10px;
-}
-
-.left {
-    font-weight: bolder;
-}
-
-.right {
-    font-weight: lighter;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
