@@ -93,6 +93,7 @@ img {
 .gear ul {
     list-style-type: none;
     margin: 0;
+    margin-top: -2%;
     padding: 0;
     display: inline-block;
 }

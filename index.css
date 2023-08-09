@@ -10,6 +10,7 @@ body {
 
 .main {
     margin-left: 10%;
+    margin-right: 10%;
     font-size: 150%;
 }
 
@@ -77,9 +78,51 @@ hr {
     text-align: center;
 }
 
+.main ul {
+    margin-top: -2%;
+}
+
+.main p {
+    margin-top: -1%;
+    margin-bottom: 3%;
+}
+
 img {
     max-width: 20%;
 }
 
+.gridwrapper {
+    display: grid;
+    margin-top: -2%;
+    margin-bottom: 1%;
+}
 
+.one {
+    grid-column: 1;
+    grid-row: 1;
+}
 
+.two {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.three {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.four {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.five {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.six {
+    grid-column: 3;
+    grid-row: 2;
+}
