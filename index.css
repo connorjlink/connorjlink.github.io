@@ -126,3 +126,9 @@ img {
     grid-column: 3;
     grid-row: 2;
 }
+
+.dark-mode {
+    :root {
+        color-scheme: dark;
+    }
+}
