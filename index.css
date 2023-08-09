@@ -26,43 +26,44 @@ body {
     margin-right: 15px;
     text-decoration: underline 0.15em rgba(0, 0, 0, 0);
     transition: text-decoration-color 300ms;
-    color: black;
 }
 
 .navbar li a:hover {
-    text-decoration-color: rgba(0, 0, 0, 255);
+    text-decoration-color: inherit;
 }
 
 .logo a {
     text-decoration: underline 0.15em rgba(0, 0, 0, 0);
     transition: text-decoration-color 300ms;
-    color: black;
 }
 
 .logo a:hover {
-    text-decoration-color: rgba(0, 0, 0, 255);
+    text-decoration-color: inherit;
 }
 
-@media (prefers-color-scheme: dark) {
+@media screen and (prefers-color-scheme: dark) {
     .navbar li a {
-        color: white;
         transition: text-decoration-color 300ms;
     }
 
     .navbar li a:hover {
-        color: white;
-        text-decoration: underline 0.15em rgba(255, 255, 255, 255);
+        text-decoration: underline 0.15em inherit;
     }
 
     .logo a {
-        color: white;
         transition: text-decoration-color 300ms;
     }
 
     .logo a:hover {
-        color: white;
-        text-decoration: underline 0.15em rgba(255, 255, 255, 255);
+        text-decoration: underline 0.15em inherit;
     }
+}
+
+button {
+    background-color: inherit;
+    scale: 1.5;
+    border-radius: 50%;
+    font-size: 15px;
 }
 
 
@@ -94,7 +95,7 @@ body {
 
 .logo img {
     height: 40px;
-    border: 3px solid white;
+    border: 2px solid;
     border-radius: 50%;
     margin: 5px;
     margin-right: 10px;
@@ -157,10 +158,4 @@ img {
 .six {
     grid-column: 3;
     grid-row: 2;
-}
-
-.dark-mode {
-    :root {
-        color-scheme: dark;
-    }
 }

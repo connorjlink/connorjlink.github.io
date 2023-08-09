@@ -9,8 +9,9 @@ body {
 }
 
 .main {
-	margin-left: 10%;
-	font-size: 150%;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 150%;
 }
 
 .navbar li {
@@ -19,27 +20,60 @@ body {
 }
 
 .navbar li a {
-    color:white;
     font: 18px;
     font-weight: bold;
     padding: 5px;
     margin-right: 15px;
-    border-radius: 5px;
-    background-color: teal;
-    transition: background-color .5s;
+    text-decoration: underline 0.15em rgba(0, 0, 0, 0);
+    transition: text-decoration-color 300ms;
 }
 
 .navbar li a:hover {
-    background-color: lightseagreen;
-    transition: background-color .5s;
+    text-decoration-color: inherit;
+}
+
+.logo a {
+    text-decoration: underline 0.15em rgba(0, 0, 0, 0);
+    transition: text-decoration-color 300ms;
+}
+
+.logo a:hover {
+    text-decoration-color: inherit;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+    .navbar li a {
+        transition: text-decoration-color 300ms;
+    }
+
+    .navbar li a:hover {
+        text-decoration: underline 0.15em inherit;
+    }
+
+    .logo a {
+        transition: text-decoration-color 300ms;
+    }
+
+    .logo a:hover {
+        text-decoration: underline 0.15em inherit;
+    }
+}
+
+button {
+    background-color: inherit;
+    scale: 1.5;
+    border-radius: 50%;
+    font-size: 15px;
 }
 
 
 .navbar {
-    background: teal;
     padding-left: 15px;
     padding-right: 15px;
-    border-radius: 10px;
+
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .navdiv {
@@ -57,14 +91,14 @@ body {
     margin-top: 5px;
     font-size: 35px;
     font-weight: 600;
-    color: white;
 }
 
 .logo img {
     height: 40px;
-    border: 3px solid white;
+    border: 2px solid;
     border-radius: 50%;
     margin: 5px;
+    margin-right: 10px;
 }
 
 
