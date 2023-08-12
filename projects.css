@@ -110,3 +110,34 @@ hr {
 .copyright {
     text-align: center;
 }
+
+.components {
+    margin-top: -1em;
+}
+
+.components li {
+    margin-bottom: 10px;
+}
+
+.titanium-container {
+    margin-top: -0.7em;
+}
+
+.titanium-images {
+    display: flex;
+    justify-content: center;
+}
+
+.titanium-images figure {
+    margin: 5px;
+}
+
+.titanium-images figure img {
+    max-width: 30vw;
+    background-color: blue;
+   
+}
+
+.rendering p {
+    margin-top: -0.8em;
+}

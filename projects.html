@@ -31,43 +31,67 @@
             <div class="projects">
                 <h2>CL8</h2>
 
-                <p>As ambitious as it technically is pointless, I have created an entirely-custom toolchain</p>
+                <p>As a side project to explore low-level technology, I have created an entirely-custom toolchain to support my own custom processor design, CL8.</p>
 
-                <p>Curious about programming language design, I set out to build my own several years ago, with the end result being Titanium, my own custom compiled programming language built from scratch using the Flex/Bison toolchain and my own purpose-built code generator. Titanium exclusively targets CL8 assembly, my custom processor architecture's low-level code. While not feature rich, Titanium does offer a number of capabilities that developers have come to expect from modern languages, including function-scope local variables, pointer-based indirection, and descriptive compiler error messages. I am currently working on re-writing my existing implementation in pure C++&mdash;no lexer or parser generators in sight&mdash;the progress of which you can track in my growing YouTube time-lapse series <i>Coding a Programming Language</i>.</p>
+                <h3>Component Repositories</h3>
+                <ul class="components">
+                    <li><a href="https://github.com/connorjlink/hardware"><b>Hardware: </b></a>a register-transfer-level implementation of the CL8 specification in SystemVerilog</li>
+                    <li><a href="https://github.com/connorjlink/microcode/tree/main"><b>Microcode: </b></a>a C++-macro-engine-powered serialization program for my custom CL8 microcode</li>
+                    <li><a href="https://github.com/connorjlink/emulator/tree/main"><b>Emulator: </b></a>a command line emulator for painless debugging of CL8 binaries</li>
+                    <li><a href="https://github.com/connorjlink/assembler/tree/main"><b>Assembler: </b></a>a Flex/Bison-based tool that converts CL8 assembly to raw machine code</li>
+                    <li><a href="https://github.com/connorjlink/disassembler/tree/main"><b>Disassembler: </b></a>a binary analysis program that converts CL8 machine code back to human-readable source </li>
+                    <li><a href="https://github.com/connorjlink/compiler/tree/main"><b>Compiler: </b></a>a custom compiler for my own programming language, Titanium, targeting the CL8 architecture</li>
+                </ul>
+
+                <h3>Titanium In Detail</h3>
+                <div class="titanium-container">
+                    <p>Titanium is my very own low-level programming language that exclusively exists to support my CL8 binary platform. While not feature rich, Titanium does boast a number of features that developers have come to expect, including pre-processing, scoped variables, and descriptive error messages.</p>
+
+                    <p>While currently based upon the GNU Flex/Bison lexer and parser generators, I am <a href="https://youtube.com/playlist?list=PLysYOhmJ8m4EToQ2j9DaUr8-cvZgZB_la">actively underway</a> with a complete re-write in pure C++ using fully-custom components.</p>
+
+                    <p>Displayed below is a sample program compilation input and output.</p>
+
+                    <div class="titanium-images">
+                        <figure>
+                            <img src="before.jpg">
+                            <figcaption>test.ti</figcaption>
+                        </figure>
+                        
+                        <figure>
+                            <img src="after.jpg">
+                            <figcaption>test.ti.s</figcaption>
+                        </figure>
+                    </div>
+                </div>
+                
+            </div>
         </div>
-		
-		<hr>
-			
-        <div class="main">
 
-        </div>
+        <hr>
 
-		    <h2>CL8</h2>
-		    <p>A technology enthusiast at heart, I had always wondered how a raw stream of 1s and 0s got converted into tangible computation, much less how it could possibly represent a functional desktop operating system. Well, curiosity got the best of me nearing the end of 2022, and so I set forth on a multi-month-long exploration to learn just these things, a research exploration that culminated in the creation of my own custom processor architecture specfication: <i>CL8</i>. Despite lacking modern ease-of-use, security, and virtualization features, CL8 presents a unique take on classically-'60s 8-bit processor design. Featuring just four hardware registers, a mere few arithmetic instructions, and highly-limiting data-movement capabilities, CL8 forces its assembly developers to think like those of yesteryear&mdash;reaching an optimal solution notwithstanding platform constraints.</p>
-			
-			<p>I have created a variety of code repositories, with each encapsulating distinct functionality as part of the toolchain.</p>
-			
-			<p><b>Assembler: </b>With robust macro substitution and error handling capabilities, <a href="https://github.com/connorjlink/assembler/tree/main"><i>assembler</i></a> converts human-readable CL8 assembly language source code into raw CL8 machine code binaries</p>
-			
-			<p><b>Disassembler: </b>Driven by the need to debug pre-assembled and -compiled binaries, <a href="https://github.com/connorjlink/disassembler/tree/main"><i>disassembler</i></a> transforms raw CL8 machine code back into human-readable instruction listings</p>
-			
-			<p><b>Compiler: </b>Powered by GNU Flex and Bison, <a href="https://github.com/connorjlink/compiler/tree/main"><i>compiler</i></a> translates high-level Titanium source code into well-optimized low-level CL8 assembly source code</p>
-			
-			<p><b>Microcode: </b>Extensively utilizing the powerful C++ macro engine, <a href="https://github.com/connorjlink/microcode/tree/main"><i>microcode</i></a> contains source to serialize the CL8 micro-architecture control binary file</p>
-			
-			<p><b>Hardware: </b>An HDL-based implementation of the CL8 specification, <a href="https://github.com/connorjlink/hardware"><i>hardware</i></a> provides a robust description of and simulation basis for CL8 in Verilog</p>
-			
-			<p><b>Emulator: </b>A less-clunky solution than repetitive Verilog simulation, <a href="https://github.com/connorjlink/emulator/tree/main"><i>emulator</i> </a> provides a clean and user-friendly way to debug CL8 binaries from the command line</p>
-			
-			<hr>
-			
-			<h2>3-D Rendering</h2>
+        <div class="main rendering">
+            <h2>3-D Rendering</h2>
 			<h3>Rasterization</h3>
-			<p></p>
+			<p>In a bid to uncover the technologies that power video games, I learned about linear algebra and rendering pipelines to ultimately develop my own software-accelerated <a href="https://github.com/connorjlink/Constexpr-Linear-Algebra-Library">rasterizer</a>, which features face-based shading and a first-person camera perspective.</p>
 			
-			<h3>Raytracing</h3>
-			<p>Frustrated by the limitations of software-accelerated triangle rasterization rendering, I researched alternatives and wound up developing my own raytracing program. Despite starting out simple&mdash;capable only of rendering unlit spheres&mdash;I added more features to the software over time: a user-adjustable camera, sky lighting, reflections, path tracing, and global illumination to name a few.</p>
-		</div>
+			<h3>Ray Tracing</h3>
+			<p>While researching alternative rendering techniques, ray tracing, the process of physically simulating light rays and their interactions with objects in a scene cropped up. Curious, I wound up creating my own <a href="https://github.com/connorjlink/raytracer">ray tracer</a>. Over time, I have <a href="https://youtube.com/playlist?list=PLysYOhmJ8m4HtMHV_-bgpvlcGxbd_jYvO">implemented more features</a>, including first-person camera controls, reflections, soft shadows, and global illumination.</p>
+
+            <p>&nbsp;</p>
+            <p>Depicted below are sample renders from both programs.</p>
+
+            <div class="titanium-images">
+                <figure>
+                    <img src="rasterizer.jpg">
+                    <figcaption>Rasterizer</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="raytracer.jpg">
+                    <figcaption>Ray Tracer</figcaption>
+                </figure>
+            </div>
+        </div>        
 		
         <hr>		
 
