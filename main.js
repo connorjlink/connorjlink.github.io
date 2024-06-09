@@ -1,3 +1,10 @@
+const head = document.querySelector('head')
+
+head.insertAdjacentHTML("beforeend", `
+    <link rel="stylesheet" href="common.css">
+    <meta property="og:image" content="https://connorjlink.com/res/logo.jpg"/>
+`);
+
 const body = document.querySelector('body');
 
 body.insertAdjacentHTML("afterbegin", `
