@@ -1,20 +1,21 @@
 * {
+    margin-top: 5px;
+    margin-bottom: 5px;
     margin-left: 2%;
     margin-right: 2%;
+
 }
 
 body {
+    display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
     text-align: center;
 }
 
 hr {
     border-top: 0px solid lightgray;
-}
-
-h3 {
-    /*margin-bottom: -2px;*/
 }
 
 ul {
@@ -30,13 +31,13 @@ ul {
 }
 
 .header {
-
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .hstack {
     display: flex;
     flex-direction: row;
-
 }
 
 .vstack {
@@ -57,15 +58,10 @@ ul {
     width: 100%;
 }
 
-.nudge-up {
-    margin-top: -3%;
-}
-
-.nomargin {
+.nospacing {
     margin: 0;
-    padding: 0;
 }
 
-.vertical {
-    hr-direction: column;
+.content {
+
 }
