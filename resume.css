@@ -14,8 +14,8 @@ body {
 }
 
 hr {
-    border: 1px solid lightgray;
-    background-color: lightgray;
+    border-top: 0px;
+    border-left: 0px
 }
 
 h2 {
@@ -97,41 +97,8 @@ li {
     padding: 0;
 }
 
-
-.content {
-
-}
-
-.watermark {
-    text-align: left;
-    position: absolute;
-    right: 0.5%;
-    bottom: 0.5%;
-}
-
 /* All descendants of a double-spaced list should be "padded" */
 .double-spaced * {
-    padding-bottom: 5px;
-}
-
-
-/* NOTE: only for use during development for alignment purposes! */
-.vertical-crosshair {
-    visibility: hidden;
-    position: absolute;
-    background-color: black;
-    left: 50%;
-    right: 50%;
-    width: 2px;
-    height: 100vh;
-}
-
-.horizontal-crosshair {
-    visibility: hidden;
-    position: absolute;
-    background-color: black;
-    top: 50%;
-    bottom: 50%;
-    width: 100vw;
-    height: 2px;
+    /*padding-bottom: 5%;*/
+    padding-bottom: 10px;
 }
