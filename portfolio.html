@@ -10,6 +10,61 @@
             <h1>My Projects</h1>
 
             <div class="projects">
+                <div class="rounded-container">
+                    <div class="container-content">
+                        <div>
+                            <h2>Haze</h2>
+                            <p>Fundamentally, <i>haze</i> is a specification for a fully-custom CPU design that aims to fix many of the long-standing problems with my CL8 design. Architected specifically for simplicity and flexibility, <i>haze</i> avoids unneeded baggage and brings with it suite of support software.</p>
+                        </div>
+
+                        <div>
+                            <h3>Key Components</h3>
+                            <ul>
+                                <li><a href="#compiler-header">Compiler</a></li>
+                                <li><a href="#assembler-header">Assembler</a></li>
+                                <li><a href="#emulator-header">Emulator</a></li>
+                                <li><a href="#interpreter-header">Interpreter</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 id="compiler-header">Compiler</h3>
+                            <p>Built atop an entirely custom recursive-descent parser, the <i>haze</i> evaluator supplants my existing simple Titanium compiler. With a substantially more robust frontend, <i>haze</i> makes a number of language-level improvements, and, coupled with a fresh optimizer and code generator, performs far faster comparatively. Despite having been explicitly designed around the <i>haze</i> architecture, I've implemented a custom x86_64 code generator and linker to run <i>haze</i> programs on a wider variety of computers. I'm currently working on a live interpreter to interface with another of my projects, <i>geo</i>, to dynamically script content within the runtime of that engine.
+
+                            <p>&nbsp;</p>
+                            <p>Displayed below is a sample program compilation input and output.</p>
+
+                            <div class="titanium-images">
+                                <figure>
+                                    <img src="../res/haze_before.jpg" alt="Example Haze language source code program"/>
+                                    <figcaption>test.ti</figcaption>
+                                </figure>
+
+                                <figure>
+                                    <img src="../res/haze_after.jpg" alt="Example Haze machine code program output by the compiler"/>
+                                    <figcaption>test.ti.s</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 id="assembler-header">Assembler</h3>
+                            <p>Internally utilizing the powerful <i>haze</i> lexer and parser, the assembler transforms custom assembly language source code into <i>haze</i> machine code </p>
+                        </div>
+
+                        <div>
+                            <h3 id="emulator-header">Emulator</h3>
+                            <p>Designed to provide rapid feedback about <i>haze</i> machine code program execution and performance, the emulator implements the <i>haze</i> instruction set architecture in a low-overhead software environment to offer an execution throughput nearing one hundred thousand instructions per second. With live data watches and on-the-fly disassembly, the emulator serves an excellent role to smoke-test programs before generating a hex file for the much bulkier and slower Verilog simulator implementation.</p>
+                        </div>
+
+                        <div>
+                            <h3 id="interpreter-header">Interpreter</h3>
+                            <p>Designed to interface with my latest OpenGL-accelerated 3-D voxel renderer project, <i>geo</i>, the interpreter will ultimately control key engine functionality dynamically through a series of commands paralleling those of the <i>haze</i> compiler and intrinsics designed to hook reference data that control things as simple as geometry diffuse color or a complex as player interactions. Running asynchronously on another thread, the interpreter periodically handshakes the engine to pass across data using a custom loopback-like inter-process---(should this be hypenated?)---communication protocol.</p>
+                        </div>
+                    </div>
+                </div>
+
+
                 <h2>CL8</h2>
 
                 <p>As a side project to explore low-level technology, I have created an entirely-custom toolchain to support my own custom processor design, CL8.</p>
