@@ -109,3 +109,10 @@ hr {
 .copyright {
     text-align: center;
 }
+
+.rounded-container {
+    background-color: lightgray;
+    border-radius: 10px;
+    margin: 5%;
+    padding: 0;
+}
