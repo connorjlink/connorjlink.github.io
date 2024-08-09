@@ -36,76 +36,56 @@ const researchTab = document.getElementById('research-tab');
 const portfolioTab = document.getElementById('portfolio-tab');
 const contactTab = document.getElementById('contact-tab');
 
-function lightenAll() {
-    indexTab.style.fontWeight = 'bold';
-    photographyTab.style.fontWeight = 'bold';
-    experienceTab.style.fontWeight = 'bold';
-    researchTab.style.fontWeight = 'bold';
-    portfolioTab.style.fontWeight = 'bold';
-    contactTab.style.fontWeight = 'bold';
+function lightenAllExcept(element) {
+    if (element !== indexTab) {
+        indexTab.style.fontWeight = 'bold';
+    }
+
+    if (element !== photographyTab) {
+        photographyTab.style.fontWeight = 'bold';
+    }
+
+    if (element !== experienceTab) {
+        experienceTab.style.fontWeight = 'bold';
+    }
+
+    if (element !== researchTab) {
+        researchTab.style.fontWeight = 'bold';
+    }
+
+    if (element !== portfolioTab) {
+        portfolioTab.style.fontWeight = 'bold';
+    }
+
+    if (element !== contactTab) {
+        contactTab.style.fontWeight = 'bold';
+    }
 }
 
-indexTab.addEventListener('click', () => {
-    lightenAll();
-    indexTab.style.fontWeight = 'bolder';
-});
-
-photographyTab.addEventListener('click', () => {
-    lightenAll();
-    photographyTab.style.fontWeight = 'bolder';
-});
-
-researchTab.addEventListener('click', () => {
-    lightenAll();
-    researchTab.style.fontWeight = 'bolder';
-});
-
-experienceTab.addEventListener('click', () => {
-    lightenAll();
-    experienceTab.style.fontWeight = 'bolder';
-});
-
-contactTab.addEventListener('click', () => {
-    lightenAll();
-    contactTab.style.fontWeight = 'bolder';
-});
-
-window.onpopstate = function(event) {
-
-};
-
-// You can also manually trigger the event handler when the page first loads
 window.addEventListener('load', function() {
-    console.log('Initial page URL: ' + window.location.href);
-
     const url = window.location.href;
     const values = url.split('/');
     const page = values[values.length - 1];
 
     if (page.includes("photography")) {
-        lightenAll();
-        photographyTab.style.fontWeight = '1000'; //bolder
+        lightenAllExcept(photographyTab);
+        photographyTab.style.fontWeight = '1000';
     } else if (page.includes("experience")) {
-        lightenAll();
+        lightenAllExcept(experienceTab);
         experienceTab.style.fontWeight = '1000';
     } else if (page.includes("research")) {
-        lightenAll();
+        lightenAllExcept(researchTab);
         researchTab.style.fontWeight = '1000';
     } else if (page.includes("portfolio")) {
-        lightenAll();
+        lightenAllExcept(portfolioTab);
         portfolioTab.style.fontWeight = '1000';
     } else if (page.includes("contact")) {
-        lightenAll();
+        lightenAllExcept(contactTab);
         contactTab.style.fontWeight = '1000';
     } else {
-        lightenAll();
+        lightenAllExcept(indexTab);
         indexTab.style.fontWeight = '1000';
     }
-
-    console.log('Page URL changed to: ' + page);
-
-    // You can put your event handling code here
-    // For example, you can call a function or trigger a custom event
 });
 
 
