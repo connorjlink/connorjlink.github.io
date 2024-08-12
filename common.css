@@ -3,15 +3,24 @@
     font-family: Helvetica;
 }
 
+
+
 body {
     overflow-y: scroll;
     font-weight: lighter;
+    margin: 0;
+    padding: 0;
+
+    /* gonna need some different stuff here for dark mode */
+    background: #f0f0f0;
+    color: #333;
+    /* line-height: 1.6; */
 }
 
 .main {
     margin-left: 10%;
     margin-right: 10%;
-    font-size: 150%;
+    /* font-size: 150%; */
 }
 
 .navbar li {
@@ -24,21 +33,24 @@ body {
     font-weight: bold;
     padding: 5px;
     margin-right: 15px;
-    text-decoration: underline 0.15em rgba(0, 0, 0, 0);
+    text-decoration: underline 0em;
     transition: text-decoration-color 300ms;
 }
 
 .navbar li a:hover {
-    text-decoration-color: inherit;
+    text-decoration: underline 0.15em;
 }
 
 .logo a {
-    text-decoration: underline 0.15em rgba(0, 0, 0, 0);
+    text-decoration: none;
+    text-decoration-color: inherit;
     transition: text-decoration-color 300ms;
 }
 
 .logo a:hover {
+    text-decoration: underline 0.15em;
     text-decoration-color: inherit;
+    transition: text-decoration-color 300ms;
 }
 
 @media screen and (prefers-color-scheme: dark) {

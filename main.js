@@ -39,26 +39,32 @@ const contactTab = document.getElementById('contact-tab');
 function lightenAllExcept(element) {
     if (element !== indexTab) {
         indexTab.style.fontWeight = 'bold';
+        indexTab.style.textDecoration = '';
     }
 
     if (element !== photographyTab) {
         photographyTab.style.fontWeight = 'bold';
+        photographyTab.style.textDecoration = '';
     }
 
     if (element !== experienceTab) {
         experienceTab.style.fontWeight = 'bold';
+        experienceTab.style.textDecoration = '';
     }
 
     if (element !== researchTab) {
         researchTab.style.fontWeight = 'bold';
+        researchTab.style.textDecoration = '';
     }
 
     if (element !== portfolioTab) {
         portfolioTab.style.fontWeight = 'bold';
+        portfolioTab.style.textDecoration = '';
     }
 
     if (element !== contactTab) {
         contactTab.style.fontWeight = 'bold';
+        contactTab.style.textDecoration = '';
     }
 }
 
@@ -70,21 +76,27 @@ window.addEventListener('load', function() {
     if (page.includes("photography")) {
         lightenAllExcept(photographyTab);
         photographyTab.style.fontWeight = '1000';
+        photographyTab.style.textDecoration = 'underline 0.15em';
     } else if (page.includes("experience")) {
         lightenAllExcept(experienceTab);
         experienceTab.style.fontWeight = '1000';
+        experienceTab.style.textDecoration = 'underline 0.15em';
     } else if (page.includes("research")) {
         lightenAllExcept(researchTab);
         researchTab.style.fontWeight = '1000';
+        researchTab.style.textDecoration = 'underline 0.15em';
     } else if (page.includes("portfolio")) {
         lightenAllExcept(portfolioTab);
         portfolioTab.style.fontWeight = '1000';
+        portfolioTab.style.textDecoration = 'underline 0.15em';
     } else if (page.includes("contact")) {
         lightenAllExcept(contactTab);
         contactTab.style.fontWeight = '1000';
+        contactTab.style.textDecoration = 'underline 0.15em';
     } else {
         lightenAllExcept(indexTab);
         indexTab.style.fontWeight = '1000';
+        indexTab.style.textDecoration = 'underline 0.15em';
     }
 });
 
@@ -113,16 +125,15 @@ function setDarkTheme() {
 }
 
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-    const new_theme = event.matches ? "dark" : "light";
+    const newTheme = event.matches ? "dark" : "light";
 
-    if (new_theme === 'light') {
+    if (newTheme === 'light') {
         setLightTheme();
     }
 
-    else if (new_theme === 'dark') {
+    else if (newTheme === 'dark') {
         setDarkTheme();
     }
-
 });
 
 themeToggle.addEventListener('click', () => {
