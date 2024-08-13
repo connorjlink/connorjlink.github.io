@@ -43,10 +43,15 @@ header {
     color: var(--bg);
 
     text-align: center;
+    align-items: center;
     padding: 20px;
+
+    /* TODO: make the "Connor J. Link" nav button not as wide as the whole screen. Desire to only be able to click on the text itself to navigate back" */
 
     display: flex;
     flex-direction: row;
+
+    min-height: 100px;
 
     nav {
         width: 100%;
