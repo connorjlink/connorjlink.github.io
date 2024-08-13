@@ -10,17 +10,19 @@ img {
     text-align: center;
 }
 
-.gear ul {
-    list-style-type: none;
-    margin: 0;
-    margin-top: -2%;
-    padding: 0;
-    display: inline-block;
-}
+.gear {
+    ul {
+        list-style-type: none;
+        margin: 0;
+        margin-top: -2%;
+        padding: 0;
+        display: inline-block;
 
-.gear li {
-    display: flex;
-    margin: 5px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+        li {
+            display: flex;
+            margin: 5px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    }
 }

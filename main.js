@@ -57,36 +57,24 @@ const researchTab = document.getElementById('research-tab');
 const portfolioTab = document.getElementById('portfolio-tab');
 const contactTab = document.getElementById('contact-tab');
 
-function lightenAllExcept(element) {
-    if (element !== indexTab) {
-        indexTab.style.fontWeight = 'bold';
-        indexTab.style.textDecoration = '';
-    }
+function deselectAll() {
+    indexTab.style.color = 'var(--primary)';
+    indexTab.style.textDecoration = '';
 
-    if (element !== photographyTab) {
-        photographyTab.style.fontWeight = 'bold';
-        photographyTab.style.textDecoration = '';
-    }
+    photographyTab.style.color = 'var(--primary)';
+    photographyTab.style.textDecoration = '';
 
-    if (element !== experienceTab) {
-        experienceTab.style.fontWeight = 'bold';
-        experienceTab.style.textDecoration = '';
-    }
+    experienceTab.style.color = 'var(--primary)';
+    experienceTab.style.textDecoration = '';
 
-    if (element !== researchTab) {
-        researchTab.style.fontWeight = 'bold';
-        researchTab.style.textDecoration = '';
-    }
+    researchTab.style.color = 'var(--primary)';
+    researchTab.style.textDecoration = '';
 
-    if (element !== portfolioTab) {
-        portfolioTab.style.fontWeight = 'bold';
-        portfolioTab.style.textDecoration = '';
-    }
+    portfolioTab.style.color = 'var(--primary)';
+    portfolioTab.style.textDecoration = '';
 
-    if (element !== contactTab) {
-        contactTab.style.fontWeight = 'bold';
-        contactTab.style.textDecoration = '';
-    }
+    contactTab.style.color = 'var(--primary)';
+    contactTab.style.textDecoration = '';
 }
 
 window.addEventListener('load', function() {
@@ -94,34 +82,28 @@ window.addEventListener('load', function() {
     const values = url.split('/');
     const page = values[values.length - 1];
 
-    if (page.includes("photography")) {
-        lightenAllExcept(photographyTab);
-        photographyTab.style.fontWeight = '1000';
-        photographyTab.style.textDecoration = 'underline 0.2em';
-    } else if (page.includes("experience")) {
-        lightenAllExcept(experienceTab);
-        experienceTab.style.fontWeight = '1000';
-        experienceTab.style.textDecoration = 'underline 0.2em';
-    } else if (page.includes("research")) {
-        lightenAllExcept(researchTab);
-        researchTab.style.fontWeight = '1000';
-        researchTab.style.textDecoration = 'underline 0.2em';
-    } else if (page.includes("portfolio")) {
-        lightenAllExcept(portfolioTab);
-        portfolioTab.style.fontWeight = '1000';
-        portfolioTab.style.textDecoration = 'underline 0.2em';
-    } else if (page.includes("contact")) {
-        lightenAllExcept(contactTab);
-        contactTab.style.fontWeight = '1000';
-        contactTab.style.textDecoration = 'underline 0.2em';
-    } else {
-        lightenAllExcept(indexTab);
-        indexTab.style.fontWeight = '1000';
-        indexTab.style.textDecoration = 'underline 0.2em';
-    }
-});
+    // remove all underlines and set to the deselected color
+    deselectAll();
 
-const themeToggle = document.querySelector('.theme-toggle');
+    var element = null;
+
+    if (page.includes("photography")) {
+        element = photographyTab;
+    } else if (page.includes("experience")) {
+        element = experienceTab;
+    } else if (page.includes("research")) {
+        element = researchTab;
+    } else if (page.includes("portfolio")) {
+        element = portfolioTab;
+    } else if (page.includes("contact")) {
+        element = contactTab;
+    } else {
+        element = indexTab;
+    }
+
+    element.style.color = 'var(--accent)';
+    element.style.textDecoration = 'underline 0.2em';
+});
 
 const theme = localStorage.getItem('theme');
 if (theme === 'dark-mode') {
@@ -170,6 +152,7 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', eve
     }
 });
 
+const themeToggle = document.querySelector('.theme-toggle');
 themeToggle.addEventListener('click', () => {
     if (document.documentElement.style.getPropertyValue('color-scheme') === 'dark') {
         // light theme set by user
