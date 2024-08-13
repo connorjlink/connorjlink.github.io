@@ -19,11 +19,11 @@ body.insertAdjacentHTML("afterbegin", `
 
                 <ul>
                     <li>
-                        <a id="photography-tab" href="./photography">Photography</a>
+                        <a id="experience-tab" href="./experience">Experience</a>
                     </li>
 
                     <li>
-                        <a id="experience-tab" href="./experience">Experience</a>
+                        <a id="portfolio-tab" href="./portfolio">Portfolio</a>
                     </li>
 
                     <li>
@@ -31,7 +31,7 @@ body.insertAdjacentHTML("afterbegin", `
                     </li>
 
                     <li>
-                        <a id="portfolio-tab" href="./portfolio">Portfolio</a>
+                        <a id="photography-tab" href="./photography">Photography</a>
                     </li>
 
                     <li>
