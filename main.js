@@ -10,41 +10,38 @@ head.insertAdjacentHTML("beforeend", `
 
 // common navigation bar element
 body.insertAdjacentHTML("afterbegin", `
-    <header>
-        <nav class="main">
-            <ul>
-                <li>
-                    <div class="logo">
-                        <img src="../res/logo.jpg" alt="logo">
-                        <a id="index-tab" href="./">Connor J. Link</a>
-                    </div>
-                </li>
+    <header class="shadowed">
+        <img class="logo" src="../res/logo.jpg" alt="logo">
 
-                <li>
-                    <a id="photography-tab" href="./photography">Photography</a>
-                </li>
+        <nav>
+            <div class="vstack">
+                <a class="title" id="index-tab" href="./">Connor J. Link</a>
 
-                <li>
-                    <a id="experience-tab" href="./ experience">Experience</a>
-                </li>
+                <ul>
+                    <li>
+                        <a id="photography-tab" href="./photography">Photography</a>
+                    </li>
 
-                <li>
-                    <a id="research-tab" href="./research">Research</a>
-                </li>
+                    <li>
+                        <a id="experience-tab" href="./experience">Experience</a>
+                    </li>
 
-                <li>
-                    <a id="portfolio-tab" href="./portfolio">Portfolio</a>
-                </li>
+                    <li>
+                        <a id="research-tab" href="./research">Research</a>
+                    </li>
 
-                <li>
-                    <a id="contact-tab" href="./contact">Contact</a>
-                </li>
+                    <li>
+                        <a id="portfolio-tab" href="./portfolio">Portfolio</a>
+                    </li>
 
-                <li>
-                    <button class="theme-toggle">☀</button>
-                </li>
-            </ul>
+                    <li>
+                        <a id="contact-tab" href="./contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
+
+        <button class="theme-toggle">☀</button>
     </header>
 `);
 
@@ -126,9 +123,6 @@ window.addEventListener('load', function() {
 
 const themeToggle = document.querySelector('.theme-toggle');
 
-const light = "#f0f0f0";
-const dark = "#333";
-
 const theme = localStorage.getItem('theme');
 if (theme === 'dark-mode') {
     setDarkTheme();
@@ -143,10 +137,10 @@ function setLightTheme() {
     localStorage.removeItem('theme');
 
     // foreground is the dark-colored text
-    root.style.setProperty("--fg", dark);
+    root.style.setProperty("--fg", "#333");
 
     // background is the light color
-    root.style.setProperty("--bg", light);
+    root.style.setProperty("--bg", "#f0f0f0");
 
     console.log("setting light theme");
 }
@@ -156,10 +150,10 @@ function setDarkTheme() {
     localStorage.setItem('theme', 'dark-mode');
 
     // foreground is the light-colored text
-    root.style.setProperty("--fg", light);
+    root.style.setProperty("--fg", "#cccccc");
 
     // background is the dark color
-    root.style.setProperty("--bg", dark)
+    root.style.setProperty("--bg", "#1e1e1e")
 
     console.log("setting dark theme");
 }
