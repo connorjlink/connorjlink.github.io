@@ -10,26 +10,45 @@ head.insertAdjacentHTML("beforeend", `
 
 // common navigation bar element
 body.insertAdjacentHTML("afterbegin", `
-    <nav class="navbar shadowed">
-        <div class="navdiv">
-            <div class="logo">
-                <img src="../res/logo.jpg" alt="logo">
-                <a id="index-tab" href="./">Connor J. Link</a>
-            </div>
-
+    <header>
+        <nav class="main">
             <ul>
-                <li><a id="photography-tab" href="./photography">Photography</a></li>
-                <li><a id="experience-tab" href="./experience">Experience</a></li>
-                <li><a id="research-tab" href="./research">Research</a></li>
-                <li><a id="portfolio-tab" href="./portfolio">Portfolio</a></li>
-                <li><a id="contact-tab" href="./contact">Contact</a></li>
-                <li><button class="theme-toggle">☀</button></li>
+                <li>
+                    <div class="logo">
+                        <img src="../res/logo.jpg" alt="logo">
+                        <a id="index-tab" href="./">Connor J. Link</a>
+                    </div>
+                </li>
+
+                <li>
+                    <a id="photography-tab" href="./photography">Photography</a>
+                </li>
+
+                <li>
+                    <a id="experience-tab" href="./ experience">Experience</a>
+                </li>
+
+                <li>
+                    <a id="research-tab" href="./research">Research</a>
+                </li>
+
+                <li>
+                    <a id="portfolio-tab" href="./portfolio">Portfolio</a>
+                </li>
+
+                <li>
+                    <a id="contact-tab" href="./contact">Contact</a>
+                </li>
+
+                <li>
+                    <button class="theme-toggle">☀</button>
+                </li>
             </ul>
-        </div>
-    </nav>
+        </nav>
+    </header>
 `);
 
-// common copyright elemeent
+// common copyright element
 body.insertAdjacentHTML("beforeend", `
     <footer class="shadowed">&copy; 2024 Connor J. Link. All Rights Reserved.</footer>
 `);

@@ -1,6 +1,6 @@
 * {
     text-decoration: none;
-    font-family: Helvetica;
+    font-family: system-ui;
 }
 
 :root {
@@ -31,76 +31,77 @@ body {
 .navbar li {
     list-style: none;
     display: inline-block;
+
+    a {
+        font-size: 18px;
+        font-weight: bold;
+        padding: 5px;
+        margin-right: 15px;
+    }
 }
 
-.navbar li a {
-    font-size: 18px;
-    font-weight: bold;
-    padding: 5px;
-    margin-right: 15px;
-    text-decoration: none;
-    transition: text-decoration-color 300ms;
-}
 
-.navbar li a:hover {
-    text-decoration: underline 0.2em;
-}
-
-.logo a {
-    text-decoration: none;
-}
-
-.logo a:hover {
-    text-decoration: underline 0.2em;
-}
 
 @media screen and (prefers-color-scheme: dark) {
     
 }
 
-button {
-    background-color: inherit;
-    scale: 1.5;
-    border-radius: 50%;
-    font-size: 15px;
+.logo {
+    a {
+        margin-top: 5px;
+        font-size: 35px;
+        font-weight: 600;
+    }
+
+    img {
+        height: 40px;
+        border: 2px solid;
+        border-radius: 50%;
+        margin: 5px;
+        margin-right: 10px;
+    }
 }
-
-
-.navbar {
-    padding-left: 15px;
-    padding-right: 15px;
-
-    font-size: 16px;
-    margin-top: 0;
-    margin-bottom: 0;
-
-    background-color: var(--fg);
-}
-
-.navdiv {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-    
-.logo a {
-    margin-top: 5px;
-    font-size: 35px;
-    font-weight: 600;
-}
-
-.logo img {
-    height: 40px;
-    border: 2px solid;
-    border-radius: 50%;
-    margin: 5px;
-    margin-right: 10px;
-}
-
 
 hr {
     border-top: 0px;
     border-left: 0px;
+}
+
+header {
+    background: var(--fg);
+    color: var(--bg);
+
+    text-align: center;
+    /* position: relative; */
+}
+
+nav {
+    align-items: center;
+}
+
+nav {
+    margin: 0;
+    padding: 0;
+
+    a {
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline 0.2em;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+
+        list-style: none;
+        display: inline;
+
+        li {
+           margin: 15px;
+        }
+    }
 }
 
 footer {
@@ -138,19 +139,9 @@ section {
     box-shadow:0 0 1em #333f;
 }
 
-.rounded-container {
-    background-color: lightgray;
-    border-radius: 10px;
-    margin: 5%;
-    padding: 0;
-}
-
-.container-content {
-    padding-left: 2%;
-    padding-right: 2%;
-}
-
 .theme-toggle {
+    /* TODO: figure out how to make re-scaling affect physical layout (not stack) */
+    scale: 1.5;
     border-radius: 100%; 
     aspect-ratio: 1;
 }
