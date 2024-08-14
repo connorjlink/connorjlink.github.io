@@ -130,7 +130,7 @@ function setLightTheme() {
     root.style.setProperty("--background", "#f0f0f0");
 
     // outlines in light theme are less apparent, so thicken a bit
-    root.style.setProperty("--outline-thickness", "1.25px");
+    root.style.setProperty("--outline-thickness", "2px");
 
     console.log("setting light theme");
 }
