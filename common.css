@@ -1,118 +1,258 @@
 * {
     text-decoration: none;
-    font-family: Helvetica;
-}
-
-body {
-    overflow-y: scroll;
-    font-weight: lighter;
-}
-
-.main {
-    margin-left: 10%;
-    margin-right: 10%;
-    font-size: 150%;
-}
-
-.navbar li {
+    font-family: system-ui;
     list-style: none;
-    display: inline-block;
 }
 
-.navbar li a {
-    font: 18px;
-    font-weight: bold;
-    padding: 5px;
-    margin-right: 15px;
-    text-decoration: underline 0.15em rgba(0, 0, 0, 0);
-    transition: text-decoration-color 300ms;
+:root {
+    /* irrespective of color theme */
+    --nav-color: #222;
+    --primary: rgb(56, 114, 186);
+    --accent: rgb(125, 55, 186);
+
+    /* set by color theme */
+    /* --foreground */
+    /* --background */
+    /* --outline-thickness */
 }
 
-.navbar li a:hover {
-    text-decoration-color: inherit;
+header {
+    border-bottom: var(--outline-thickness) solid var(--primary);
+    transition: border-color 500ms;
 }
 
-.logo a {
-    text-decoration: underline 0.15em rgba(0, 0, 0, 0);
-    transition: text-decoration-color 300ms;
+footer {
+    border-top: var(--outline-thickness) solid var(--primary);
+    transition: border-color 500ms;
 }
 
-.logo a:hover {
-    text-decoration-color: inherit;
-}
-
-@media screen and (prefers-color-scheme: dark) {
-    .navbar li a {
-        transition: text-decoration-color 300ms;
-    }
-
-    .navbar li a:hover {
-        text-decoration: underline 0.15em inherit;
-    }
-
-    .logo a {
-        transition: text-decoration-color 300ms;
-    }
-
-    .logo a:hover {
-        text-decoration: underline 0.15em inherit;
-    }
-}
-
-button {
-    background-color: inherit;
-    scale: 1.5;
-    border-radius: 50%;
-    font-size: 15px;
+section, .subitem {
+    border: var(--outline-thickness) solid var(--primary);
+    transition: border-color 500ms;
 }
 
 
-.navbar {
-    padding-left: 15px;
-    padding-right: 15px;
-
-    font-size: 16px;
-    margin-top: 0;
-    margin-bottom: 0;
+header:hover {
+    border-bottom: var(--outline-thickness) solid var(--accent);
+    transition: border-color 500ms;
 }
 
-.navdiv {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+footer:hover {
+    border-top: var(--outline-thickness) solid var(--accent);
+    transition: border-color 500ms;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
+
+section:not(:has(.subitem:hover)):hover {
+    border: var(--outline-thickness) solid var(--accent);
+    transition: border-color 500ms;
 }
 
-.logo a {
-    margin-top: 5px;
-    font-size: 35px;
-    font-weight: 600;
-}
-
-.logo img {
-    height: 40px;
-    border: 2px solid;
-    border-radius: 50%;
-    margin: 5px;
-    margin-right: 10px;
+.subitem:not(:has(section:hover)):hover {
+    border: var(--outline-thickness) solid var(--accent);
+    transition: border-color 500ms;
 }
 
 
 hr {
-    border-top: 0px solid #bbb;
+    border-top: 0px;
+    border-left: 0px;
 }
 
-.copyright {
+h1, h2, h3, .nudge-up {
+    transform: translateY(-10px);
+}
+
+.force-up {
+    margin-top: -10px;
+}
+
+body {
+    /* force scrollbar to always render for consistency */
+    overflow-y: scroll;
+
+    font-weight: lighter;
+    margin: 0;
+    padding: 0;
+
+    /* TODO: figure out how to load images properly here */
+    /* background-image: url("C:/Users/linkc/WebstormProjects/connorjlink.github.io/res/logo.jpg"); */
+    /* backdrop-filter: blur(100vw); */
+    background-color: var(--background);
+    color: var(--foreground);
+}
+
+.main {
+    width: 70%;
+    margin: auto;
+}
+
+/* TODO: this is probably not necessary for anything */
+@media screen and (prefers-color-scheme: dark) {
+    
+}
+
+:root {
+    --header-height: 100px;
+    --logo-height: calc(var(--header-height));
+}
+
+.logo {
+    img {
+        aspect-ratio: 1 / 1;
+        height: var(--logo-height);
+    }
+}
+
+.toggle {
+    aspect-ratio: 1 / 1;
+    height: var(--logo-height);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    p {
+        font-size: x-small;
+        transform: translateY(-2.5em);
+        color: white;
+    }
+
+    button {
+        position: absolute;
+        border-radius: 10px;
+        aspect-ratio: 1 / 1;
+        height: 30%;
+    }
+}
+
+header {
+    background: var(--nav-color);
+    color: var(--background);
+
+    margin: 0;
+    padding: 20px;
+    
+
+    /* TODO: make the "Connor J. Link" nav button not as wide as the whole screen. Desire to only be able to click on the text itself to navigate back" */
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+
+    max-height: var(--header-height);
+
+
+    nav {
+        /* width: 100%; */
+        flex: 1;
+        display: flex;
+        justify-content: center;
+
+        a {
+            text-decoration: underline 0.15em #0000;
+            transition: text-decoration-color 250ms;
+        }
+    
+        a:hover {
+            text-decoration-color: inherit;
+        }
+    
+        ul {
+            margin: 0;
+            padding: 0;
+            display: inline;
+    
+            li {
+                display: inline;
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+        }
+    }
+}
+
+footer {
+    background: var(--nav-color);
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* this is new */
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+}
+
+/* this is new */
+section {
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    max-width: 800px;
+    width: 100%;
     text-align: center;
 }
 
-.rounded-container {
-    background-color: lightgray;
-    border-radius: 10px;
-    margin: 5%;
-    padding: 0;
+.shadowed {
+    box-shadow:0 0 1em #000a;
+}
+
+.vstack {
+    display: flex;
+    flex-direction: column;
+    line-height: 2;
+}
+
+.title {
+    font-size: 30pt;
+    align-items: center;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+.subitem {
+    padding: 15px;
+    border-radius: 8px;
+    margin: 10px;
+    /* left-aligned text for some things?? */
+}
+
+
+/* TODO: figure out if there is a decent way of darkening children programatically easily in JS */
+.darken-98 {
+    background-color: color-mix(in srgb, var(--background) 98%, black);
+}
+
+.darken-95 {
+    background-color: color-mix(in srgb, var(--background) 95%, black);
+}
+
+
+/* For use by double-column lists */
+.left-list {
+    text-align: right;
+    font-weight: bolder;
+}
+
+.right-list {
+    text-align: left;
+    font-weight: lighter;
+}
+
+/* NOTE: can adjust to set LR-list spacing height */
+.spacer {
+
 }

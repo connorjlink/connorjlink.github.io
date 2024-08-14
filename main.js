@@ -1,32 +1,58 @@
-const head = document.querySelector('head')
+const head = document.querySelector('head');
+const body = document.querySelector('body');
+const root = document.querySelector(':root');
 
+// inject common styles
 head.insertAdjacentHTML("beforeend", `
     <link rel="stylesheet" href="common.css">
     <meta property="og:image" content="https://connorjlink.com/res/logo.jpg"/>
 `);
 
-const body = document.querySelector('body');
-
+// common navigation bar element
 body.insertAdjacentHTML("afterbegin", `
-    <nav class="navbar">
-        <div class="navdiv">
-            <div class="logo">
-                <img src="../res/logo.jpg" alt="Small logo photo taken at Yellowstone National Park">
-                <a id="index-tab" href="./">Connor J. Link</a>
-            </div>
-
-            <ul>
-                <li><a id="photography-tab" href="./photography">Photography</a></li>
-                <li><a id="experience-tab" href="./experience">Experience</a></li>
-                <li><a id="research-tab" href="./research">Research</a></li>
-                <li><a id="portfolio-tab" href="./portfolio">Portfolio</a></li>
-                <li><a id="contact-tab" href="./contact">Contact</a></li>
-                <li><button class="theme-toggle">☀</button></li>
-            </ul>
+    <header class="shadowed">
+        <div class="logo">
+            <img src="../res/logo.jpg" alt="logo">
         </div>
-    </nav>
 
-     <hr>
+        <nav>
+            <div class="vstack">
+                <a class="title" id="index-tab" href="./">Connor J. Link</a>
+
+                <ul>
+                    <li>
+                        <a id="experience-tab" href="./experience">Experience</a>
+                    </li>
+
+                    <li>
+                        <a id="portfolio-tab" href="./portfolio">Portfolio</a>
+                    </li>
+
+                    <li>
+                        <a id="research-tab" href="./research">Research</a>
+                    </li>
+
+                    <li>
+                        <a id="photography-tab" href="./photography">Photography</a>
+                    </li>
+
+                    <li>
+                        <a id="contact-tab" href="./contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="toggle">
+            <p>Theme</p>
+            <button class="theme-toggle">☀</button>
+        </div>
+    </header>
+`);
+
+// common copyright element
+body.insertAdjacentHTML("beforeend", `
+    <footer class="shadowed">&copy; 2024 Connor J. Link. All Rights Reserved.</footer>
 `);
 
 const indexTab = document.getElementById("index-tab");
@@ -36,30 +62,24 @@ const researchTab = document.getElementById('research-tab');
 const portfolioTab = document.getElementById('portfolio-tab');
 const contactTab = document.getElementById('contact-tab');
 
-function lightenAllExcept(element) {
-    if (element !== indexTab) {
-        indexTab.style.fontWeight = 'bold';
-    }
+function deselectAll() {
+    indexTab.style.color = 'var(--primary)';
+    indexTab.style.textDecoration = '';
 
-    if (element !== photographyTab) {
-        photographyTab.style.fontWeight = 'bold';
-    }
+    photographyTab.style.color = 'var(--primary)';
+    photographyTab.style.textDecoration = '';
 
-    if (element !== experienceTab) {
-        experienceTab.style.fontWeight = 'bold';
-    }
+    experienceTab.style.color = 'var(--primary)';
+    experienceTab.style.textDecoration = '';
 
-    if (element !== researchTab) {
-        researchTab.style.fontWeight = 'bold';
-    }
+    researchTab.style.color = 'var(--primary)';
+    researchTab.style.textDecoration = '';
 
-    if (element !== portfolioTab) {
-        portfolioTab.style.fontWeight = 'bold';
-    }
+    portfolioTab.style.color = 'var(--primary)';
+    portfolioTab.style.textDecoration = '';
 
-    if (element !== contactTab) {
-        contactTab.style.fontWeight = 'bold';
-    }
+    contactTab.style.color = 'var(--primary)';
+    contactTab.style.textDecoration = '';
 }
 
 window.addEventListener('load', function() {
@@ -67,70 +87,91 @@ window.addEventListener('load', function() {
     const values = url.split('/');
     const page = values[values.length - 1];
 
+    // remove all underlines and set to the deselected color
+    deselectAll();
+
+    var element = null;
+
     if (page.includes("photography")) {
-        lightenAllExcept(photographyTab);
-        photographyTab.style.fontWeight = '1000';
+        element = photographyTab;
     } else if (page.includes("experience")) {
-        lightenAllExcept(experienceTab);
-        experienceTab.style.fontWeight = '1000';
+        element = experienceTab;
     } else if (page.includes("research")) {
-        lightenAllExcept(researchTab);
-        researchTab.style.fontWeight = '1000';
+        element = researchTab;
     } else if (page.includes("portfolio")) {
-        lightenAllExcept(portfolioTab);
-        portfolioTab.style.fontWeight = '1000';
+        element = portfolioTab;
     } else if (page.includes("contact")) {
-        lightenAllExcept(contactTab);
-        contactTab.style.fontWeight = '1000';
+        element = contactTab;
     } else {
-        lightenAllExcept(indexTab);
-        indexTab.style.fontWeight = '1000';
+        element = indexTab;
     }
+
+    element.style.color = 'var(--accent)';
+    element.style.textDecoration = 'underline 0.2em';
 });
-
-
-body.insertAdjacentHTML("beforeend", `
-    <hr>
-
-    <p class="copyright">&copy; 2024 Connor J. Link. All Rights Reserved.</p>
-`);
-
-const themeToggle = document.querySelector('.theme-toggle');
 
 const theme = localStorage.getItem('theme');
 if (theme === 'dark-mode') {
-    document.documentElement.style.setProperty('color-scheme', 'dark');
+    setDarkTheme();
+}
+
+else {
+    setLightTheme();
 }
 
 function setLightTheme() {
     document.documentElement.style.setProperty('color-scheme', 'light');
     localStorage.removeItem('theme');
+
+    // foreground is the dark-colored text
+    root.style.setProperty("--foreground", "#333");
+
+    // background is the light color
+    root.style.setProperty("--background", "#f0f0f0");
+
+    // outlines in light theme are less apparent, so thicken a bit
+    root.style.setProperty("--outline-thickness", "1.25px");
+
+    console.log("setting light theme");
 }
 
 function setDarkTheme() {
     document.documentElement.style.setProperty('color-scheme', 'dark');
     localStorage.setItem('theme', 'dark-mode');
+
+    // foreground is the light-colored text
+    root.style.setProperty("--foreground", "#cccccc");
+
+    // background is the dark color
+    root.style.setProperty("--background", "#1e1e1e")
+
+    // outlines in dark theme are more apparent, so thin
+    root.style.setProperty("--outline-thickness", "1px");
+
+    console.log("setting dark theme");
 }
 
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-    const new_theme = event.matches ? "dark" : "light";
-
-    if (new_theme === 'light') {
-        setLightTheme();
-    }
-
-    else if (new_theme === 'dark') {
-        setDarkTheme();
-    }
-
-});
-
-themeToggle.addEventListener('click', () => {
-    if (document.documentElement.style.getPropertyValue('color-scheme') === 'dark') {
+    if (!event.matches) {
+        // light theme requested by browser
         setLightTheme();
     }
 
     else {
+        // dark theem requested by browser
+        setDarkTheme();
+    }
+});
+
+const themeToggle = document.querySelector('.theme-toggle');
+themeToggle.addEventListener('click', () => {
+    if (document.documentElement.style.getPropertyValue('color-scheme') === 'dark') {
+        // light theme set by user
+        setLightTheme();
+    }
+
+    else {
+        // dark theme set by user
         setDarkTheme();
     }
 });

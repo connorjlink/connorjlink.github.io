@@ -2,18 +2,25 @@
     margin-top: -1em;
 }
 
+ul {
+    padding: 0;
+}
+
 .main p {
     margin-top: -1em;
     margin-bottom: 2em;
 }
 
-img {
-    max-width: 20%;
+.grid-wrapper {
+    display: grid;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-rows: minmax(0, 1fr);
+    margin-top: -2em;
+    margin-bottom: 0;
 }
 
-.gridwrapper {
-    display: grid;
-    margin-top: -2em;
+.grid-item {
+    margin: 5px;
     margin-bottom: 0;
 }
 
