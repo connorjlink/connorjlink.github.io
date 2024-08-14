@@ -1,5 +1,13 @@
+* {
+    list-style: none;
+}
+
 .main ul {
     margin-top: -1em;
+}
+
+ul {
+    padding: 0;
 }
 
 .main p {

@@ -16,6 +16,14 @@ hr {
     border-left: 0px;
 }
 
+h1, h2, h3, .nudge-up {
+    transform: translateY(-10px);
+}
+
+.force-up {
+    margin-top: -10px;
+}
+
 body {
     /* force scrollbar to always render for consistency */
     overflow-y: scroll;
@@ -167,4 +175,14 @@ section {
 
 .darken-95 {
     background-color: color-mix(in srgb, var(--bg) 95%, black);
+}
+
+
+/* For use by double-column lists */
+.left-list {
+    text-align: right;
+}
+
+.right-list {
+    text-align: left;
 }

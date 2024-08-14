@@ -6,7 +6,6 @@ ul {
     display: inline-block;
 
     li {
-        display: flex;
         margin: 5px;
         padding-top: 10px;
         padding-bottom: 10px;
