@@ -2,12 +2,6 @@ const head = document.querySelector('head');
 const body = document.querySelector('body');
 const root = document.querySelector(':root');
 
-// inject common styles
-head.insertAdjacentHTML("beforeend", `
-    <link rel="stylesheet" href="common.css">
-    <meta property="og:image" content="https://connorjlink.com/res/logo.jpg"/>
-`);
-
 // common navigation bar element
 body.insertAdjacentHTML("afterbegin", `
     <header class="shadowed">
