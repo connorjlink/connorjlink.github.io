@@ -11,7 +11,9 @@ head.insertAdjacentHTML("beforeend", `
 // common navigation bar element
 body.insertAdjacentHTML("afterbegin", `
     <header class="shadowed">
-        <img class="logo" src="../res/logo.jpg" alt="logo">
+        <div class="logo">
+            <img src="../res/logo.jpg" alt="logo">
+        </div>
 
         <nav>
             <div class="vstack">
@@ -41,7 +43,10 @@ body.insertAdjacentHTML("afterbegin", `
             </div>
         </nav>
 
-        <button class="theme-toggle">☀</button>
+        <div class="toggle">
+            <p>Theme</p>
+            <button class="theme-toggle">☀</button>
+        </div>
     </header>
 `);
 
@@ -119,10 +124,13 @@ function setLightTheme() {
     localStorage.removeItem('theme');
 
     // foreground is the dark-colored text
-    root.style.setProperty("--fg", "#333");
+    root.style.setProperty("--foreground", "#333");
 
     // background is the light color
-    root.style.setProperty("--bg", "#f0f0f0");
+    root.style.setProperty("--background", "#f0f0f0");
+
+    // outlines in light theme are less apparent, so thicken a bit
+    root.style.setProperty("--outline-thickness", "1.25px");
 
     console.log("setting light theme");
 }
@@ -132,10 +140,13 @@ function setDarkTheme() {
     localStorage.setItem('theme', 'dark-mode');
 
     // foreground is the light-colored text
-    root.style.setProperty("--fg", "#cccccc");
+    root.style.setProperty("--foreground", "#cccccc");
 
     // background is the dark color
-    root.style.setProperty("--bg", "#1e1e1e")
+    root.style.setProperty("--background", "#1e1e1e")
+
+    // outlines in dark theme are more apparent, so thin
+    root.style.setProperty("--outline-thickness", "1px");
 
     console.log("setting dark theme");
 }

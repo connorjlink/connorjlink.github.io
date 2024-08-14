@@ -1,5 +1,6 @@
 .components {
     margin-top: -1em;
+    padding-left: 0;
 }
 
 .components li {
@@ -20,7 +21,7 @@
 }
 
 .titanium-images figure img {
-    max-width: 30vw;
+    max-width: min(80%, 30vw);
 }
 
 .rendering p {

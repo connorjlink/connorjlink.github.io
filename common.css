@@ -1,15 +1,58 @@
 * {
     text-decoration: none;
     font-family: system-ui;
+    list-style: none;
 }
 
 :root {
-    --fg: #333;
-    --bg: #f0f0f0;
-
+    /* irrespective of color theme */
+    --nav-color: #222;
     --primary: rgb(56, 114, 186);
     --accent: rgb(125, 55, 186);
+
+    /* set by color theme */
+    /* --foreground */
+    /* --background */
+    /* --outline-thickness */
 }
+
+header {
+    border-bottom: var(--outline-thickness) solid var(--primary);
+    transition: border-color 500ms;
+}
+
+footer {
+    border-top: var(--outline-thickness) solid var(--primary);
+    transition: border-color 500ms;
+}
+
+section, .subitem {
+    border: var(--outline-thickness) solid var(--primary);
+    transition: border-color 500ms;
+}
+
+
+header:hover {
+    border-bottom: var(--outline-thickness) solid var(--accent);
+    transition: border-color 500ms;
+}
+
+footer:hover {
+    border-top: var(--outline-thickness) solid var(--accent);
+    transition: border-color 500ms;
+}
+
+
+section:not(:has(.subitem:hover)):hover {
+    border: var(--outline-thickness) solid var(--accent);
+    transition: border-color 500ms;
+}
+
+.subitem:not(:has(section:hover)):hover {
+    border: var(--outline-thickness) solid var(--accent);
+    transition: border-color 500ms;
+}
+
 
 hr {
     border-top: 0px;
@@ -35,8 +78,8 @@ body {
     /* TODO: figure out how to load images properly here */
     /* background-image: url("C:/Users/linkc/WebstormProjects/connorjlink.github.io/res/logo.jpg"); */
     /* backdrop-filter: blur(100vw); */
-    background-color: var(--bg);
-    color: var(--fg);
+    background-color: var(--background);
+    color: var(--foreground);
 }
 
 .main {
@@ -49,23 +92,67 @@ body {
     
 }
 
-header {
-    background: var(--fg);
-    color: var(--bg);
+:root {
+    --header-height: 100px;
+    --logo-height: calc(var(--header-height));
+}
 
-    text-align: center;
+.logo {
+    img {
+        aspect-ratio: 1 / 1;
+        height: var(--logo-height);
+    }
+}
+
+.toggle {
+    aspect-ratio: 1 / 1;
+    height: var(--logo-height);
+
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    p {
+        font-size: x-small;
+        transform: translateY(-2.5em);
+        color: white;
+    }
+
+    button {
+        position: absolute;
+        border-radius: 10px;
+        aspect-ratio: 1 / 1;
+        height: 30%;
+    }
+}
+
+header {
+    background: var(--nav-color);
+    color: var(--background);
+
+    margin: 0;
     padding: 20px;
+    
 
     /* TODO: make the "Connor J. Link" nav button not as wide as the whole screen. Desire to only be able to click on the text itself to navigate back" */
 
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
 
-    min-height: 100px;
+    max-height: var(--header-height);
+
 
     nav {
-        width: 100%;
+        /* width: 100%; */
+        flex: 1;
+        display: flex;
+        justify-content: center;
 
         a {
             text-decoration: underline 0.15em #0000;
@@ -79,8 +166,6 @@ header {
         ul {
             margin: 0;
             padding: 0;
-    
-            list-style: none;
             display: inline;
     
             li {
@@ -89,18 +174,12 @@ header {
                 margin-right: 15px;
             }
         }
-    
-        img {
-            border-radius: 100%; 
-            aspect-ratio: 1;
-        }
     }
 }
 
 footer {
-    /* text-align: center; */
-    background: var(--fg);
-    color: var(--bg);
+    background: var(--nav-color);
+    color: white;
     text-align: center;
     padding: 15px 0;
     position: relative;
@@ -130,22 +209,6 @@ section {
     box-shadow:0 0 1em #000a;
 }
 
-.logo {
-    justify-content: flex-start;
-    aspect-ratio: 1;
-
-    img {
-        border: 2px solid;
-        border-radius: 50%;
-        margin: 5px;
-        margin-right: 10px;
-    }
-}
-
-.theme-toggle {
-    justify-content: flex-end;
-}
-
 .vstack {
     display: flex;
     flex-direction: column;
@@ -170,19 +233,26 @@ section {
 
 /* TODO: figure out if there is a decent way of darkening children programatically easily in JS */
 .darken-98 {
-    background-color: color-mix(in srgb, var(--bg) 98%, black);
+    background-color: color-mix(in srgb, var(--background) 98%, black);
 }
 
 .darken-95 {
-    background-color: color-mix(in srgb, var(--bg) 95%, black);
+    background-color: color-mix(in srgb, var(--background) 95%, black);
 }
 
 
 /* For use by double-column lists */
 .left-list {
     text-align: right;
+    font-weight: bolder;
 }
 
 .right-list {
     text-align: left;
+    font-weight: lighter;
+}
+
+/* NOTE: can adjust to set LR-list spacing height */
+.spacer {
+
 }
