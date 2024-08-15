@@ -21,7 +21,7 @@
                     <h2>Compiler</h2>
 
                     <div class="nudge-up">
-                        <p>Atop a custom recursive-descent parser, <b><i>compiler</i></b> implements the <i>haze</i> programming language with custom backends and linkers for both <i>haze</i> and x86_64 processors. </p>
+                        <p>Atop a custom recursive-descent parser, <b><i>compiler</i></b> implements my own <i>haze</i> compiled programming language with custom backends and linkers for both <i>haze</i> and x86_64 processors. </p>
                     </div>
 
                     <!-- code examples -->
@@ -47,6 +47,10 @@
                     <div class="nudge-up">
                         <p>Sharing syntax with the <i>haze</i> compiler, <b><i>interpreter</i></b> hooks the <i>geo</i> runtime as an intepreted scripting language using custom MQTT-based IPC.</p>
                     </div>
+
+                    <!-- code examples -->
+                    <p>&nbsp;</p>
+                    <p>Shown below is a sample script.</p>
 
                     <div class="titanium-images">
                         <figure>
@@ -82,11 +86,7 @@
 
                     <ul class="components">
                         <li><a href="https://github.com/connorjlink/hardware"><b>Hardware: </b></a>a register-transfer-level implementation of the <i>CL8</i> specification in SystemVerilog</li>
-                        <li><a href="https://github.com/connorjlink/microcode/tree/main"><b>Microcode: </b></a>a C++-macro-engine-powered serialization program for my custom CL8 microcode</li>
                         <li><a href="https://github.com/connorjlink/emulator/tree/main"><b>Emulator: </b></a>a command line emulator for painless debugging of CL8 binaries</li>
-                        <li><a href="https://github.com/connorjlink/assembler/tree/main"><b>Assembler: </b></a>a Flex/Bison-based tool that converts CL8 assembly to raw machine code</li>
-                        <li><a href="https://github.com/connorjlink/disassembler/tree/main"><b>Disassembler: </b></a>a binary analysis program that converts CL8 machine code back to human-readable source </li>
-                        <li><a href="https://github.com/connorjlink/compiler/tree/main"><b>Compiler: </b></a>a custom compiler for my own programming language, Titanium, targeting the CL8 architecture</li>
                     </ul>
                 </div>
 
@@ -114,6 +114,52 @@
                                 <figcaption>test.ti.s</figcaption>
                             </figure>
                         </div>
+                    </div>
+                </div>
+
+                <div class="subitem shadowed darken-95">
+                    <h2>Microcode</h2>
+
+                    <div class="nudge-up">
+                        <p>Extensively utilizing the C++ preprocessor, <b><i>microcode</i></b> synthesizes and serializes the custom &mu;op sequences powering <i>CL8</i> instructions.</p>
+
+                        <a href="https://github.com/connorjlink/microcode"><i>github.com/connorjlink/microcode</i></a>
+                    </div>
+                </div>
+
+                <div class="subitem shadowed darken-95">
+                    <h2>Assembler</h2>
+
+                    <div class="nudge-up">
+                        <p>Based around a GNU Flex/Bison lexer and parser, <b><i>assembler</i></b> flattens custom assembly language source code into raw <i>CL8</i> machine.</p>
+                        <a href="https://github.com/connorjlink/assembler"><i>github.com/connorjlink/assembler</i></a>
+                    </div>
+                </div>
+
+                <div class="subitem shadowed darken-95">
+                    <h2>Disassembler</h2>
+
+                    <div class="nudge-up">
+                        <p>A fully custom binary analysis program, <b><i>disassembler</i></b> expands <i>CL8</i> machine code back into human-readable assembly source for debugging.</p>
+                        <a href="https://github.com/connorjlink/disassembler"><i>github.com/connorjlink/disassembler</i></a>
+                    </div>
+                </div>
+
+                <div class="subitem shadowed darken-95">
+                    <h2>Emulator</h2>
+
+                    <div class="nudge-up">
+                        <p>Designed to painlessly debug <i>CL8</i> binaries, <b><i>emulator</i></b> offers a readable behavior-level simulation of the <i>CL8</i> architecture.</p>
+                        <a href="https://github.com/connorjlink/emulator"><i>github.com/connorjlink/emulator</i></a>
+                    </div>
+                </div>
+
+                <div class="subitem shadowed darken-95">
+                    <h2>Hardware</h2>
+
+                    <div class="nudge-up">
+                        <p>A register-transfer-level design, <b><i>hardware</i></b> implements the <i>CL8</i> architecture in SystemVerilog for ultra-precise simulation.</p>
+                        <a href="https://github.com/connorjlink/hardware"><i>github.com/connorjlink/hardware</i></a>
                     </div>
                 </div>
             </section>
