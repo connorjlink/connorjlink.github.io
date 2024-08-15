@@ -75,9 +75,6 @@ body {
     margin: 0;
     padding: 0;
 
-    /* TODO: figure out how to load images properly here */
-    /* background-image: url("../res/logo.jpg"); */
-    /* backdrop-filter: blur(100vw); */
     background-color: var(--background);
     color: var(--foreground);
 }
