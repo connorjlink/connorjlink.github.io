@@ -7,10 +7,14 @@
 
     img {
         max-width: 40%;
+        margin: -0.1em;
     }
 }
 
 .gear {
+    display: flex;
+    flex-direction: row;
+    
     ul {
         margin: 0;
         margin-top: -2%;

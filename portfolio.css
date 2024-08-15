@@ -1,29 +1,29 @@
 .components {
     margin-top: -1em;
     padding-left: 0;
-}
 
-.components li {
-    margin-bottom: 10px;
-}
-
-.titanium-container {
-    margin-top: -0.7em;
+    li {
+        margin-bottom: 10px;
+    }
 }
 
 .titanium-images {
     display: flex;
     justify-content: center;
-}
 
-.titanium-images figure {
-    margin: 5px;
-}
+    figure {
+        margin: 5px;
 
-.titanium-images figure img {
-    max-width: min(80%, 30vw);
+        img {
+            max-width: min(80%, 30vw);
+        }
+    }
 }
 
 .rendering p {
     margin-top: -0.8em;
+}
+
+.info {
+    transform: translateY(-1em);
 }

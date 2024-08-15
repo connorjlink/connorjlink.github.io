@@ -9,29 +9,33 @@
         <div class="main">
             <section class="shadowed darken-98">
                 <h1>Haze</h1>
-                <p class="nudge-up">A fully custom from-scratch toolchain for my new processor architecture, Haze.</p>
-
-                <div class="subitem shadowed darken-95">
-                    <h2>Language</h2>
-                    <p>Fundamentally, <i>haze</i> is a specification for a fully-custom CPU design that aims to fix many of the long-standing problems with my CL8 design. Architected specifically for simplicity and flexibility, <i>haze</i> avoids unneeded baggage and brings with it suite of support software.</p>
+                
+                <!-- info region -->
+                <div class="nudge-up">
+                    <p>A bespoke, from-scratch, full-stack toolchain for my new processor architecture, <b><i>haze</i></b>.</p>
+                    <a href="https://github.com/connorjlink/haze"><i>github.com/connorjlink/haze</i></a>
                 </div>
+                
 
                 <div class="subitem shadowed darken-95">
                     <h2>Compiler</h2>
 
-                    <p>Built atop an entirely custom recursive-descent parser, the <i>haze</i> evaluator supplants my existing simple Titanium compiler. With a substantially more robust frontend, <i>haze</i> makes a number of language-level improvements, and, coupled with a fresh optimizer and code generator, performs far faster comparatively. Despite having been explicitly designed around the <i>haze</i> architecture, I've implemented a custom x86_64 code generator and linker to run <i>haze</i> programs on a wider variety of computers. I'm currently working on a live interpreter to interface with another of my projects, <i>geo</i>, to dynamically script content within the runtime of that engine.
+                    <div class="nudge-up">
+                        <p>Atop a custom recursive-descent parser, <b><i>compiler</i></b> implements the <i>haze</i> programming language with custom backends and linkers for both <i>haze</i> and x86_64 processors. </p>
+                    </div>
 
+                    <!-- code examples -->
                     <p>&nbsp;</p>
                     <p>Displayed below is a sample program compilation input and output.</p>
 
                     <div class="titanium-images">
                         <figure>
-                            <img src="../res/haze_before.jpg">
+                            <img src="../res/haze_compiler.jpg">
                             <figcaption>test.hz</figcaption>
                         </figure>
 
                         <figure>
-                            <img src="../res/haze_after.jpg">
+                            <img src="../res/haze_assembler.jpg">
                             <figcaption>test.hzs</figcaption>
                         </figure>
                     </div>
@@ -39,29 +43,45 @@
 
                 <div class="subitem shadowed darken-95">
                     <h2>Interpreter</h2>
-                    <p>Designed to interface with my latest OpenGL-accelerated 3-D voxel renderer project, <i>geo</i>, the interpreter will ultimately control key engine functionality dynamically through a series of commands paralleling those of the <i>haze</i> compiler and intrinsics designed to hook reference data that control things as simple as geometry diffuse color or a complex as player interactions. Running asynchronously on another thread, the interpreter periodically handshakes the engine to pass across data using a custom loopback-like inter-process communication protocol.</p>
+
+                    <div class="nudge-up">
+                        <p>Sharing syntax with the <i>haze</i> compiler, <b><i>interpreter</i></b> hooks the <i>geo</i> runtime as an intepreted scripting language using custom MQTT-based IPC.</p>
+                    </div>
+
+                    <div class="titanium-images">
+                        <figure>
+                            <img src="../res/haze_interpreter.jpg">
+                            <figcaption>test.hzi</figcaption>
+                        </figure>
+                    </div>
                 </div>
 
                 <div class="subitem shadowed darken-95">
                     <h2>Assembler</h2>
-                    <p>Internally utilizing the powerful <i>haze</i> lexer and parser, the assembler transforms custom assembly language source code into <i>haze</i> machine code </p>
+
+                    <div class="nudge-up">
+                        <p>Internally utilizing the powerful <i>haze</i> frontend, <b><i>assembler</i></b> transforms custom assembly language source code into <i>haze</i> machine code </p>
+                    </div>
                 </div>
 
                 <div class="subitem shadowed darken-95">
                     <h2>Emulator</h2>
-                    <p>Designed to provide rapid feedback about <i>haze</i> machine code program execution and performance, the emulator implements the <i>haze</i> instruction set architecture in a low-overhead software environment to offer an execution throughput nearing one hundred thousand instructions per second. With live data watches and on-the-fly disassembly, the emulator serves an excellent role to smoke-test programs before generating a hex file for the much bulkier and slower Verilog simulator implementation.</p>
+
+                    <div class="nudge-up">
+                        <p>Simulating <i>haze</i> machine code program execution at several KHz, <b><i>emulator</i></b> eases smoke-testing with live data watches and on-the-fly disassembly.</p>
+                    </div>
                 </div>
             </section>
 
             <section class="shadowed darken-98">
                 <h1>CL8</h1>
-                <p class="nudge-up">An entirely custom end-to-end toolchain to support my custom 8-bit processor architecture, CL8.</p>
+                <p class="nudge-up">An entirely custom software suite for my 8-bit processor architecture, <b><i>CL8</i></b>.</p>
 
                 <div class="subitem shadowed darken-95">
-                    <h3>Component Repositories</h3>
+                    <h2>Component Repositories</h2>
 
                     <ul class="components">
-                        <li><a href="https://github.com/connorjlink/hardware"><b>Hardware: </b></a>a register-transfer-level implementation of the CL8 specification in SystemVerilog</li>
+                        <li><a href="https://github.com/connorjlink/hardware"><b>Hardware: </b></a>a register-transfer-level implementation of the <i>CL8</i> specification in SystemVerilog</li>
                         <li><a href="https://github.com/connorjlink/microcode/tree/main"><b>Microcode: </b></a>a C++-macro-engine-powered serialization program for my custom CL8 microcode</li>
                         <li><a href="https://github.com/connorjlink/emulator/tree/main"><b>Emulator: </b></a>a command line emulator for painless debugging of CL8 binaries</li>
                         <li><a href="https://github.com/connorjlink/assembler/tree/main"><b>Assembler: </b></a>a Flex/Bison-based tool that converts CL8 assembly to raw machine code</li>
@@ -71,16 +91,18 @@
                 </div>
 
                 <div class="subitem shadowed darken-95">
-                    <h3>Titanium In Detail</h3>
+                    <h2>Titanium</h2>
+
+                    <div class="nudge-up">
+                        <p>A novel programming language compiler designed around the CL8 processor architecture, <b><i>Titanium</i></b> uses the GNU Flex/Bison lexer and parser generators to transform custom source code into flat CL8 assembly.</p>
+                        <a href="https://github.com/connorjlink/compiler"><i>github.com/connorjlink/compiler</i></a>
+                    </div>
+
+                    <!-- code examples -->
+                    <p>&nbsp;</p>
+                    <p>Displayed below is a sample program compilation input and output.</p>
 
                     <div class="titanium-container">
-                        <p>Titanium is my very own low-level programming language that exclusively exists to support my CL8 binary platform. While not feature rich, Titanium does boast a number of features that developers have come to expect, including    pre-processing, scoped variables, and descriptive error messages.</p>
-
-                        <p>While currently based upon the GNU Flex/Bison lexer and parser generators, I am <a href="https://youtube.com/playlist?list=PLysYOhmJ8m4EToQ2j9DaUr8-cvZgZB_la">actively underway</a> with a complete re-write in pure C++ using fully-custom components. </p>
-
-                        <p>&nbsp;</p>
-                        <p>Displayed below is a sample program compilation input and output.</p>
-
                         <div class="titanium-images">
                             <figure>
                                 <img src="../res/before.jpg">
@@ -97,30 +119,44 @@
             </section>
 
             <section class="shadowed darken-98">
-                <h2>3-D Rendering</h2>
+                <h1>3-D Rendering</h1>
 
                 <div class="subitem shadowed darken-95">
-                    <h3>Rasterization</h3>
-			        <p>In a bid to uncover the technologies that power video games, I learned about linear algebra and rendering pipelines to ultimately develop my own software-accelerated <a href="https://github.com/connorjlink/Constexpr-Linear-Algebra-Library">rasterizer</a>, which features face-based shading and a first-person camera perspective.</p>
+                    <h2>Voxelization</h2>
+
+                    <div class="nudge-up">
+                        <p>A modern-OpenGL-based voxel rendering program, <b><i>geo</i></b> utilizes geometry pre-generation, vertex batching, and indexed instancing for remarkable efficiency.</p>
+                        <a href="https://github.com/connorjlink/geo"><i>github.com/connorjlink/geo</i></a>
+                    </div>
                 </div>
 
                 <div class="subitem shadowed darken-95">
-                    <h3>Ray Tracing</h3>
-			        <p>While researching alternative rendering techniques, ray tracing, the process of physically simulating light rays and their interactions with objects in a scene cropped up. Curious, I wound up creating my own <a href="https://github.com/connorjlink/raytracer">ray tracer</a>. Over time, I have <a href="https://youtube.com/playlist?list=PLysYOhmJ8m4HtMHV_-bgpvlcGxbd_jYvO">implemented more features</a>, including first-person camera controls, reflections, soft shadows, and global illumination.</p>
+                    <h2>Ray Tracing</h2>
+
+                    <div class="nudge-up">
+                        <p>By simulating light rays with physically based materials, <b><i>raytracer</i></b> produces photorealistic scene renders with reflections, soft shadows, and global illumination.</p>
+                        <a href="https://github.com/connorjlink/raytracer"><i>github.com/connorjlink/raytracer</i></a>
+                    </div>
                 </div>
 
                 <div class="subitem shadowed darken-95">
-                    <h3>Hardware Accelerated Voxels</h3>
-                    <p>To improve upon the existing software-accelerated rasterizer and ray tracer programs, I wrote an OpenGL-based voxel-rendering program in C++ called <i>geo</i>. The renderer features geometry pre-generation, vertex batching, and indexed instancing to create an efficiency-oriented product.</p>
-                </div>
+                    <h2>Rasterization</h2>
 
+                    <div class="nudge-up">
+                        <p>Powered by a custom linear algebra library, <b><i>rasterizer</i></b> features frustum culling, depth buffering, and face-based shading to view arbitrary <i>.obj</i> models.</p>
+                        <a href="https://github.com/connorjlink/constexpr-linear-algebra-library"><i>github.com/connorjlink/constexpr-linear-algebra-library</i></a>
+                    </div>
+                </div>
+                
+                
+                <!-- render examples -->
                 <p>&nbsp;</p>
                 <p>Depicted below are sample renders from all three programs.</p>
 
                 <div class="titanium-images">
                     <figure>
-                        <img src="../res/rasterizer.jpg">
-                        <figcaption>Rasterizer</figcaption>
+                        <img src="../res/geo.jpg">
+                        <figcaption>Voxel Renderer</figcaption>
                     </figure>
 
                     <figure>
@@ -129,8 +165,8 @@
                     </figure>
 
                     <figure>
-                        <img src="../res/geo.jpg">
-                        <figcaption>Voxel Renderer</figcaption>
+                        <img src="../res/rasterizer.jpg">
+                        <figcaption>Rasterizer</figcaption>
                     </figure>
                 </div>
             </section>
