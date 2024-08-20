@@ -53,3 +53,7 @@ ul {
     grid-column: 3;
     grid-row: 2;
 }
+
+.space-bottom {
+    padding-bottom: 10px;
+}

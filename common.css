@@ -102,6 +102,10 @@ h1, h2, h3, .nudge-up {
     margin-top: -10px;
 }
 
+html {
+    height: 100%;
+}
+
 body {
     /* force scrollbar to always render for consistency */
     overflow-y: scroll;
@@ -112,11 +116,19 @@ body {
 
     background-color: var(--background);
     color: var(--foreground);
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .main {
     width: 70%;
     margin: auto;
+}
+
+.dummy {
+    flex: 1;
 }
 
 /* TODO: this is probably not necessary for anything */

@@ -10,12 +10,16 @@
 .titanium-images {
     display: flex;
     justify-content: center;
+    width: 80%;
+    margin: auto;
 
     figure {
         margin: 5px;
 
         img {
-            max-width: min(80%, 30vw);
+            margin: 0;
+            padding: 0;
+            width: 100%;
         }
     }
 }

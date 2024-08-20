@@ -28,7 +28,7 @@ body.insertAdjacentHTML("afterbegin", `
                     </li>
 
                     <li>
-                        <a id="research-tab" href="./research">Research</a>
+                        <a id="education-tab" href="./education">Education</a>
                     </li>
 
                     <li>
@@ -51,13 +51,17 @@ body.insertAdjacentHTML("afterbegin", `
 
 // common copyright element
 body.insertAdjacentHTML("beforeend", `
-    <footer class="shadowed">&copy; 2024 Connor J. Link. All Rights Reserved.</footer>
+    <div class="dummy"></div>
+
+    <footer class="shadowed">
+        <span>&copy; 2024 Connor J. Link. All Rights Reserved.</span>
+    </footer>
 `);
 
 const indexTab = document.getElementById("index-tab");
 const photographyTab = document.getElementById('photography-tab');
 const experienceTab = document.getElementById('experience-tab');
-const researchTab = document.getElementById('research-tab');
+const educationTab = document.getElementById('education-tab');
 const portfolioTab = document.getElementById('portfolio-tab');
 const contactTab = document.getElementById('contact-tab');
 
@@ -71,8 +75,8 @@ function deselectAll() {
     experienceTab.style.color = 'var(--primary)';
     experienceTab.style.textDecoration = '';
 
-    researchTab.style.color = 'var(--primary)';
-    researchTab.style.textDecoration = '';
+    educationTab.style.color = 'var(--primary)';
+    educationTab.style.textDecoration = '';
 
     portfolioTab.style.color = 'var(--primary)';
     portfolioTab.style.textDecoration = '';
@@ -95,8 +99,8 @@ window.addEventListener('load', function() {
         element = photographyTab;
     } else if (page.includes("experience")) {
         element = experienceTab;
-    } else if (page.includes("research")) {
-        element = researchTab;
+    } else if (page.includes("education")) {
+        element = educationTab;
     } else if (page.includes("portfolio")) {
         element = portfolioTab;
     } else if (page.includes("contact")) {
