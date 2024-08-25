@@ -1,13 +1,17 @@
-.airshow img {
-    width: calc(20% - 2.25px);
+img {
+    margin: calc(5px - calc(var(--outline-thickness) / 2));
+}
+
+.airshow {
+    img {
+        width: calc(20% - 8px);
+    }
 }
 
 .gallery {
-    text-align: center;
 
     img {
         max-width: 40%;
-        margin: -0.1em;
     }
 }
 
