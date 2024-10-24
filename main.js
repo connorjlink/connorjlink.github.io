@@ -161,7 +161,7 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', eve
     }
 
     else {
-        // dark theem requested by browser
+        // dark theme requested by browser
         setDarkTheme();
     }
 });
