@@ -6,9 +6,12 @@
 
 :root {
     /* irrespective of color theme */
-    --nav-color: #222;
-    --primary: rgb(56, 114, 186);
-    --accent: rgb(125, 55, 186);
+    --my-accent-blue: rgb(56, 114, 186);
+    --my-accent-purple: rgb(125, 55, 186);;
+
+    --nav-color: var(--my-background);
+    --primary: var(--my-accent-blue);
+    --accent: var(--my-accent-purple);
 
     /* set by color theme */
     /* --foreground */
@@ -149,7 +152,7 @@ body {
 }
 
 .toggle {
-    aspect-ratio: 1 / 1;
+    aspect-ratio: calc(1 / 1);
     height: var(--logo-height);
 
     display: flex;
@@ -168,7 +171,7 @@ body {
     button {
         position: absolute;
         border-radius: 10px;
-        aspect-ratio: 1 / 1;
+        aspect-ratio: calc(1 / 1);
         height: 30%;
     }
 }
@@ -254,6 +257,7 @@ section {
 }
 
 .vstack {
+    /* */
     display: flex;
     flex-direction: column;
     line-height: 2;
