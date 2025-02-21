@@ -9,39 +9,42 @@ head.insertAdjacentHTML("beforeend", `
 
 // common navigation bar element
 body.insertAdjacentHTML("afterbegin", `
-    <header class="shadowed">
-        <div class="logo">
-            <img src="../res/logo.jpg" alt="logo">
+    <nav class="shadowed vstack">
+        <div class="hstack">
+            <div class="logo">
+                <img src="../res/logo.jpg" alt="logo">
+            </div>
+
+            <a class="title" id="index-tab" href="./">Connor J. Link</a>
         </div>
 
-        <nav>
-            <div class="vstack">
-                <a class="title" id="index-tab" href="./">Connor J. Link</a>
+        <div class="nav-radio">
+            <input type="radio" name="nav" id="home-radio" value="Home">
+            <label for="home-radio">Home</label>
+        </div>
 
-                <ul>
-                    <li>
-                        <a id="experience-tab" href="./experience">Experience</a>
-                    </li>
+        <div class="nav-radio">
+            <input type="radio" name="nav" id="portfolio-radio">
+            <label for="portfolio-radio">Portfolio</label>
+        </div>
 
-                    <li>
-                        <a id="portfolio-tab" href="./portfolio">Portfolio</a>
-                    </li>
+        <div class="nav-radio">
+            <input type="radio" name="nav" id="experience-radio">
+            <label for="experience-radio">Experience</label>
+        </div>
 
-                    <li>
-                        <a id="education-tab" href="./education">Education</a>
-                    </li>
+        <div class="nav-radio">
+            <input type="radio" name="nav" id="education-radio">
+            <label for="education-radio">Education</label>
+        </div>
 
-                    <li>
-                        <a id="photography-tab" href="./photography">Photography</a>
-                    </li>
+        <div class="nav-radio">
+            <input type="radio" name="nav" id="contact-radio">
+            <label for="contact-radio">Contact</label>
+        </div>
+    </nav>
 
-                    <li>
-                        <a id="contact-tab" href="./contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
+    <header class="shadowed hstack">
         <div class="toggle">
             <p>Theme</p>
             <button class="theme-toggle">☀</button>
@@ -54,12 +57,11 @@ body.insertAdjacentHTML("beforeend", `
     <div class="dummy"></div>
 
     <footer class="shadowed">
-        <span>&copy; 2024 Connor J. Link. All Rights Reserved.</span>
+        <span>&copy; 2025 Connor J. Link. All Rights Reserved.</span>
     </footer>
 `);
 
 const indexTab = document.getElementById("index-tab");
-const photographyTab = document.getElementById('photography-tab');
 const experienceTab = document.getElementById('experience-tab');
 const educationTab = document.getElementById('education-tab');
 const portfolioTab = document.getElementById('portfolio-tab');
@@ -68,9 +70,6 @@ const contactTab = document.getElementById('contact-tab');
 function deselectAll() {
     indexTab.style.color = 'var(--primary)';
     indexTab.style.textDecoration = '';
-
-    photographyTab.style.color = 'var(--primary)';
-    photographyTab.style.textDecoration = '';
 
     experienceTab.style.color = 'var(--primary)';
     experienceTab.style.textDecoration = '';
@@ -95,9 +94,7 @@ window.addEventListener('load', function() {
 
     var element = null;
 
-    if (page.includes("photography")) {
-        element = photographyTab;
-    } else if (page.includes("experience")) {
+    if (page.includes("experience")) {
         element = experienceTab;
     } else if (page.includes("education")) {
         element = educationTab;

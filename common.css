@@ -7,7 +7,7 @@
 :root {
     /* irrespective of color theme */
     --my-accent-blue: rgb(56, 114, 186);
-    --my-accent-purple: rgb(125, 55, 186);;
+    --my-accent-purple: rgb(125, 55, 186);
 
     --nav-color: var(--my-background);
     --primary: var(--my-accent-blue);
@@ -17,14 +17,71 @@
     /* --foreground */
     /* --background */
     /* --outline-thickness */
+
+    --my-purple: rgb(143, 132, 215);
+    --my-blue: rgb(56, 114, 186);
+
+    --accent-hovered: color-mix(in srgb, var(--my-purple) 80%, white);
+    --accent-selected: var(--my-purple);
+}
+
+header {
+    position: sticky;
+}
+
+nav {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 200px;
+    background: var(--nav-color);
+    color: var(--background);
+}
+
+.nav-radio {
+    display: flex;
+    flex-direction: row;
+    padding-right: 10px;
+
+    > input {
+        appearance: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    > label {
+        padding-left: 30px;
+    }
 }
 
 
+.nav-radio:has(> input[type="radio"]:checked) {
+    background: var(--accent-selected);
+    transition: background-color 500ms;
+}
+
+/* .nav-radio:has(> input[type="radio"]:checked)::before {
+    content: "";
+    position: relative;
+    height: 30px;
+    width: 5px;
+    vertical-align: middle;
+    border-radius: 50%;
+    background-color: white;
+    color: var(--foreground);
+    padding-right: -10px;
+    padding-left: 10px;
+} */
 
 
-header {
-    border-bottom: var(--outline-thickness) solid var(--primary);
-    transition: border-color 500ms;
+.nav-radio:hover {
+    background: var(--accent-hovered);
+    transition: background-color 200ms;
+}
+
+#index-tab {
+    margin-bottom: 0;
 }
 
 footer {
@@ -42,11 +99,6 @@ section, .subitem {
     }
 }
 
-
-header:hover {
-    border-bottom: var(--outline-thickness) solid var(--accent);
-    transition: border-color 500ms;
-}
 
 footer:hover {
     border-top: var(--outline-thickness) solid var(--accent);
@@ -140,7 +192,7 @@ body {
 }
 
 :root {
-    --header-height: 100px;
+    --header-height: 25px;
     --logo-height: calc(var(--header-height));
 }
 
