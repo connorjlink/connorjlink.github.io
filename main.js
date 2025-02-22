@@ -9,17 +9,21 @@ head.insertAdjacentHTML("beforeend", `
 
 // common navigation bar element
 body.insertAdjacentHTML("afterbegin", `
-    <nav class="shadowed vstack">
-        <div class="hstack">
-            <div class="logo">
-                <img src="../res/logo.jpg" alt="logo">
-            </div>
-
+    <header class="shadowed hstack">
+        <div class="logo-container">
+            <img src="../res/logo.jpg" alt="logo">
             <a class="title" id="index-tab" href="./">Connor J. Link</a>
         </div>
 
+        <!--<div class="toggle">
+            <p>Theme</p>
+            <button class="theme-toggle">☀</button>
+        </div>-->
+    </header>
+
+    <nav class="shadowed">
         <div class="nav-radio">
-            <input type="radio" name="nav" id="home-radio" value="Home">
+            <input type="radio" name="nav" id="home-radio" value="Home" checked>
             <label for="home-radio">Home</label>
         </div>
 
@@ -42,14 +46,9 @@ body.insertAdjacentHTML("afterbegin", `
             <input type="radio" name="nav" id="contact-radio">
             <label for="contact-radio">Contact</label>
         </div>
-    </nav>
 
-    <header class="shadowed hstack">
-        <div class="toggle">
-            <p>Theme</p>
-            <button class="theme-toggle">☀</button>
-        </div>
-    </header>
+        <div class="dummy"></div>
+    </nav>
 `);
 
 // common copyright element
