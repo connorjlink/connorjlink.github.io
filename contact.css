@@ -15,3 +15,9 @@ ul {
         padding-bottom: 10px;
     }
 }
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--half-padding);
+}

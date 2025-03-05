@@ -10,18 +10,16 @@ head.insertAdjacentHTML("beforeend", `
 // common navigation bar element
 body.insertAdjacentHTML("afterbegin", `
     <header class="shadowed hstack">
+    
         <div class="logo-container">
             <img src="../res/logo.jpg" alt="logo">
             <a class="title" id="index-tab" href="./">Connor J. Link</a>
         </div>
 
-        <!--<div class="toggle">
-            <p>Theme</p>
-            <button class="theme-toggle">☀</button>
-        </div>-->
     </header>
 
     <nav class="shadowed">
+
         <div class="nav-radio">
             <input type="radio" name="nav" id="home-radio" value="Home" checked>
             <label for="home-radio">Home</label>
@@ -48,6 +46,7 @@ body.insertAdjacentHTML("afterbegin", `
         </div>
 
         <div class="dummy"></div>
+
     </nav>
 `);
 
@@ -66,22 +65,9 @@ const educationTab = document.getElementById('education-tab');
 const portfolioTab = document.getElementById('portfolio-tab');
 const contactTab = document.getElementById('contact-tab');
 
-function deselectAll() {
-    indexTab.style.color = 'var(--primary)';
-    indexTab.style.textDecoration = '';
-
-    experienceTab.style.color = 'var(--primary)';
-    experienceTab.style.textDecoration = '';
-
-    educationTab.style.color = 'var(--primary)';
-    educationTab.style.textDecoration = '';
-
-    portfolioTab.style.color = 'var(--primary)';
-    portfolioTab.style.textDecoration = '';
-
-    contactTab.style.color = 'var(--primary)';
-    contactTab.style.textDecoration = '';
-}
+// TODO: connect up navbar buttons to each page
+// TODO: borders and corner radius on images on portfolio page
+// TODO: fix image size bug on index page
 
 window.addEventListener('load', function() {
     const url = window.location.href;
@@ -107,70 +93,4 @@ window.addEventListener('load', function() {
 
     element.style.color = 'var(--accent)';
     element.style.textDecoration = 'underline 0.2em';
-});
-
-const theme = localStorage.getItem('theme');
-if (theme === 'dark-mode') {
-    setDarkTheme();
-}
-
-else {
-    setLightTheme();
-}
-
-function setLightTheme() {
-    document.documentElement.style.setProperty('color-scheme', 'light');
-    localStorage.removeItem('theme');
-
-    // foreground is the dark-colored text
-    root.style.setProperty("--foreground", "#333");
-
-    // background is the light color
-    root.style.setProperty("--background", "#f0f0f0");
-
-    // outlines in light theme are less apparent, so thicken a bit
-    root.style.setProperty("--outline-thickness", "2px");
-
-    console.log("setting light theme");
-}
-
-function setDarkTheme() {
-    document.documentElement.style.setProperty('color-scheme', 'dark');
-    localStorage.setItem('theme', 'dark-mode');
-
-    // foreground is the light-colored text
-    root.style.setProperty("--foreground", "#cccccc");
-
-    // background is the dark color
-    root.style.setProperty("--background", "#1e1e1e")
-
-    // outlines in dark theme are more apparent, so thin
-    root.style.setProperty("--outline-thickness", "1px");
-
-    console.log("setting dark theme");
-}
-
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-    if (!event.matches) {
-        // light theme requested by browser
-        setLightTheme();
-    }
-
-    else {
-        // dark theme requested by browser
-        setDarkTheme();
-    }
-});
-
-const themeToggle = document.querySelector('.theme-toggle');
-themeToggle.addEventListener('click', () => {
-    if (document.documentElement.style.getPropertyValue('color-scheme') === 'dark') {
-        // light theme set by user
-        setLightTheme();
-    }
-
-    else {
-        // dark theme set by user
-        setDarkTheme();
-    }
 });

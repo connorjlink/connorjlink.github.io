@@ -1,44 +1,76 @@
-* {
-    text-decoration: none;
-    font-family: system-ui;
-    list-style: none;
-}
-
 :root {
-    * {
-        box-sizing: border-box;
-    }
+    --dark-background-d: rgb(31, 31, 31);
+    --dark-background: rgb(40, 40, 40);
+    --dark-background-e: rgb(50, 50, 50);
+    --dark-background-l: rgb(69, 69, 69);
+    --dark-foreground: rgb(230, 230, 230);
 
-    /* irrespective of color theme */
-    --my-accent-blue: rgb(56, 114, 186);
-    --my-accent-purple: rgb(125, 55, 186);
+    --light-background-d: rgb(220, 220, 220);
+    --light-background: rgb(240, 240, 240);
+    --light-background-e: rgb(250, 250, 250);
+    --light-background-l: rgb(255, 255, 255);
+    --light-foreground: rgb(50, 50, 50);
+    
 
-    --my-background: rgb(31, 31, 31);
 
-    --nav-color: var(--my-background);
-    --primary: var(--my-accent-blue);
-    --accent: var(--my-accent-purple);
+    --purple: rgb(143, 132, 215);
+    --blue: rgb(56, 114, 186);
+    /* TODO: other code colors */
 
-    /* set by color theme */
-    /* --foreground */
-    /* --background */
-    /* --outline-thickness */
-
-    --my-purple: rgb(143, 132, 215);
-    --my-blue: rgb(56, 114, 186);
-
-    --accent-hovered: color-mix(in srgb, var(--my-purple) 80%, white);
-    --accent-selected: var(--my-purple);
+    --accent-hovered: color-mix(in srgb, var(--purple) 80%, white);
+    --accent-selected: var(--purple);
 
     --half-padding: 25px;
     --padding: 50px;
 
     --nav-width: 200px;
-    --header-height: 75px;
+    --header-height: 60px;
+    --footer-height: 25px;
     
     --logo-height: calc(var(--header-height) / 1.5);
     --logo-gap: calc(var(--header-height) / 4);
 }
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+    }
+
+    * {
+        --background-l: var(--dark-background-l);
+        --background: var(--dark-background);
+        --background-e: var(--dark-background-e);
+        --background-d: var(--dark-background-d);
+        --foreground: var(--dark-foreground);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    * {
+        --background-l: var(--light-background-l);
+        --background: var(--light-background);
+        --background-e: var(--light-background-e);
+        --background-d: var(--light-background-d);
+        --foreground: var(--light-foreground);
+    }
+}
+
+* {
+    box-sizing: border-box !important;
+    text-decoration: none;
+    font-family: system-ui;
+    list-style: none;
+    color: var(--foreground);
+}
+
+a, a * {
+    color: var(--blue);
+}
+
+a:visited, a:visited * {
+    color: var(--purple);
+}
+
 
 nav {
     position: fixed;
@@ -51,9 +83,14 @@ nav {
     line-height: 2;
     height: 100%;
     width: var(--nav-width);
-    background: var(--nav-color);
-    color: var(--background);
-    z-index: 100;
+
+    color: var(--foreground);
+    background: var(--background-e);
+    border-right: 1px solid var(--background-l);
+
+    clip-path: inset(0px -20px -20px -20px);
+
+    z-index: 1;
 }
 
 .nav-radio {
@@ -102,51 +139,13 @@ article {
     position: relative;
     top: var(--header-height);
     left: var(--nav-width);
-
-    width: calc(100vw - var(--nav-width));
-
+    width: calc(100% - var(--nav-width));
     padding: var(--padding);
-}
-
-footer {
-    border-top: var(--outline-thickness) solid var(--primary);
-    transition: border-color 500ms;
 }
 
 section, .subitem {
     border: var(--outline-thickness) solid var(--primary);
-    transition: border-color 500ms;
 }
-
-
-footer:hover {
-    border-top: var(--outline-thickness) solid var(--accent);
-    transition: border-color 500ms;
-}
-
-
-/* have to distinguish hovering parent vs child frame */
-section:not(:has(.subitem:hover)):hover {
-    border: var(--outline-thickness) solid var(--accent);
-    transition: border-color 500ms;
-}
-
-section > .subitem:not(:has(img:hover)):hover {
-    border: var(--outline-thickness) solid var(--accent);
-    transition: border-color 500ms;
-}
-
-/* img:not(:has(.subitem:hover)):hover {
-    border-color: var(--accent);
-} */
-
-/* .subitem {
-    h1, h2, h3, p, ul {
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-} */
 
 hr {
     border-top: 0px;
@@ -165,17 +164,47 @@ html {
     height: 100%;
 }
 
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: var(--header-height);
+
+    background: var(--background-e);
+    border-bottom: 1px solid var(--background-l);
+    z-index: 1;
+}
+
 body {
+    display: flex;
+    flex-direction: column;
+
     font-weight: lighter;
     margin: 0;
     padding: 0;
+}
 
-    background-color: var(--background);
-    color: var(--foreground);
-
+footer {
+    position: fixed;
+    bottom: 0;
+    height: var(--footer-height);
+    width: 100%;
+    border-top: 1px solid var(--background-l);
+    background: var(--purple);
     display: flex;
-    flex-direction: column;
-    height: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
+    span {
+        color: white;
+    }
 }
 
 .main {
@@ -185,11 +214,6 @@ body {
 
 .dummy {
     flex: 1;
-}
-
-/* TODO: this is probably not necessary for anything */
-@media screen and (prefers-color-scheme: dark) {
-    
 }
 
 .logo-container {
@@ -239,34 +263,6 @@ img {
         aspect-ratio: calc(1 / 1);
         height: 30%;
     }
-}
-
-header {
-    background: var(--nav-color);
-    color: var(--background);
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    text-align: center;
-
-    position: fixed;
-    width: 100%;
-    top: 0;
-    /* FIXME: is the following minimum even necessary? */
-    min-height: var(--header-height);
-    height: var(--header-height);
-}
-
-footer {
-    background: var(--nav-color);
-    color: white;
-    text-align: center;
-    padding: 15px 0;
-    position: relative;
-    bottom: 0;
-    width: 100%;
 }
 
 .main {
@@ -323,6 +319,9 @@ section {
 .headshot {
     height: 100%;
     width: 100%;
+
+    border: 1px solid var(--background-l);
+    border-radius: 10px;
 }
 
 .grid {
@@ -355,8 +354,10 @@ section {
 
 .subitem {
     padding: var(--half-padding);
-    /* border-radius:10px; */
-    /* margin: 10px; */
+    background: var(--background-e);
+
+    border: 1px solid var(--background-l);
+    border-radius: 10px;
 }
 
 .darken-98 {

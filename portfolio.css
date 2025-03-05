@@ -68,3 +68,14 @@ code {
 .info {
     transform: translateY(-1em);
 }
+
+.haze-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: var(--half-padding);
+}
+
+.haze-middle {
+    grid-column: 1 / 3;
+}

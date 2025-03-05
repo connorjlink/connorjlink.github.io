@@ -3,109 +3,113 @@
     <head>
         <title>Connor J. Link &mdash; Portfolio</title>
         <link rel="stylesheet" href="portfolio.css"/>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta property="og:image" content="https://connorjlink.com/res/logo.jpg">
     	<meta name="description" content="Connor Link. Computer engineering student at Iowa State University. Dubuque, Iowa, United States. Interests in compilers, processor design, and graphics."> 
     </head>
 
     <body>
-        <div class="main">
-            <section class="shadowed darken-98">
+
+        <article>
+
+            <div class="subitem shadowed">
                 <h1 id="haze">Haze</h1>
                 
-                <!-- info region -->
                 <div class="nudge-up">
                     <p>A bespoke, from-scratch, full-stack toolchain for my new processor architecture, <b><i>haze</i></b>.</p>
                     <a href="https://github.com/connorjlink/haze"><i>github.com/connorjlink/haze</i></a>
                 </div>
-                
 
-                <div class="subitem shadowed darken-95">
-                    <h2>Compiler</h2>
+                <div class="haze-grid">
 
-                    <div class="nudge-up">
-                        <p>Atop a custom recursive-descent parser, <b><i>compiler</i></b> implements my own <i>haze</i> compiled programming language with custom backends and linkers for both <i>haze</i> and x86_64 processors. </p>
-                    </div>
+                    <div class="subitem shadowed halfpad-top">
+                        <h2>Compiler</h2>
 
-                    <!-- code examples -->
-                    <p>Displayed below is a sample program compilation input and output.</p>
+                        <div class="nudge-up">
+                            <p>Atop a custom recursive-descent parser, <b><i>compiler</i></b> implements my own <i>haze</i> compiled programming language with custom backends and linkers for both <i>haze</i> and x86_64 processors. </p>
+                        </div>
 
-                    <div class="titanium-images">
-                        <figure>
-                            <img src="../res/haze_compiler.jpg">
-                            <figcaption>test.hz</figcaption>
-                        </figure>
-
-                        <figure>
-                            <img src="../res/haze_assembler.jpg">
-                            <figcaption>test.hzs</figcaption>
-                        </figure>
-                    </div>
-                </div>
-
-                <div class="subitem shadowed darken-95">
-                    <h2>Interpreter</h2>
-
-                    <div class="nudge-up">
-                        <p>Sharing syntax with the <i>haze</i> compiler, <b><i>interpreter</i></b> can hook the <i>geo</i> runtime as an intepreted scripting language using custom MQTT-based IPC or run freestanding.</p>
-                    </div>
-
-                    <!-- code examples -->
-                    <p>Shown below are both a standalone "unhook" and <i>geo</i>-interfacing script.</p>
-
-                    <div class="titanium-images">
-                        <figure>
-                            <img src="../res/unhook.jpg">
-                            <figcaption>unhook.hzi</figcaption>
-                        </figure>
-
-                        <figure>
-                            <img src="../res/hook.jpg">
-                            <figcaption>hook.hzi</figcaption>
-                        </figure>
-                    </div>
-                </div>
-
-                <div class="subitem shadowed darken-95">
-                    <h2>Assembler</h2>
-
-                    <div class="nudge-up">
-                        <p>Internally utilizing the powerful <i>haze</i> frontend, <b><i>assembler</i></b> transforms custom assembly language source code into <i>haze</i> machine code </p>
-                    </div>
-                </div>
-
-                <div class="subitem shadowed darken-95">
-                    <h2>Emulator</h2>
-
-                    <div class="nudge-up">
-                        <p>Simulating <i>haze</i> machine code program execution at several KHz, <b><i>emulator</i></b> eases smoke-testing with live data watches and on-the-fly disassembly.</p>
-                    </div>
-                </div>
-
-                <div class="subitem shadowed darken-95">
-                    <h2>Language Server</h2>
-
-                    <div class="nudge-up">
-                        <p>A fully LSP-compliant language server implementation, <b><i>haze-ls</i></b> offers contextual autocomplete and custom syntax highlighting for the <i>haze</i> language in VSCode.</p>
-
-                        <ul>
-                            <li><a href="https://github.com/connorjlink/haze-ls"><i>github.com/connorjlink/haze-ls</i></a></li>
-                            <li><a href="https://marketplace.visualstudio.com/items?itemName=connorjlink.haze-ls"><i>https://marketplace.visualstudio.com/items?itemName=connorjlink.haze-ls</i></a></li>
-                        </ul>
+                        <p>Displayed below is a sample program compilation input and output.</p>
 
                         <div class="titanium-images">
                             <figure>
-                                <img src="../res/vscode_ls.jpg">
-                                <figcaption>HazeLS VSCode Extension</figcaption>
+                                <img src="../res/haze_compiler.jpg">
+                                <figcaption>test.hz</figcaption>
+                            </figure>
+
+                            <figure>
+                                <img src="../res/haze_assembler.jpg">
+                                <figcaption>test.hzs</figcaption>
                             </figure>
                         </div>
                     </div>
-                </div>
-            </section>
 
-            <section class="shadowed darken-98">
+                    <div class="subitem shadowed halfpad-top">
+                        <h2>Interpreter</h2>
+    
+                        <div class="nudge-up">
+                            <p>Sharing syntax with the <i>haze</i> compiler, <b><i>interpreter</i></b> can hook the <i>geo</i> runtime as an intepreted scripting language using custom MQTT-based IPC or run freestanding.</p>
+                        </div>
+    
+                        <p>Shown below are both a standalone "unhook" and <i>geo</i>-interfacing script.</p>
+    
+                        <div class="titanium-images">
+                            <figure>
+                                <img src="../res/unhook.jpg">
+                                <figcaption>unhook.hzi</figcaption>
+                            </figure>
+    
+                            <figure>
+                                <img src="../res/hook.jpg">
+                                <figcaption>hook.hzi</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+
+                    <div class="subitem shadowed haze-middle">
+                        <h2>Assembler</h2>
+    
+                        <div class="nudge-up">
+                            <p>Internally utilizing the powerful <i>haze</i> frontend, <b><i>assembler</i></b> transforms custom assembly language source code into <i>haze</i> machine code </p>
+                        </div>
+                    </div>
+
+                    <div class="subitem shadowed haze-middle">
+                        <h2>Emulator</h2>
+    
+                        <div class="nudge-up">
+                            <p>Simulating <i>haze</i> machine code program execution at several KHz, <b><i>emulator</i></b> eases smoke-testing with live data watches and on-the-fly disassembly.</p>
+                        </div>
+                    </div>
+
+                    <div class="subitem shadowed haze-middle">
+                        <h2>Language Server</h2>
+    
+                        <div class="nudge-up">
+                            <p>A fully LSP-compliant language server implementation, <b><i>haze-ls</i></b> offers contextual autocomplete and custom syntax highlighting for the <i>haze</i> language in VSCode.</p>
+    
+                            <ul>
+                                <li><a href="https://github.com/connorjlink/haze-ls"><i>github.com/connorjlink/haze-ls</i></a></li>
+                                <li><a href="https://marketplace.visualstudio.com/items?itemName=connorjlink.haze-ls"><i>https://marketplace.visualstudio.com/items?itemName=connorjlink.haze-ls</i></a></li>
+                            </ul>
+    
+                            <div class="titanium-images">
+                                <figure>
+                                    <img src="../res/vscode_ls.jpg">
+                                    <figcaption>HazeLS VSCode Extension</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="subitem shadowed pad-top">
                 <h1>Inspector</h1>
 
-                <!-- info region -->
                 <div class="nudge-up">
                     <p class="nudge-up">An efficiency-first MQTT traffic monitoring client, <b><i>inspector</i></b> offers robust send/receive capabilities and high-level automation in a user-friendly WPF-based window.</p>
                     <a href="https://github.com/connorjlink/inspector"><i>github.com/connorjlink/inspector</i></a>
@@ -117,12 +121,12 @@
                         <figcaption>Transmit Loopback</figcaption>
                     </figure>
                 </div>
-            </section>
+            </div>
 
-            <section class="shadowed darken-98">
+            <div class="subitem shadowed pad-top">
                 <h1 id="rendering">3-D Rendering</h1>
 
-                <div class="subitem shadowed darken-95">
+                <div class="subitem shadowed halfpad-top">
                     <h2>Voxelization</h2>
 
                     <div class="nudge-up">
@@ -131,7 +135,7 @@
                     </div>
                 </div>
 
-                <div class="subitem shadowed darken-95">
+                <div class="subitem shadowed halfpad-top">
                     <h2>Ray Tracing</h2>
 
                     <div class="nudge-up">
@@ -140,7 +144,7 @@
                     </div>
                 </div>
 
-                <div class="subitem shadowed darken-95">
+                <div class="subitem shadowed halfpad-top">
                     <h2>Rasterization</h2>
 
                     <div class="nudge-up">
@@ -150,7 +154,6 @@
                 </div>
                 
                 
-                <!-- render examples -->
                 <p>&nbsp;</p>
                 <p>Depicted below are sample renders from all three programs.</p>
 
@@ -170,13 +173,13 @@
                         <figcaption>Rasterizer</figcaption>
                     </figure>
                 </div>
-            </section>
+            </div>
 
-            <section class="shadowed darken-98">
+            <div class="subitem shadowed pad-top">
                 <h1 id="cl8">CL8</h1>
                 <p class="nudge-up">An entirely custom software suite for my 8-bit processor architecture, <b><i>CL8</i></b>.</p>
 
-                <div class="subitem shadowed darken-95">
+                <div class="subitem shadowed">
                     <h2>Titanium</h2>
 
                     <div class="nudge-up">
@@ -184,7 +187,6 @@
                         <a href="https://github.com/connorjlink/compiler"><i>github.com/connorjlink/compiler</i></a>
                     </div>
 
-                    <!-- code examples -->
                     <p>Displayed below is a sample program compilation input and output.</p>
 
                     <div class="titanium-images">
@@ -200,7 +202,7 @@
                     </div>
                 </div>
 
-                <div class="subitem shadowed darken-95">
+                <div class="subitem shadowed halfpad-top">
                     <h2>Microcode</h2>
 
                     <div class="nudge-up">
@@ -210,7 +212,7 @@
                     </div>
                 </div>
 
-                <div class="subitem shadowed darken-95">
+                <div class="subitem shadowed halfpad-top">
                     <h2>Assembler</h2>
 
                     <div class="nudge-up">
@@ -219,7 +221,7 @@
                     </div>
                 </div>
 
-                <div class="subitem shadowed darken-95">
+                <div class="subitem shadowed halfpad-top">
                     <h2>Disassembler</h2>
 
                     <div class="nudge-up">
@@ -228,7 +230,7 @@
                     </div>
                 </div>
 
-                <div class="subitem shadowed darken-95">
+                <div class="subitem shadowed halfpad-top">
                     <h2>Emulator</h2>
 
                     <div class="nudge-up">
@@ -237,7 +239,7 @@
                     </div>
                 </div>
 
-                <div class="subitem shadowed darken-95">
+                <div class="subitem shadowed halfpad-top">
                     <h2>Hardware</h2>
 
                     <div class="nudge-up">
@@ -245,8 +247,10 @@
                         <a href="https://github.com/connorjlink/hardware"><i>github.com/connorjlink/hardware</i></a>
                     </div>
                 </div>
-            </section>
-        </div>
+            </div>
+
+        </article>
+
     </body>
 
     <script src="main.js"></script>
