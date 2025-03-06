@@ -59,29 +59,21 @@ body.insertAdjacentHTML("beforeend", `
     </footer>
 `);
 
-const indexTab = document.getElementById("index-tab");
-const portfolioTab = document.getElementById('portfolio-tab');
-const experienceTab = document.getElementById('experience-tab');
-const educationTab = document.getElementById('education-tab');
-const contactTab = document.getElementById('contact-tab');
-
 window.addEventListener('load', function() {
     const url = window.location.href;
     const values = url.split('/');
     const page = values[values.length - 1];
 
-    var element = null;
-
     if (page.includes("experience")) {
-        element = experienceTab;
+        this.document.querySelector('#experience-radio').checked = true;
     } else if (page.includes("education")) {
-        element = educationTab;
+        this.document.querySelector('#education-radio').checked = true;
     } else if (page.includes("portfolio")) {
-        element = portfolioTab;
+        this.document.querySelector('#portfolio-radio').checked = true;
     } else if (page.includes("contact")) {
-        element = contactTab;
+        this.document.querySelector('#contact-radio').checked = true;
     } else {
-        element = indexTab;
+        this.document.querySelector('#home-radio').checked = true;
     }
 
     // TODO: something
