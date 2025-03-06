@@ -1,40 +1,3 @@
-code {
-    --label-color: rgb(166, 113, 189);
-    --comment-color: rgb(107, 164, 85);
-    --plain-text-color: rgb(160, 222, 255);
-    
-    --enumerator-color: rgb(190, 214, 168);
-    --namespace-color: rgb(181, 221, 204);
-    
-    --templated-type-color: rgb(113, 198, 172);
-    --type-color: rgb(137, 219, 172);
-    
-    --templated-function-color: rgb(221, 221, 174);
-    --function-color: rgb(211, 211, 157);
-    
-    --control-keyword-color: rgb(200, 146, 214);
-    --keyword-color: rgb(103, 154, 209);
-    
-    --template-parameter-color: rgb(137, 219, 172);
-    --parameter-color: rgb(154, 154, 154);
-    
-    --overloaded-operator-color: rgb(246, 202, 252);
-    --operator-color: rgb(150, 197, 219);
-    
-    --static-struct-field-color: rgb(212, 175, 55);
-    --static-method-color: rgb(171, 239, 167);
-    --struct-field-color: rgb(1196, 207, 242);
-    
-    --preprocessor-directive-color: rgb(255, 200, 255);
-    --macro-color: rgb(189, 183, 250);
-    
-    --local-variable-color: rgb(145, 207, 250);
-    --global-variable-color: rgb(102, 208, 210);
-    
-    --integer-literal-color: rgb(186, 205, 171);
-    --string-literal-color: rgb(175, 219, 159);
-}
-
 .components {
     margin-top: -1em;
     padding-left: 0;
@@ -47,8 +10,7 @@ code {
 .titanium-images {
     display: flex;
     justify-content: center;
-    width: 80%;
-    margin: auto;
+    width: 100%;
 
     figure {
         margin: 5px;
