@@ -199,7 +199,6 @@ a:visited, a:visited * {
 }
 
 code {
-    width: 100%;
     text-align: left;
     
     * {
@@ -380,7 +379,8 @@ footer {
 }
 
 img {
-    border: 1px solid var(--purple);
+    border: 1px solid var(--background-l);
+    border-radius: 10px;
     box-shadow: 0 0 1em #000a;
 }
 
@@ -447,8 +447,6 @@ section {
 .title {
     font-size: 30pt;
     align-items: center;
-    margin-top: -10px;
-    margin-bottom: 10px;
     line-height: 1;
 }
 
@@ -461,8 +459,9 @@ section {
 }
 
 .headshot {
-    height: 100%;
+    max-width: 100%;
     width: 100%;
+    aspect-ratio: 1 / 1;
 
     border: 1px solid var(--background-l);
     border-radius: 10px;
@@ -470,9 +469,7 @@ section {
 
 .grid {
     display: grid;
-    /* make 2 columns, 2 rows for left column only */
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
     gap: var(--padding);
 }
 

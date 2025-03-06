@@ -60,22 +60,15 @@ body.insertAdjacentHTML("beforeend", `
 `);
 
 const indexTab = document.getElementById("index-tab");
+const portfolioTab = document.getElementById('portfolio-tab');
 const experienceTab = document.getElementById('experience-tab');
 const educationTab = document.getElementById('education-tab');
-const portfolioTab = document.getElementById('portfolio-tab');
 const contactTab = document.getElementById('contact-tab');
-
-// TODO: connect up navbar buttons to each page
-// TODO: borders and corner radius on images on portfolio page
-// TODO: fix image size bug on index page
 
 window.addEventListener('load', function() {
     const url = window.location.href;
     const values = url.split('/');
     const page = values[values.length - 1];
-
-    // remove all underlines and set to the deselected color
-    deselectAll();
 
     var element = null;
 
@@ -91,6 +84,25 @@ window.addEventListener('load', function() {
         element = indexTab;
     }
 
-    element.style.color = 'var(--accent)';
-    element.style.textDecoration = 'underline 0.2em';
+    // TODO: something
+});
+
+document.getElementById('home-radio').addEventListener('click', function() {
+    window.location.href = './';
+});
+
+document.getElementById('portfolio-radio').addEventListener('click', function() {
+    window.location.href = './portfolio';
+});
+
+document.getElementById('experience-radio').addEventListener('click', function() {
+    window.location.href = './experience';
+});
+
+document.getElementById('education-radio').addEventListener('click', function() {
+    window.location.href = './education';
+});
+
+document.getElementById('contact-radio').addEventListener('click', function() {
+    window.location.href = './contact';
 });

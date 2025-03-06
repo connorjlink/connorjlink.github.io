@@ -15,10 +15,54 @@
     figure {
         margin: 5px;
 
+        code {
+
+            pre {
+                aspect-ratio: 1 / 1;
+            }
+        }
+
         img {
             margin: 0;
             padding: 0;
             width: 100%;
+        }
+    }
+}
+
+.half-width {
+    width: 50%;
+}
+
+.centered {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wrappable-hstack {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+    gap: var(--half-padding);
+    width: 100%;
+}
+
+.custom-code {
+    flex-wrap: wrap;
+
+    * {
+        flex: 1;
+    }
+
+    figure {
+        /* width: 100%; */
+        aspect-ratio: 1 / 1;
+
+        code {
+            width: 100%;
+
+            pre {
+                width: 100%;
+            }
         }
     }
 }

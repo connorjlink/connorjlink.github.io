@@ -32,7 +32,7 @@
 
                         <p>Displayed below are a sample program compilation input and output.</p>
 
-                        <div class="titanium-images">
+                        <div class="titanium-images custom-code">
                             <figure>
                                 <code>
                                     <pre class="shadowed"><span class="preprocessor">.include</span> <span class="string">"std.hz"</span>
@@ -51,6 +51,7 @@
     <span class="keyword">byte</span> <span class="local-variable">foo</span> = (<span class="integer-literal">2</span> <span class="operator">*</span> <span class="integer-literal">3</span>) <span class="operator">+</span> <span class="integer-literal">1</span>; <span class="comment">// 7</span>
     <span class="control-keyword">return</span> <span class="local-variable">foo</span>;
 }
+
 
 </pre>
                                 </code>
@@ -76,7 +77,9 @@
 
 
 
-                                    </pre>
+
+
+</pre>
                                 </code>
 
                                 <figcaption>test.hzs</figcaption>
@@ -93,7 +96,7 @@
     
                         <p>Shown below are both a standalone "unhook" and <i>geo</i>-interfacing script.</p>
     
-                        <div class="titanium-images">
+                        <div class="titanium-images custom-code">
                             <figure>
                                 <code>
                                     <pre class="shadowed"><span class="preprocessor">.include</span> <span class="string">"std.hzi"</span>
@@ -109,7 +112,8 @@
 
 <span class="keyword">function</span> <span class="keyword">nvr</span> <span class="function">main</span>()
 {
-    <span class="keyword">.unhook</span> <span class="comment"> // don't install MQTT hook</span>
+    <span class="comment">// don't install MQTT hook</span>
+    <span class="keyword">.unhook</span>
     <span class="keyword">byte</span> <span class="local-variable">foo</span> = $<span class="macro">MUL</span>(<span class="macro">A</span>, <span class="macro">B</span>) <span class="operator">+</span> <span class="macro">C</span>;
     <span class="keyword">print</span>(<span class="local-variable">foo</span> <span class="operator">*</span> <span class="integer-literal">2</span>); <span class="comment">// output: 10</span>
 }</pre>
@@ -130,7 +134,8 @@
 <span class="keyword">intrinsic</span> <span class="global-variable">mouse_sensitivity</span> = <span class="integer-literal">50</span>;
 <span class="keyword">intrinsic</span> <span class="global-variable">fov</span> = <span class="integer-literal">90</span>;
 
-<span class="keyword">function</span> <span class="keyword">nvr</span> <span class="function">main</span>(<span class="keyword">float</span> <span class="function-parameter">&Delta;T</span>) {
+<span class="keyword">function</span> <span class="keyword">nvr</span> <span class="function">main</span>(<span class="keyword">float</span> <span class="function-parameter">&Delta;T</span>)
+{
     <span class="control-keyword">if</span> ($<span class="macro">X</span>(<span class="global-variable">sky_color</span>) &lt; <span class="macro">RANGE</span>) 
         $<span class="macro">X</span>(<span class="global-variable">sky_color</span>) <span class="operator">+=</span> <span class="function-parameter">&Delta;T</span>;
     <span class="control-keyword">else if</span> ($<span class="macro">X</span>(<span class="global-variable">sky_color</span>) &gt; <span class="macro">RANGE</span>)
@@ -266,7 +271,7 @@
 
                     <p>Displayed below are a sample program compilation input and output.</p>
 
-                    <div class="titanium-images">
+                    <div class="titanium-images custom-code half-width centered">
                         <figure>
                             <code>
                                 <pre class="shadowed"><span class="preprocessor">.macro</span> <span class="macro">BIT</span> = (<span class="identifier">a</span>):
@@ -295,7 +300,7 @@
 
                         <figure>
                             <code>
-                                <pre><span class="keyword">.begin</span>
+                                <pre class="shadowed"><span class="keyword">.begin</span>
 <span class="preprocessor">.include</span> <span class="string">"def.s"</span>
 <span class="label">@function_start_test</span>:
     <span class="function">ldb</span> <span class="function-parameter">r0</span>, %<span class="integer-literal">0</span>
@@ -331,41 +336,46 @@
                     </div>
                 </div>
 
-                <div class="subitem shadowed halfpad-top">
-                    <h2>Assembler</h2>
-
-                    <div class="nudge-up">
-                        <p>Based around a GNU Flex/Bison lexer and parser, <b><i>assembler</i></b> flattens custom assembly language source code into raw <i>CL8</i> machine.</p>
-                        <a href="https://github.com/connorjlink/assembler"><i>github.com/connorjlink/assembler</i></a>
+                <div class="wrappable-hstack">
+                    <div class="subitem shadowed halfpad-top">
+                        <h2>Assembler</h2>
+    
+                        <div class="nudge-up">
+                            <p>Based around a GNU Flex/Bison lexer and parser, <b><i>assembler</i></b> flattens custom assembly language source code into raw <i>CL8</i> machine.</p>
+                            <a href="https://github.com/connorjlink/assembler"><i>github.com/connorjlink/assembler</i></a>
+                        </div>
+                    </div>
+    
+                    <div class="subitem shadowed halfpad-top">
+                        <h2>Disassembler</h2>
+    
+                        <div class="nudge-up">
+                            <p>A fully custom binary analysis program, <b><i>disassembler</i></b> expands <i>CL8</i> machine code back into human-readable assembly source for debugging.</p>
+                            <a href="https://github.com/connorjlink/disassembler"><i>github.com/connorjlink/disassembler</i></a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="subitem shadowed halfpad-top">
-                    <h2>Disassembler</h2>
-
-                    <div class="nudge-up">
-                        <p>A fully custom binary analysis program, <b><i>disassembler</i></b> expands <i>CL8</i> machine code back into human-readable assembly source for debugging.</p>
-                        <a href="https://github.com/connorjlink/disassembler"><i>github.com/connorjlink/disassembler</i></a>
+                <div class="wrappable-hstack">
+                    <div class="subitem shadowed halfpad-top">
+                        <h2>Emulator</h2>
+    
+                        <div class="nudge-up">
+                            <p>Designed to painlessly debug <i>CL8</i> binaries, <b><i>emulator</i></b> offers a readable behavior-level simulation of the <i>CL8</i> architecture.</p>
+                            <a href="https://github.com/connorjlink/emulator"><i>github.com/connorjlink/emulator</i></a>
+                        </div>
+                    </div>
+    
+                    <div class="subitem shadowed halfpad-top">
+                        <h2>Hardware</h2>
+    
+                        <div class="nudge-up">
+                            <p>A register-transfer-level design, <b><i>hardware</i></b> implements the <i>CL8</i> architecture in SystemVerilog for ultra-precise simulation.</p>
+                            <a href="https://github.com/connorjlink/hardware"><i>github.com/connorjlink/hardware</i></a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="subitem shadowed halfpad-top">
-                    <h2>Emulator</h2>
-
-                    <div class="nudge-up">
-                        <p>Designed to painlessly debug <i>CL8</i> binaries, <b><i>emulator</i></b> offers a readable behavior-level simulation of the <i>CL8</i> architecture.</p>
-                        <a href="https://github.com/connorjlink/emulator"><i>github.com/connorjlink/emulator</i></a>
-                    </div>
-                </div>
-
-                <div class="subitem shadowed halfpad-top">
-                    <h2>Hardware</h2>
-
-                    <div class="nudge-up">
-                        <p>A register-transfer-level design, <b><i>hardware</i></b> implements the <i>CL8</i> architecture in SystemVerilog for ultra-precise simulation.</p>
-                        <a href="https://github.com/connorjlink/hardware"><i>github.com/connorjlink/hardware</i></a>
-                    </div>
-                </div>
             </div>
 
         </article>
