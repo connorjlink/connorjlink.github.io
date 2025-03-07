@@ -52,11 +52,7 @@ body.insertAdjacentHTML("afterbegin", `
 
 // common copyright element
 body.insertAdjacentHTML("beforeend", `
-    <div class="dummy"></div>
-
-    <footer class="shadowed">
-        <span>&copy; 2025 Connor J. Link. All Rights Reserved.</span>
-    </footer>
+    <footer class="shadowed">&copy; 2025 Connor J. Link. All Rights Reserved.</footer>
 `);
 
 window.addEventListener('load', function() {
@@ -76,7 +72,19 @@ window.addEventListener('load', function() {
         this.document.querySelector('#home-radio').checked = true;
     }
 
-    // TODO: something
+    // TODO:
+    /*
+        - translate all pages to new HTML documents?
+        - add hreflang to head of all pages
+        - add subdomains to squarespace for each language
+        - update light theme so its not terrible
+            - lessen contrast of drop shadows
+            - darken background for code to improve legibility
+            - change navbar color to not be the same as page background
+            - bring back darken98, darken95?
+            - fix all item borders (including images) to be darker
+    
+    */
 });
 
 document.getElementById('home-radio').addEventListener('click', function() {

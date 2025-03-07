@@ -1,5 +1,5 @@
 :root {
-    --dark-background-d: rgb(31, 31, 31);
+    --dark-background-d: rgb(30, 30, 30);
     --dark-background: rgb(40, 40, 40);
     --dark-background-e: rgb(50, 50, 50);
     --dark-background-l: rgb(69, 69, 69);
@@ -8,7 +8,7 @@
     --light-background-d: rgb(220, 220, 220);
     --light-background: rgb(240, 240, 240);
     --light-background-e: rgb(250, 250, 250);
-    --light-background-l: rgb(255, 255, 255);
+    --light-background-l: rgb(200, 200, 200);
     --light-foreground: rgb(50, 50, 50);
     
     --purple: rgb(143, 132, 215);
@@ -31,24 +31,30 @@
 @media (prefers-color-scheme: dark) {
     :root {
         color-scheme: dark;
-    }
-
-    * {
         --background-l: var(--dark-background-l);
-        --background: var(--dark-background);
         --background-e: var(--dark-background-e);
+        --background: var(--dark-background);
         --background-d: var(--dark-background-d);
         --foreground: var(--dark-foreground);
+    }
+
+    .shadowed {
+        box-shadow:0 0 1em #000a;
     }
 }
 
 @media (prefers-color-scheme: light) {
-    * {
+    :root {
+        color-scheme: light;
         --background-l: var(--light-background-l);
-        --background: var(--light-background);
         --background-e: var(--light-background-e);
+        --background: var(--light-background);
         --background-d: var(--light-background-d);
         --foreground: var(--light-foreground);
+    }
+
+    .shadowed {
+        box-shadow:0 0 1em #0003;
     }
 }
 
@@ -60,159 +66,17 @@
     color: var(--foreground);
 }
 
-:root {
-    --comment: rgb(107, 164, 85);
-    --label: rgb(166, 113, 189);
-    --local-variable: rgb(145, 207, 250);
-    --global-variable: rgb(102, 208, 210);
-    --preprocessor: rgb(255, 200, 255);
-    --macro: rgb(189, 183, 250);
-    --enum-member: rgb(190, 214, 168);
-    --namespace: rgb(181, 221, 204);
-    --template-parameter: rgb(137, 219, 172);
-    --function-parameter: rgb(154, 154, 154);
-    --class-type-templated: rgb(113, 198, 177);
-    --class-type: rgb(137, 219, 172);
-    --control-keyword: rgb(200, 146, 214);
-    --keyword: rgb(103, 154, 209);
-    --operator: rgb(150, 197, 219);
-    --operator-overloaded: rgb(246, 202, 252);
-    --field: rgb(196, 207, 242);
-    --static-field: rgb(212, 175, 55);
-    --function: rgb(211, 211, 157);
-    --function-templated: rgb(221, 221, 174);
-    --static-method: rgb(171, 239, 167);
-    --string: rgb(175, 219, 159);
-    --integer-literal: rgb(186, 205, 171);
-    --plain-text: rgb(160, 222, 255);
-}
-
-.comment {
-    color: var(--comment);
-}
-
-.label {
-    color: var(--label);
-}
-
-.local-variable {
-    color: var(--local-variable);
-}
-
-.global-variable {
-    color: var(--global-variable);
-}
-
-.preprocessor {
-    color: var(--preprocessor);
-    font-weight: bold;
-    font-style: italic;
-}
-
-.macro {
-    color: var(--macro);
-}
-
-.enum-member {
-    color: var(--enum-member);
-}
-
-.namespace {
-    color: var(--namespace);
-}
-
-.template-parameter {
-    color: var(--template-parameter);
-}
-
-.function-parameter {
-    color: var(--function-parameter);
-}
-
-.class-type-templated {
-    color: var(--class-type-templated);
-}
-
-.class-type {
-    color: var(--class-type);
-}
-
-.control-keyword {
-    color: var(--control-keyword);
-    font-weight: bold;
-    font-style: italic;
-}
-
-.keyword {
-    color: var(--keyword);
-    font-weight: bold;
-    font-style: italic;
-}
-
-.operator {
-    color: var(--operator);
-}
-
-.operator-overloaded {
-    color: var(--operator-overloaded);
-}
-
-.field {
-    color: var(--field);
-}
-
-.static-field {
-    color: var(--static-field);
-}
-
-.function {
-    color: var(--function);
-}
-
-.function-templated {
-    color: var(--function-templated);
-}
-
-.static-method {
-    color: var(--static-method);
-}
-
-.string {
-    color: var(--string);
-}   
-
-.integer-literal {
-    color: var(--integer-literal);
-}
-
-.plain-text {
-    color: var(--plain-text);
-}
 
 
-a, a * {
+
+
+
+a {
     color: var(--blue);
 }
 
-a:visited, a:visited * {
+a:visited {
     color: var(--purple);
-}
-
-code {
-    text-align: left;
-    
-    * {
-        font-family: 'Consolig', 'Consolas', 'Fira Code', 'Fira Mono', 'Menlo Mono', monospace;
-        font-weight: normal;
-    }
-
-    pre {
-        padding: 10px;
-        background: var(--background-d);
-        color: var(--plain-text);
-        border: 1px solid var(--background-l);
-        border-radius: 10px;
-    }
 }
 
 nav {
@@ -228,7 +92,7 @@ nav {
     width: var(--nav-width);
 
     color: var(--foreground);
-    background: var(--background-e);
+    background: var(--background);
     border-right: 1px solid var(--background-l);
 
     clip-path: inset(0px -20px -20px -20px);
@@ -286,25 +150,12 @@ article {
     padding: var(--padding);
 }
 
-section, .subitem {
-    border: 1px solid var(--primary);
-}
-
-hr {
-    border-top: 0px;
-    border-left: 0px;
+.subitem {
+    border: 1px solid var(--background-l);
 }
 
 h1, h2, h3, .nudge-up {
     transform: translateY(-10px);
-}
-
-.force-up {
-    margin-top: -10px;
-}
-
-html {
-    height: 100%;
 }
 
 header {
@@ -319,7 +170,7 @@ header {
     top: 0;
     height: var(--header-height);
 
-    background: var(--background-e);
+    background: var(--background);
     border-bottom: 1px solid var(--background-l);
     z-index: 1;
 }
@@ -327,32 +178,24 @@ header {
 body {
     display: flex;
     flex-direction: column;
-
     font-weight: lighter;
     margin: 0;
     padding: 0;
+    background: var(--background-d);
 }
 
 footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     bottom: 0;
     height: var(--footer-height);
     width: 100%;
     border-top: 1px solid var(--background-l);
     background: var(--purple);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    color: white;
     z-index: 1;
-
-    span {
-        color: white;
-    }
-}
-
-.main {
-    width: 70%;
-    margin: auto;
 }
 
 .dummy {
@@ -370,11 +213,7 @@ footer {
         aspect-ratio: 1 / 1;
         height: var(--logo-height);
         border-radius: 50%;
-        border: 1px solid white;
-    }
-
-    a {
-        margin-bottom: 0;
+        border: none;
     }
 }
 
@@ -384,38 +223,6 @@ img {
     box-shadow: 0 0 1em #000a;
 }
 
-.toggle {
-    aspect-ratio: 1 / 1;
-    height: var(--logo-height);
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    position: relative;
-
-    p {
-        font-size: x-small;
-        transform: translateY(-2.5em);
-        color: white;
-    }
-
-    button {
-        position: absolute;
-        border-radius: 10px;
-        aspect-ratio: calc(1 / 1);
-        height: 30%;
-    }
-}
-
-.main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px 0;
-}
-
 section {
     padding: 20px;
     margin: 20px 0;
@@ -423,10 +230,6 @@ section {
     max-width: 800px;
     width: 100%;
     text-align: center;
-}
-
-.shadowed {
-    box-shadow:0 0 1em #000a;
 }
 
 .vstack {
@@ -458,15 +261,6 @@ section {
     margin-top: var(--half-padding);
 }
 
-.headshot {
-    max-width: 100%;
-    width: 100%;
-    aspect-ratio: 1 / 1;
-
-    border: 1px solid var(--background-l);
-    border-radius: 10px;
-}
-
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -474,24 +268,19 @@ section {
 }
 
 .grid-topleft {
-    /* set as column 0, row 0 */
     grid-column: 1;
     grid-row: 1;
 }
 
 .grid-bottomleft {
-    /* set as column 0, row 1 */
     grid-column: 1;
     grid-row: 2;
 }
 
 .grid-right {
-    /* set as column 1, 2 rows tall */
     grid-column: 2;
     grid-row: 1 / 3;
 }
-
-/* box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px; */
 
 .subitem {
     padding: var(--half-padding);
@@ -517,4 +306,11 @@ section {
 .right-list {
     text-align: left;
     font-weight: lighter;
+}
+
+.wrappable-hstack {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+    gap: var(--half-padding);
+    width: 100%;
 }
