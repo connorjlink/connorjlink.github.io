@@ -7,7 +7,7 @@ head.insertAdjacentHTML("beforeend", `
     <link rel="stylesheet" href="common.css">
 `);
 
-// common navigation bar element
+// common header element
 body.insertAdjacentHTML("afterbegin", `
     <header class="shadowed hstack">
     
@@ -16,9 +16,21 @@ body.insertAdjacentHTML("afterbegin", `
             <a class="title" id="index-tab" href="./">Connor J. Link</a>
         </div>
 
-    </header>
+        <div class="dummy"></div>
 
-    <nav class="shadowed">
+        <button id="navbar-toggle">&equiv;</button>
+
+    </header>
+`);
+
+// common navbar element
+// navbar is hidden on mobile by default!
+var extras = '';
+if (window.matchMedia("(max-width: 480px)").matches) {
+    extras = 'display: none;';
+}
+document.getElementById('page').insertAdjacentHTML("afterbegin", `
+    <nav class="shadowed" style="${extras}">
 
         <div class="nav-radio">
             <input type="radio" name="nav" id="home-radio" value="Home" checked>
@@ -45,15 +57,14 @@ body.insertAdjacentHTML("afterbegin", `
             <label for="contact-radio">Contact</label>
         </div>
 
-        <div class="dummy"></div>
-
     </nav>
 `);
 
-// common copyright element
+// common copyright footer element
 body.insertAdjacentHTML("beforeend", `
     <footer class="shadowed">&copy; 2025 Connor J. Link. All Rights Reserved.</footer>
 `);
+
 
 window.addEventListener('load', function() {
     const url = window.location.href;
@@ -105,4 +116,10 @@ document.getElementById('education-radio').addEventListener('click', function() 
 
 document.getElementById('contact-radio').addEventListener('click', function() {
     window.location.href = './contact';
+});
+
+
+const nav = document.querySelector('nav');
+document.getElementById('navbar-toggle').addEventListener('click', function() {
+    nav.style.display = (nav.style.display === 'none') ? 'initial' : 'none';
 });

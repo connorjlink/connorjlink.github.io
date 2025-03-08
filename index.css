@@ -33,3 +33,26 @@
 .six {
     grid-column: 3;
 }
+
+@media only screen and (max-width: 480px) {
+    .one {
+        grid-column: 1;
+    }
+    .two {
+        grid-column: 1;
+    }
+    
+    .three {
+        grid-column: 1;
+    }
+    .four {
+        grid-column: 1;
+    }
+
+    .five {
+        grid-column: 1;
+    }
+    .six {
+        grid-column: 1;
+    }
+}

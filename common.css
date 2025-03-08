@@ -1,4 +1,6 @@
 :root {
+    --is-mobile: 0;
+
     --dark-background-d: rgb(30, 30, 30);
     --dark-background: rgb(40, 40, 40);
     --dark-background-e: rgb(50, 50, 50);
@@ -17,12 +19,12 @@
     --accent-hovered: color-mix(in srgb, var(--purple) 80%, white);
     --accent-selected: var(--purple);
 
-    --half-padding: 25px;
-    --padding: 50px;
-
     --nav-width: 200px;
     --header-height: 60px;
     --footer-height: 25px;
+
+    --padding: 50px;
+    --half-padding: calc(var(--padding) / 2);
     
     --logo-height: calc(var(--header-height) / 1.5);
     --logo-gap: calc(var(--header-height) / 4);
@@ -66,9 +68,11 @@
     color: var(--foreground);
 }
 
-
-
-
+.title {
+    font-size: 30pt;
+    align-items: center;
+    line-height: 1;
+}
 
 
 a {
@@ -77,27 +81,6 @@ a {
 
 a:visited {
     color: var(--purple);
-}
-
-nav {
-    position: fixed;
-    top: var(--header-height);
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    flex-grow: 1;
-    flex-shrink: 0;
-    line-height: 2;
-    height: 100%;
-    width: var(--nav-width);
-
-    color: var(--foreground);
-    background: var(--background);
-    border-right: 1px solid var(--background-l);
-
-    clip-path: inset(0px -20px -20px -20px);
-
-    z-index: 1;
 }
 
 .nav-radio {
@@ -117,10 +100,14 @@ nav {
     }
 }
 
-
 .nav-radio:has(> input[type="radio"]:checked) {
     background: var(--accent-selected);
-    transition: background-color 500ms;
+    transition: background-color 200ms;
+}
+
+.nav-radio:hover {
+    background: var(--accent-hovered);
+    transition: background-color 200ms;
 }
 
 /* .nav-radio:has(> input[type="radio"]:checked)::before {
@@ -136,18 +123,26 @@ nav {
     padding-left: 10px;
 } */
 
+#navbar-toggle {
+    margin-right: var(--logo-gap);
+    height: var(--logo-height);
+    aspect-ratio: 1 / 1;
+    font-size: 20pt;
+    appearance: none;
+    border: none;
+    background: var(--background);
+    transition: background-color 200ms;
+    border-radius: 10px;
+}
 
-.nav-radio:hover {
-    background: var(--accent-hovered);
+#navbar-toggle:hover {
+    background: var(--background-e);
     transition: background-color 200ms;
 }
 
-article {
-    position: relative;
-    top: var(--header-height);
-    left: var(--nav-width);
-    width: calc(100% - var(--nav-width));
-    padding: var(--padding);
+#navbar-toggle:active {
+    background: var(--background-l);
+    transition: background-color 200ms;
 }
 
 .subitem {
@@ -164,24 +159,57 @@ header {
     align-items: center;
     justify-content: space-between;
     text-align: center;
-
     position: fixed;
     width: 100%;
     top: 0;
     height: var(--header-height);
-
     background: var(--background);
     border-bottom: 1px solid var(--background-l);
     z-index: 1;
+    grid-row: 1;
+    grid-column: 1 / 3;
 }
 
-body {
+nav {
+    flex-shrink: 0;
+
+    line-height: 2;
+    margin-top: var(--header-height);
+    width: var(--nav-width);
+    min-width: var(--nav-width);
+    color: var(--foreground);
+    background: var(--background);
+    border-right: 1px solid var(--background-l);
+    clip-path: inset(0px -20px -20px -20px);
+    z-index: 1;
+}
+
+article {
+    margin-top: var(--header-height);
+    padding: var(--padding);
+    flex: 1;
+    overflow-y: auto; /* Enable scrolling */
+}
+
+#page {
     display: flex;
-    flex-direction: column;
-    font-weight: lighter;
+    flex: 1;
+    overflow: hidden;
+}
+
+
+/* TODO: also fix the bug with the code size on the right column (current published website portfolio page) */
+body {
     margin: 0;
     padding: 0;
+    font-weight: lighter;
     background: var(--background-d);
+}
+
+body, html {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 footer {
@@ -247,12 +275,6 @@ section {
     flex-shrink: 1;
 }
 
-.title {
-    font-size: 30pt;
-    align-items: center;
-    line-height: 1;
-}
-
 .pad-top {
     margin-top: var(--padding);
 }
@@ -263,21 +285,20 @@ section {
 
 .grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: var(--padding);
 }
 
-.grid-topleft {
+.grid-intro {
     grid-column: 1;
     grid-row: 1;
 }
 
-.grid-bottomleft {
+.grid-mission {
     grid-column: 1;
     grid-row: 2;
 }
 
-.grid-right {
+.grid-image {
     grid-column: 2;
     grid-row: 1 / 3;
 }
@@ -313,4 +334,46 @@ section {
     grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
     gap: var(--half-padding);
     width: 100%;
+}
+
+
+
+@media only screen and (max-width: 480px) {
+    :root {
+        --is-mobile: 1;
+
+        --nav-width: 100px;
+        --header-height: 40px;
+        --footer-height: 20px;
+
+        --padding: 20px;
+        --half-padding: calc(var(--padding) / 2);
+    }
+
+    .grid-image {
+        grid-row: 1;
+        grid-column: 1;
+    }
+
+    .grid-intro {
+        grid-row: 2;
+        grid-column: 1;
+
+    }
+    
+    .grid-mission {
+        grid-row: 3;
+        grid-column: 1;
+    }
+    
+    nav {
+        position: fixed;
+        min-width: initial;
+        width: 100%;
+        height: fit-content;
+    }
+
+    .title {
+        font-size: 20pt;
+    }
 }
