@@ -18,10 +18,25 @@ body.insertAdjacentHTML("afterbegin", `
 
         <div class="dummy"></div>
 
-        <button id="navbar-toggle">&equiv;</button>
+        <button id="navbar-toggle">
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/>
+            </svg>
+        </button>
 
     </header>
 `);
+
+/*
+TODO: add a custom flag for the spanish pages to report a translation issue!
+<svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 14v7M5 4.971v9.541c5.6-5.538 8.4 2.64 14-.086v-9.54C13.4 7.61 10.6-.568 5 4.97Z"/>
+</svg>
+
+
+
+*/
+
 
 // common navbar element
 // navbar is hidden on mobile by default!

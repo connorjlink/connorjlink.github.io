@@ -7,6 +7,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta property="og:image" content="https://connorjlink.com/res/logo.jpg">
     	<meta name="description" content="Connor Link. Computer engineering student at Iowa State University. Dubuque, Iowa, United States. Interests in compilers, processor design, and graphics."> 
+
+        <style>
+			@media (prefers-color-scheme: dark) {
+				html {
+					background: rgb(40, 40, 40);
+				}
+			}
+		</style>
     </head>
 
     <body>
@@ -34,7 +42,8 @@
 
                         <p>Displayed below are a sample program compilation input and output.</p>
 
-                        <div class="titanium-images custom-code">
+                        <div class="haze-images custom-code">
+
                             <figure>
                                 <code>
                                     <pre class="shadowed"><span class="preprocessor">.include</span> <span class="string">"std.hz"</span>
@@ -86,6 +95,7 @@
 
                                 <figcaption>test.hzs</figcaption>
                             </figure>
+
                         </div>
                     </div>
 
@@ -98,7 +108,8 @@
     
                         <p>Shown below are both a standalone "unhook" and <i>geo</i>-interfacing script.</p>
     
-                        <div class="titanium-images custom-code">
+                        <div class="haze-images custom-code">
+
                             <figure>
                                 <code>
                                     <pre class="shadowed"><span class="preprocessor">.include</span> <span class="string">"std.hzi"</span>
@@ -114,7 +125,7 @@
 
 <span class="keyword">function</span> <span class="keyword">nvr</span> <span class="function">main</span>()
 {
-    <span class="comment">// don't install MQTT hook</span>
+    <span class="comment">// no MQTT hook install</span>
     <span class="keyword">.unhook</span>
     <span class="keyword">byte</span> <span class="local-variable">foo</span> = $<span class="macro">MUL</span>(<span class="macro">A</span>, <span class="macro">B</span>) <span class="operator">+</span> <span class="macro">C</span>;
     <span class="keyword">print</span>(<span class="local-variable">foo</span> <span class="operator">*</span> <span class="integer-literal">2</span>); <span class="comment">// output: 10</span>
@@ -147,10 +158,11 @@
 
                                 <figcaption>hook.hzi</figcaption>
                             </figure>
+
                         </div>
                     </div>
 
-                    <div class="subitem shadowed haze-middle">
+                    <div class="subitem shadowed">
                         <h2>Assembler</h2>
     
                         <div class="nudge-up">
@@ -158,7 +170,7 @@
                         </div>
                     </div>
 
-                    <div class="subitem shadowed haze-middle">
+                    <div class="subitem shadowed">
                         <h2>Emulator</h2>
     
                         <div class="nudge-up">
@@ -166,7 +178,7 @@
                         </div>
                     </div>
 
-                    <div class="subitem shadowed haze-middle">
+                    <div class="subitem shadowed">
                         <h2>Language Server</h2>
     
                         <div class="nudge-up">
@@ -177,12 +189,10 @@
                                 <li><i><a href="https://marketplace.visualstudio.com/items?itemName=connorjlink.haze-ls">marketplace.visualstudio.com/items?itemName=connorjlink.haze-ls</a></i></li>
                             </ul>
     
-                            <div class="titanium-images">
-                                <figure>
-                                    <img src="../res/vscode_ls.jpg">
-                                    <figcaption>HazeLS VSCode Extension</figcaption>
-                                </figure>
-                            </div>
+                            <figure>
+                                <img src="../res/vscode_ls.jpg">
+                                <figcaption>HazeLS VSCode Extension</figcaption>
+                            </figure>
                         </div>
                     </div>
 
@@ -198,12 +208,10 @@
                     <i><a href="https://github.com/connorjlink/inspector">github.com/connorjlink/inspector</a></i>
                 </div>
 
-                <div class="titanium-images">
-                    <figure>
-                        <img src="../res/inspector.jpg">
-                        <figcaption>Transmit Loopback</figcaption>
-                    </figure>
-                </div>
+                <figure class="single-image">
+                    <img src="../res/inspector.jpg">
+                    <figcaption>Transmit Loopback</figcaption>
+                </figure>
             </div>
 
             <div class="subitem shadowed pad-top">
@@ -240,7 +248,7 @@
                 <p>&nbsp;</p>
                 <p>Depicted below are sample renders from all three programs.</p>
 
-                <div class="titanium-images">
+                <div class="haze-images">
                     <figure>
                         <img src="../res/geo.jpg">
                         <figcaption>Voxel Renderer</figcaption>
@@ -272,7 +280,8 @@
 
                     <p>Displayed below are a sample program compilation input and output.</p>
 
-                    <div class="titanium-images custom-code half-width centered">
+                    <div class="haze-images custom-code half-width">
+
                         <figure>
                             <code>
                                 <pre class="shadowed"><span class="preprocessor">.macro</span> <span class="macro">BIT</span> = (<span class="identifier">a</span>):
@@ -324,6 +333,7 @@
 
                             <figcaption>test.ti.s</figcaption>
                         </figure>
+
                     </div>
                 </div>
 
@@ -337,8 +347,9 @@
                     </div>
                 </div>
 
-                <div class="wrappable-hstack">
-                    <div class="subitem shadowed halfpad-top">
+                <div class="wrap-children halfpad-top">
+
+                    <div class="subitem shadowed">
                         <h2>Assembler</h2>
     
                         <div class="nudge-up">
@@ -347,7 +358,7 @@
                         </div>
                     </div>
     
-                    <div class="subitem shadowed halfpad-top">
+                    <div class="subitem shadowed">
                         <h2>Disassembler</h2>
     
                         <div class="nudge-up">
@@ -355,19 +366,21 @@
                             <i><a href="https://github.com/connorjlink/disassembler">github.com/connorjlink/disassembler</a></i>
                         </div>
                     </div>
+
                 </div>
 
-                <div class="wrappable-hstack">
-                    <div class="subitem shadowed halfpad-top">
+                <div class="wrap-children halfpad-top">
+
+                    <div class="subitem shadowed">
                         <h2>Emulator</h2>
     
                         <div class="nudge-up">
-                            <p>Designed to painlessly debug <i>CL8</i> binaries, <b><i>emulator</i></b> offers a readable behavior-level simulation of the <i>CL8</i> architecture.</p>
+                            <p>Designed to painlessly debug <i>CL8</i> binaries, <b><i>emulator</i></b> offers a readable behavior-level simulation of the <i>CL8</i> architecture.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                             <i><a href="https://github.com/connorjlink/emulator">github.com/connorjlink/emulator</a></i>
                         </div>
                     </div>
     
-                    <div class="subitem shadowed halfpad-top">
+                    <div class="subitem shadowed">
                         <h2>Hardware</h2>
     
                         <div class="nudge-up">
@@ -375,6 +388,7 @@
                             <i><a href="https://github.com/connorjlink/hardware">github.com/connorjlink/hardware</a></i>
                         </div>
                     </div>
+
                 </div>
 
             </div>

@@ -127,7 +127,7 @@
     color: var(--plain-text);
 }
 
-.titanium-images {
+.haze-images {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -152,9 +152,11 @@
 
 code {
     text-align: left;
+    text-wrap: wrap;
     
     pre, span, i {
-        font-family: 'Consolig', 'Consolas', 'Fira Code', 'Fira Mono', 'Menlo Mono', monospace;
+        font-family: 'Consolig', 'Consolas', monospace;
+        font-style: normal;
         font-weight: normal;
         color: var(--dark-foreground);
     }
@@ -172,15 +174,28 @@ code {
     width: 50%;
 }
 
-.centered {
-    margin-left: auto;
-    margin-right: auto;
+.single-image {
+    width: 50%;
+
+    img {
+        width: 100%;
+    }
 }
 
 .custom-code {
     flex-wrap: wrap;
     
     figure {
+        flex: 1;
+    }
+}
+
+.wrap-children {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--half-padding);
+    
+    div {
         flex: 1;
     }
 }

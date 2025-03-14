@@ -110,20 +110,10 @@ a:visited {
     transition: background-color 200ms;
 }
 
-/* .nav-radio:has(> input[type="radio"]:checked)::before {
-    content: "";
-    position: relative;
-    height: 30px;
-    width: 5px;
-    vertical-align: middle;
-    border-radius: 50%;
-    background-color: white;
-    color: var(--foreground);
-    padding-right: -10px;
-    padding-left: 10px;
-} */
-
 #navbar-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-right: var(--logo-gap);
     height: var(--logo-height);
     aspect-ratio: 1 / 1;
@@ -133,6 +123,10 @@ a:visited {
     background: var(--background);
     transition: background-color 200ms;
     border-radius: 10px;
+
+    svg {
+        color: var(--foreground);
+    }
 }
 
 #navbar-toggle:hover {
@@ -328,15 +322,6 @@ section {
     text-align: left;
     font-weight: lighter;
 }
-
-.wrappable-hstack {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
-    gap: var(--half-padding);
-    width: 100%;
-}
-
-
 
 @media only screen and (max-width: 480px) {
     :root {

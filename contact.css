@@ -16,8 +16,12 @@ ul {
     }
 }
 
-.contact-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+.wrap-children {
+    display: flex;
+    flex-wrap: wrap;
     gap: var(--half-padding);
+    
+    div {
+        flex: 1;
+    }
 }
