@@ -130,6 +130,7 @@
 .haze-images {
     display: flex;
     justify-content: center;
+    gap: var(--half-padding);
     width: 100%;
 
     figure {
@@ -188,9 +189,11 @@ code {
 
 .custom-code {
     flex-wrap: wrap;
+    gap: var(--half-padding);
     
     figure {
         flex: 1;
+        min-width: 200px;
     }
 }
 

@@ -2,11 +2,6 @@ const head = document.querySelector('head');
 const body = document.querySelector('body');
 const root = document.querySelector(':root');
 
-// inject common styles
-head.insertAdjacentHTML("beforeend", `
-    <link rel="stylesheet" href="common.css">
-`);
-
 // common header element
 body.insertAdjacentHTML("afterbegin", `
     <header class="shadowed hstack">
@@ -28,13 +23,10 @@ body.insertAdjacentHTML("afterbegin", `
 `);
 
 /*
-TODO: add a custom flag for the spanish pages to report a translation issue!
+Custom flag symbol:
 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 14v7M5 4.971v9.541c5.6-5.538 8.4 2.64 14-.086v-9.54C13.4 7.61 10.6-.568 5 4.97Z"/>
 </svg>
-
-
-
 */
 
 
@@ -44,40 +36,72 @@ var extras = '';
 if (window.matchMedia("(max-width: 480px)").matches) {
     extras = 'display: none;';
 }
+
+var home = '', portfolio = '', experience = '', education = '', contact = '';
+switch (document.documentElement.lang) {
+    case 'en':
+        home = 'Home';
+        portfolio = 'Portfolio';
+        experience = 'Experience';
+        education = 'Education';
+        contact = 'Contact';
+        break;
+
+    case 'es':
+        home = 'Inicio';
+        portfolio = 'Portafolio';
+        experience = 'Experiencia';
+        education = 'Educación';
+        contact = 'Contacto';
+        break;
+}
+
 document.getElementById('page').insertAdjacentHTML("afterbegin", `
     <nav class="shadowed" style="${extras}">
 
         <div class="nav-radio">
-            <input type="radio" name="nav" id="home-radio" value="Home" checked>
-            <label for="home-radio">Home</label>
+            <input type="radio" name="nav" id="home-radio" checked>
+            <label for="home-radio">${home}</label>
         </div>
 
         <div class="nav-radio">
             <input type="radio" name="nav" id="portfolio-radio">
-            <label for="portfolio-radio">Portfolio</label>
+            <label for="portfolio-radio">${portfolio}</label>
         </div>
 
         <div class="nav-radio">
             <input type="radio" name="nav" id="experience-radio">
-            <label for="experience-radio">Experience</label>
+            <label for="experience-radio">${experience}</label>
         </div>
 
         <div class="nav-radio">
             <input type="radio" name="nav" id="education-radio">
-            <label for="education-radio">Education</label>
+            <label for="education-radio">${education}</label>
         </div>
 
         <div class="nav-radio">
             <input type="radio" name="nav" id="contact-radio">
-            <label for="contact-radio">Contact</label>
+            <label for="contact-radio">${contact}</label>
         </div>
 
-    </nav>
+    </nav>    
 `);
 
+
 // common copyright footer element
+var copyright = '';
+switch (document.documentElement.lang) {
+    case 'en':
+        copyright = '&copy; 2025 Connor J. Link. All Rights Reserved.';
+        break;
+
+    case 'es':
+        copyright = '&copy; 2025 Connor J. Link. Todos los Derechos Reservados.';
+        break;
+}
+
 body.insertAdjacentHTML("beforeend", `
-    <footer class="shadowed">&copy; 2025 Connor J. Link. All Rights Reserved.</footer>
+    <footer class="shadowed">${copyright}</footer>
 `);
 
 
@@ -97,20 +121,6 @@ window.addEventListener('load', function() {
     } else {
         this.document.querySelector('#home-radio').checked = true;
     }
-
-    // TODO:
-    /*
-        - translate all pages to new HTML documents?
-        - add hreflang to head of all pages
-        - add subdomains to squarespace for each language
-        - update light theme so its not terrible
-            - lessen contrast of drop shadows
-            - darken background for code to improve legibility
-            - change navbar color to not be the same as page background
-            - bring back darken98, darken95?
-            - fix all item borders (including images) to be darker
-    
-    */
 });
 
 document.getElementById('home-radio').addEventListener('click', function() {
