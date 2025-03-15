@@ -127,13 +127,14 @@
     color: var(--plain-text);
 }
 
-.titanium-images {
+.haze-images {
     display: flex;
     justify-content: center;
+    gap: var(--half-padding);
     width: 100%;
 
     figure {
-        margin: 5px;
+        margin: 0;
 
         code {
 
@@ -154,12 +155,14 @@ code {
     text-align: left;
     
     pre, span, i {
-        font-family: 'Consolig', 'Consolas', 'Fira Code', 'Fira Mono', 'Menlo Mono', monospace;
+        font-family: 'Consolas', monospace;
+        font-style: normal;
         font-weight: normal;
         color: var(--dark-foreground);
     }
     
     pre {
+        text-wrap: wrap;
         padding: 10px;
         background: var(--dark-background-d);
         color: var(--plain-text);
@@ -168,30 +171,38 @@ code {
     }
 }
 
-.half-width {
+.single-image {
     width: 50%;
+    margin: auto;
+
+    img {
+        width: 100%;
+    }
 }
 
-.centered {
-    margin-left: auto;
-    margin-right: auto;
+@media only screen and (max-width: 480px) {
+    .single-image {
+        width: 100%;
+    }
+
 }
 
 .custom-code {
     flex-wrap: wrap;
+    gap: var(--half-padding);
     
     figure {
         flex: 1;
+        min-width: 200px;
     }
 }
 
-.haze-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
+.wrap-children {
+    display: flex;
+    flex-wrap: wrap;
     gap: var(--half-padding);
-}
-
-.haze-middle {
-    grid-column: 1 / 3;
+    
+    div {
+        flex: 1;
+    }
 }
