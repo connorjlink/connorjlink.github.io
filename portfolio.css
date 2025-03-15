@@ -133,7 +133,7 @@
     width: 100%;
 
     figure {
-        margin: 5px;
+        margin: 0;
 
         code {
 
@@ -152,16 +152,16 @@
 
 code {
     text-align: left;
-    text-wrap: wrap;
     
     pre, span, i {
-        font-family: 'Consolig', 'Consolas', monospace;
+        font-family: 'Consolas', monospace;
         font-style: normal;
         font-weight: normal;
         color: var(--dark-foreground);
     }
     
     pre {
+        text-wrap: wrap;
         padding: 10px;
         background: var(--dark-background-d);
         color: var(--plain-text);
@@ -170,16 +170,20 @@ code {
     }
 }
 
-.half-width {
-    width: 50%;
-}
-
 .single-image {
     width: 50%;
+    margin: auto;
 
     img {
         width: 100%;
     }
+}
+
+@media only screen and (max-width: 480px) {
+    .single-image {
+        width: 100%;
+    }
+
 }
 
 .custom-code {
@@ -198,15 +202,4 @@ code {
     div {
         flex: 1;
     }
-}
-
-.haze-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    gap: var(--half-padding);
-}
-
-.haze-middle {
-    grid-column: 1 / 3;
 }

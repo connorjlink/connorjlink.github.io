@@ -31,7 +31,7 @@
                     <i><a href="https://github.com/connorjlink/haze">github.com/connorjlink/haze</a></i>
                 </div>
 
-                <div class="haze-grid">
+                <div class="wrap-children">
 
                     <div class="subitem shadowed halfpad-top">
                         <h2>Compiler</h2>
@@ -162,40 +162,45 @@
                         </div>
                     </div>
 
-                    <div class="subitem shadowed">
+                </div>
+                
+                <div class="wrap-children halfpad-top">
+
+                    <div class="subitem shadowed ">
                         <h2>Assembler</h2>
     
                         <div class="nudge-up">
                             <p>Internally utilizing the powerful <i>haze</i> frontend, <b><i>assembler</i></b> transforms custom assembly language source code into <i>haze</i> machine code </p>
                         </div>
                     </div>
-
+    
                     <div class="subitem shadowed">
                         <h2>Emulator</h2>
-    
+        
                         <div class="nudge-up">
                             <p>Simulating <i>haze</i> machine code program execution at several KHz, <b><i>emulator</i></b> eases smoke-testing with live data watches and on-the-fly disassembly.</p>
                         </div>
                     </div>
 
-                    <div class="subitem shadowed">
-                        <h2>Language Server</h2>
-    
-                        <div class="nudge-up">
-                            <p>A fully LSP-compliant language server implementation, <b><i>haze-ls</i></b> offers contextual autocomplete and custom syntax highlighting for the <i>haze</i> language in VSCode.</p>
-    
-                            <ul>
-                                <li><i><a href="https://github.com/connorjlink/haze-ls">github.com/connorjlink/haze-ls</a></i></li>
-                                <li><i><a href="https://marketplace.visualstudio.com/items?itemName=connorjlink.haze-ls">marketplace.visualstudio.com/items?itemName=connorjlink.haze-ls</a></i></li>
-                            </ul>
-    
-                            <figure>
-                                <img src="../res/vscode_ls.jpg">
-                                <figcaption>HazeLS VSCode Extension</figcaption>
-                            </figure>
-                        </div>
-                    </div>
+                </div>
+                
 
+                <div class="subitem shadowed halfpad-top">
+                    <h2>Language Server</h2>
+    
+                    <div class="nudge-up">
+                        <p>A fully LSP-compliant language server implementation, <b><i>haze-ls</i></b> offers contextual autocomplete and custom syntax highlighting for the <i>haze</i> language in VSCode.</p>
+    
+                        <ul>
+                            <li><i><a href="https://github.com/connorjlink/haze-ls">github.com/connorjlink/haze-ls</a></i></li>
+                            <li><i><a href="https://marketplace.visualstudio.com/items?itemName=connorjlink.haze-ls">marketplace.visualstudio.com/items?itemName=connorjlink.haze-ls</a></i></li>
+                        </ul>
+    
+                        <figure class="single-image">
+                            <img src="../res/vscode_ls.jpg">
+                            <figcaption>HazeLS VSCode Extension</figcaption>
+                        </figure>
+                    </div>
                 </div>
 
             </div>
@@ -280,7 +285,7 @@
 
                     <p>Displayed below are a sample program compilation input and output.</p>
 
-                    <div class="haze-images custom-code half-width">
+                    <div class="haze-images custom-code single-image">
 
                         <figure>
                             <code>
