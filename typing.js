@@ -204,10 +204,6 @@ var spanishWords = [
     "menos",
 ];
 
-var sentence = "";
-var words = [];
-var characters = [];
-
 var language = "";
 var wordCount = 0;
 
@@ -218,6 +214,8 @@ var test = document.getElementById("test");
 var caret = document.getElementById("caret");
 var input = document.getElementById("input");
 
+var resultsContainer = document.getElementById("results-container");
+
 languageSelect.addEventListener("change", function() {
     regenerateSentence();
 });
@@ -226,12 +224,16 @@ wordsSelect.addEventListener("change", function() {
     regenerateSentence();
 });
 
+var characters = null;
+
 var wordsSpans = null;
 var lettersSpans = null;
 
 function regenerateSentence() {
     language = languageSelect.value;
     wordCount = parseInt(wordsSelect.value);
+
+    let sentence = "";
 
     if (language == "en") {
         for (let i = 0; i < wordCount; i++) {
@@ -245,24 +247,24 @@ function regenerateSentence() {
 
     }
 
-    words = sentence.split(" ");
+    let words = sentence.split(" ");
     characters = words.map(word => word.split(""));
 
     test.innerHTML = '';
 
-    for (var word of characters) {
-        var span = document.createElement("span");
+    for (let word of characters) {
+        let span = document.createElement("span");
         span.classList.add("word");
 
-        for (var char of word) {
-            var letter = document.createElement("span");
+        for (let char of word) {
+            let letter = document.createElement("span");
             letter.classList.add("letter");
             letter.textContent = char;
             span.appendChild(letter);
         }
 
-        var space = document.createElement("span");
-        space.classList.add("space");
+        let space = document.createElement("span");
+        space.classList.add("letter");
         space.textContent = " ";
         span.appendChild(space);
 
@@ -291,6 +293,13 @@ function updateCaret() {
     let boundingBox = currentLetter.getBoundingClientRect();
 
     caret.style.transform = `translate(${boundingBox.left}px, ${boundingBox.top}px)`;
+}
+
+function finishTest() {
+    stopTime = performance.now();
+    processResults();
+    done = true;
+    caret.style.display = "none";
 }
 
 function onInput(letter) {
@@ -336,7 +345,14 @@ function onInput(letter) {
         // special case for space to start the next word
         
         if (mistakesThisWord == 0) {
-            wordsSpans[currentWordIndex].classList.add("correct");
+            if (currentLetterIndex > 0) {
+                wordsSpans[currentWordIndex].classList.add("correct");
+
+            } else {
+                wordsSpans[currentWordIndex].classList.add("incorrect");
+                totalMistakes += lettersSpans[currentWordIndex].length;
+                mistakesThisWord += lettersSpans[currentWordIndex].length;
+            }
 
         } else {
             wordsSpans[currentWordIndex].classList.add("incorrect");
@@ -352,11 +368,8 @@ function onInput(letter) {
         currentWordIndex++;
         currentLetterIndex = 0;
 
-        if (currentWordIndex >= wordsSpans.length) {
-            stopTime = performance.now();
-            processResults();
-            done = true;
-            updateCaret();
+        if (currentWordIndex == wordsSpans.length - 1) {
+            finishTest();
             return;
         }
 
@@ -366,7 +379,7 @@ function onInput(letter) {
     } else {
         let letters = lettersSpans[currentWordIndex];
 
-        if (currentLetterIndex < letters.length - 1) {
+        if (currentLetterIndex <= letters.length - 1) {
             let currentLetter = letters[currentLetterIndex];
 
             if (letter == currentLetter.textContent) {
@@ -379,6 +392,11 @@ function onInput(letter) {
             }
 
             currentLetterIndex++;
+
+        } else if (currentLetterIndex == letters.length - 1 && currentWordIndex == wordsSpans.length - 1) {
+            // last letter of the last word
+            finishTest();
+            return;
         }
     }
 
@@ -413,9 +431,7 @@ function processResults() {
     document.getElementById("corrected-mistakes").textContent = `${correctedMistakes}`;
     document.getElementById("time-taken").textContent = `${timeTaken.toFixed(2)} seconds`;
 
-    document.getElementById("results-container").style.display = "block";
-
-    caret.style.display = "none";
+    resultsContainer.style.display = "block";
 }
 
 // initialize the default test and populate test visuals
@@ -428,21 +444,43 @@ input.addEventListener("keydown", function(event) {
     }
 });
 
+function restartTest() {
+    test.innerHTML = '';
+    regenerateSentence();
+    currentLetterIndex = 0;
+    currentWordIndex = 0;
+    mistakesThisWord = 0;
+    totalMistakes = 0;
+    mistakesPerWord = [];
+    done = false;
+    startTime = null;
+    stopTime = null;
+    input.value = '';
+    caret.style.display = "block";
+    updateCaret();
+    input.focus();
+    wordsSpans[currentWordIndex].classList.toggle("active", true);
+    resultsContainer.style.display = "none";
+}
+
+restartTest();
+
 document.addEventListener("keydown", function(event) {
     if (event.key === "Tab") {
         event.preventDefault();
-        test.innerHTML = '';
-        regenerateSentence();
-        input.focus();
+        restartTest();
     }
 });
 
-input.addEventListener("input", function(event) {
-    onInput(input.value)
+input.addEventListener("compositionend", function(event) {
+    onInput(event.data);
 });
 
-
-input.focus();
+input.addEventListener("input", function(event) {
+    if (!event.isComposing) {
+        onInput(input.value)
+    }
+});
 
 document.getElementById("test-container").addEventListener("click", function() {
     input.focus();
