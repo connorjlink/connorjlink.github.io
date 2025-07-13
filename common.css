@@ -164,6 +164,7 @@ header {
 
 nav {
     flex-shrink: 0;
+    height: 100%;
 
     line-height: 2;
     margin-top: var(--header-height);
@@ -356,6 +357,7 @@ section {
     }
     
     nav {
+        display: none;
         position: fixed;
         min-width: initial;
         width: 100%;
