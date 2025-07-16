@@ -6,7 +6,7 @@
     "scripts": {
         "predev": "node injector.cjs",
         "dev": "node injector.cjs && vite",
-        "build": "node injector.cjs && vite build && node renamer.cjs",
+        "build": "node injector.cjs && vite build && node renamer.cjs && copy CNAME \"./docs/CNAME\" && copy favicon.ico \"./docs/favicon.ico\"",
         "lint": "eslint .",
         "preview": "vite preview"
     },
