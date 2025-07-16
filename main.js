@@ -33,6 +33,7 @@ function navigate(url) {
     history.pushState({ url }, "", url);
     loadPage(url);
 }
+window.navigate = navigate;
 
 window.addEventListener("popstate", e => {
     if (e.state?.url) {
