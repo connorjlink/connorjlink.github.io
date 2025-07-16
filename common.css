@@ -360,6 +360,8 @@ section {
         min-width: initial;
         width: 100%;
         height: fit-content;
+        /* hide the nav on mobile by default */
+        display: none;
     }
 
     .title {
