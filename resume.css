@@ -7,7 +7,7 @@ body {
     --spacing: 5px;
     --foreground: rgb(17, 27, 83);
 
-    font-size: 10.7pt;
+    font-size: 10pt;
 }
 
 * {
@@ -126,7 +126,7 @@ li {
     justify-content: right;
     width: 100%;
     padding: 0;
-    transform: translateY(-50%);
+    transform: translate(-1%, -110%);
 }
 
 .space-between {
