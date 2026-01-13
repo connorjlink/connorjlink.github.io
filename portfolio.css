@@ -415,6 +415,16 @@ details.project-card > summary::marker {
     border-color: color-mix(in srgb, #FA7343 55%, var(--background-l));
 }
 
+.badge--swiftui {
+    background: color-mix(in srgb, #4AC5F8 25%, var(--background-e));
+    border-color: color-mix(in srgb, #4AC5F8 55%, var(--background-l));
+}
+
+.badge--udp {
+    background: color-mix(in srgb, #FFAA00 25%, var(--background-e));
+    border-color: color-mix(in srgb, #FFAA00 55%, var(--background-l));
+}
+
 .badge--svelte {
     background: color-mix(in srgb, #FF3E00 25%, var(--background-e));
     border-color: color-mix(in srgb, #FF3E00 55%, var(--background-l));
