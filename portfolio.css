@@ -173,7 +173,7 @@ code {
 
 .single-image {
     width: 50%;
-    margin: auto;
+    margin-inline: auto;
 
     img {
         width: 100%;
