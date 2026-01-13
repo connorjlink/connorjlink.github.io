@@ -1,4 +1,19 @@
+import './symbol-icon.js';
+
 const articleContent = document.querySelector("article");
+
+function openDetailsForHash() {
+    const hash = window.location.hash;
+    if (!hash || hash.length < 2) return;
+
+    const target = document.getElementById(hash.substring(1));
+    if (!target) return;
+
+    const details = target.closest('details');
+    if (details) {
+        details.open = true;
+    }
+}
 
 function loadPage(url) {
     fetch(url)
@@ -20,6 +35,8 @@ function loadPage(url) {
                     document.head.appendChild(newLink);
                 }
             });
+
+            openDetailsForHash();
         });
     console.log(`Loaded page: ${url}`);
 }
@@ -73,6 +90,9 @@ function parseUrlForNavbar() {
 }
 
 window.addEventListener('load', parseUrlForNavbar);
+
+window.addEventListener('load', openDetailsForHash);
+window.addEventListener('hashchange', openDetailsForHash);
 
 const nav = document.querySelector('nav');
 document.getElementById('navbar-toggle').addEventListener('click', function() {

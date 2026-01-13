@@ -2,9 +2,10 @@
 <html lang="en">
     <head>
         <title>Connor J. Link &mdash; Portfolio</title>
-        <link rel="stylesheet" href="../portfolio.css"/>
-
+        
         <!-- inject:commonHead -->
+
+        <link rel="stylesheet" href="../portfolio.css"/>
     </head>
 
     <body>
@@ -15,32 +16,45 @@
 
         <!-- inject:commonNavbar -->
 
-        <article>
-            
-            <div class="subitem shadowed">
-                <h1 id="haze">Haze</h1>
-                
-                <div class="nudge-up">
-                    <p>A bespoke, from-scratch, full-stack toolchain for my new processor architecture, <b><i>haze</i></b>.</p>
-                    <i><a href="https://github.com/connorjlink/haze">github.com/connorjlink/haze</a></i>
-                </div>
+        <article class="portfolio-cards">
 
-                <div class="wrap-children">
-
-                    <div class="subitem shadowed halfpad-top">
-                        <h2>Compiler</h2>
-
-                        <div class="nudge-up">
-                            <p>Atop a custom recursive-descent parser, <b><i>compiler</i></b> implements my own <i>haze</i> compiled programming language with custom backends and linkers for both <i>haze</i> and x86_64 processors. </p>
+            <details class="project-card shadowed">
+                <summary>
+                    <div class="project-card__summary">
+                        <div class="project-card__icon">
+                            <symbol-icon text="Hz" size="64" shadow-color="rgb(40, 80, 130)" foreground-top-color="rgb(150, 197, 219)" foreground-bottom-color="rgb(50, 100, 160)" background-top-color="rgb(103, 154, 209)" background-bottom-color="rgb(143, 132, 213)"></symbol-icon>
                         </div>
+                        <div class="project-card__text">
+                            <h1 class="project-card__title" id="haze">Haze</h1>
+                            <p class="project-card__desc">A compiler and linker toolchain for my custom programming language targeting x86 and RISC-V.</p>
+                            <div class="project-card__badges">
+                                <span class="badge badge--cpp">C++</span>
+                                <span class="badge badge--asmx86">x86 Assembly</span>
+                                <span class="badge badge--asmriscv">RISC-V Assembly</span>
+                                <span class="badge badge--websockets">WebSockets</span>
+                            </div>
+                        </div>
+                    </div>
+                </summary>
 
-                        <p>Displayed below are a sample program compilation input and output.</p>
+                <div class="project-card__body">
+                    <p>A bespoke, from-scratch, full-stack toolchain for my custom programming language, <b><i>haze</i></b>, targeting x86 Windows (32-bit) and RISC-V bare-metal (32-bit). <b><i>Haze</i></b> includes a custom compiler, assembler, linker, and language server daemon designed to interface with <b><i>Clarity</i></b>, a powerful analysis tool designed to complement the toolset.</p>
+                    <i><a href="https://github.com/connorjlink/haze">github.com/connorjlink/haze</a></i>
 
-                        <div class="haze-images custom-code">
+                    <div class="wrap-children">
+                        <div class="subitem halfpad-top">
+                            <h2>Compiler</h2>
 
-                            <figure>
-                                <code>
-                                    <pre class="shadowed"><span class="preprocessor">.include</span> <span class="string">"std.hz"</span>
+                            <div class="nudge-up">
+                                <p>Atop a custom recursive-descent parser, the compiler implements my own <b><i>haze</i></b> compiled programming language with custom backends and linkers for both x86 and RISC-V processors.</p>
+                            </div>
+
+                            <p>Displayed below are a sample program compilation input and output formatted in <b><i>haze</i></b> intermediate representation assembly.</p>
+
+                            <div class="haze-images custom-code">
+                                <figure>
+                                    <code>
+                                        <pre class="shadowed"><span class="preprocessor">.include</span> <span class="string">"std.hz"</span>
 
 <span class="keyword">function</span> <span class="keyword">byte</span> <span class="function">main</span>()
 {
@@ -59,14 +73,14 @@
 
 
 </pre>
-                                </code>
+                                    </code>
 
-                                <figcaption>test.hz</figcaption>
-                            </figure>
+                                    <figcaption>test.hz</figcaption>
+                                </figure>
 
-                            <figure>
-                                <code>
-                                    <pre class="shadowed"><span class="comment">; Generated by the <i>haze</i> optimizer</span>
+                                <figure>
+                                    <code>
+                                        <pre class="shadowed"><span class="comment">; Generated by the <i>haze</i> optimizer</span>
 <span class="comment">; @ 8/14/2024 23:11:02</span>
 
 <span class="preprocessor">.org</span> <span class="operator">&</span><span class="integer-literal">$8000</span>
@@ -75,38 +89,27 @@
     <span class="function">copy</span> <span class="function-parameter">r0</span>, #<span class="integer-literal">7</span>
     <span class="function">push</span> <span class="function-parameter">r0</span>
     <span class="function">exit</span>
-
-
-
-
-
-
-
-
-
 </pre>
-                                </code>
+                                    </code>
 
-                                <figcaption>test.hzs</figcaption>
-                            </figure>
-
+                                    <figcaption>test.hzs</figcaption>
+                                </figure>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="subitem shadowed halfpad-top">
-                        <h2>Interpreter</h2>
-    
-                        <div class="nudge-up">
-                            <p>Sharing syntax with the <i>haze</i> compiler, <b><i>interpreter</i></b> can hook the <i>geo</i> runtime as an intepreted scripting language using custom MQTT-based IPC or execute freestanding.</p>
-                        </div>
-    
-                        <p>Shown below are both a standalone "unhook" and <i>geo</i>-interfacing script.</p>
-    
-                        <div class="haze-images custom-code">
+                        <div class="subitem halfpad-top">
+                            <h2>Interpreter</h2>
 
-                            <figure>
-                                <code>
-                                    <pre class="shadowed"><span class="preprocessor">.include</span> <span class="string">"std.hzi"</span>
+                            <div class="nudge-up">
+                                <p>Sharing syntax with the <b><i>haze</i></b> compiler, the interpreter can hook the <b><i>geo</i></b> runtime as an intepreted scripting language using custom socket IPC or execute freestanding.</p>
+                            </div>
+
+                            <p>Shown below are both a standalone "unhook" and <b><i>geo</i></b>-interfacing script.</p>
+
+                            <div class="haze-images custom-code">
+                                <figure>
+                                    <code>
+                                        <pre class="shadowed"><span class="preprocessor">.include</span> <span class="string">"std.hzi"</span>
 
 <span class="preprocessor">.define</span> <span class="macro">A</span> = <span class="integer-literal">1</span>
 <span class="preprocessor">.define</span> <span class="macro">B</span> = <span class="integer-literal">2</span>
@@ -124,13 +127,13 @@
     <span class="keyword">byte</span> <span class="local-variable">foo</span> = $<span class="macro">MUL</span>(<span class="macro">A</span>, <span class="macro">B</span>) <span class="operator">+</span> <span class="macro">C</span>;
     <span class="keyword">print</span>(<span class="local-variable">foo</span> <span class="operator">*</span> <span class="integer-literal">2</span>); <span class="comment">// output: 10</span>
 }</pre>
-                                </code>
-                                <figcaption>unhook.hzi</figcaption>
-                            </figure>
-    
-                            <figure>
-                                <code>
-                                    <pre class="shadowed"><span class="preprocessor">.include</span> <span class="string">"std.hzi"</span>
+                                    </code>
+                                    <figcaption>unhook.hzi</figcaption>
+                                </figure>
+
+                                <figure>
+                                    <code>
+                                        <pre class="shadowed"><span class="preprocessor">.include</span> <span class="string">"std.hzi"</span>
 <span class="preprocessor">.define</span> <span class="macro">RANGE</span> = <span class="integer-literal">1</span>
 <span class="preprocessor">.macro</span> <span class="macro">X</span> = (<span class="identifier">a</span>):
 {
@@ -148,142 +151,382 @@
     <span class="control-keyword">else if</span> ($<span class="macro">X</span>(<span class="global-variable">sky_color</span>) &gt; <span class="macro">RANGE</span>)
         $<span class="macro">X</span>(<span class="global-variable">sky_color</span>) <span class="operator">-=</span> <span class="function-parameter">&Delta;T</span>;
 }</pre>
-                                </code>
+                                    </code>
 
-                                <figcaption>hook.hzi</figcaption>
+                                    <figcaption>hook.hzi</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wrap-children halfpad-top">
+                        <div class="subitem">
+                            <h2>Assembler</h2>
+                            <div class="nudge-up">
+                                <p>Internally utilizing the powerful <b><i>haze</i></b> frontend, the assembler transforms custom assembly language source code into <b><i>haze</i></b> machine code.</p>
+                            </div>
+                        </div>
+
+                        <div class="subitem">
+                            <h2>Emulator</h2>
+                            <div class="nudge-up">
+                                <p>Simulating <b><i>haze</i></b> machine code program execution at several KHz, the emulator eases smoke-testing with live data watches and on-the-fly disassembly.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subitem halfpad-top">
+                        <h2>Language Server</h2>
+                        <div class="nudge-up">
+                            <p>A fully LSP-compliant language server implementation, <b><i>haze-ls</i></b> offers contextual autocomplete and custom syntax highlighting for the <b><i>haze</i></b> language in VSCode.</p>
+                            <p>
+                                <i><a href="https://github.com/connorjlink/haze-ls">github.com/connorjlink/haze-ls</a></i>
+                                <br>
+                                <i><a href="https://marketplace.visualstudio.com/items?itemName=connorjlink.haze-ls">marketplace.visualstudio.com/items?itemName=connorjlink.haze-ls</a></i>
+                            </p>
+
+                            <figure class="single-image">
+                                <img src="../res/vscode_ls.jpg">
+                                <figcaption>HazeLS VSCode Extension</figcaption>
                             </figure>
-
                         </div>
                     </div>
-
                 </div>
-                
-                <div class="wrap-children halfpad-top">
+            </details>
 
-                    <div class="subitem shadowed ">
-                        <h2>Assembler</h2>
-    
-                        <div class="nudge-up">
-                            <p>Internally utilizing the powerful <i>haze</i> frontend, <b><i>assembler</i></b> transforms custom assembly language source code into <i>haze</i> machine code </p>
+            <details class="project-card shadowed">
+                <summary>
+                    <div class="project-card__summary">
+                        <div class="project-card__icon">
+                            <symbol-icon text="Cl" size="64" shadow-color="rgb(23, 26, 176)" foreground-top-color="rgb(181, 221, 255)" foreground-bottom-color="#6890FF" background-top-color="rgb(90, 100, 255)" background-bottom-color="rgb(10, 51, 123)"></symbol-icon>
+                        </div>
+                        <div class="project-card__text">
+                            <h1 class="project-card__title" id="clarity">Clarity</h1>
+                            <p class="project-card__desc">A web-based source code editor and from-scratch LSP, DAP, and LSIF clients for <i>Haze</i>.</p>
+                            <div class="project-card__badges">
+                                <span class="badge badge--svelte">Svelte</span>
+                                <span class="badge badge--hmtl">HTML</span>
+                                <span class="badge badge--css">CSS</span>
+                                <span class="badge badge--ts">TypeScript</span>
+                                <span class="badge badge--lsp">LSP</span>
+                                <span class="badge badge--dap">DAP</span>
+                                <span class="badge badge--lsif">LSIF</span>
+
+                            </div>
                         </div>
                     </div>
-    
-                    <div class="subitem shadowed">
-                        <h2>Emulator</h2>
-        
-                        <div class="nudge-up">
-                            <p>Simulating <i>haze</i> machine code program execution at several KHz, <b><i>emulator</i></b> eases smoke-testing with live data watches and on-the-fly disassembly.</p>
-                        </div>
-                    </div>
+                </summary>
 
+                <div class="project-card__body">
+                    <p>Absent of industry-standard development environments and tools for <b><i>Haze</i></b>, <b><i>Clarity</i></b> serves an important role in underpinning the software creation and testing experience with the language with several innovative representations and language intelligence features like LSP, DAP, and LSIF.</p>
+                    <p>
+                        <i><a href="https://github.com/connorjlink/clarity">github.com/connorjlink/clarity</a></i>
+                        <br>
+                        <i><a href="https://clarity.connorjlink.com">clarity.connorjlink.com</a></i>
+                    </p>
+
+                    <div class="subitem">
+                        <h2>Compiling</h2>
+                        <p>Using a bespoke source editor and unique five-pane compiler interface, <b><i>Clarity</i></b> facilitates efficient writing and compilation of <b><i>Haze</i></b> source code powered by a custom LSP-compliant intelligence provider and LSIF-compliant indexer with deltas-based messaging and incremental builds and linking.</p>
+                    </div>
+                    <div class="subitem halfpad-top">
+                        <h2>Analyzing</h2>
+                        <p><b><i>Clarity</i></b>'s novel five-pane interface clearly highlights each critical stage of the compilation process: source code, abstract syntax tree, intermediate representation, machine code, and packaged executable. <b><i>Clarity</i></b> depicts datapoints within each component as discrete but intrinsically linked with a novel K-partite dependency representation.</p>
+                    </div>
+                    <div class="subitem halfpad-top">
+                        <h2>Debugging</h2>
+                        <p>Using a DAP client connected to my <b><i>Mist</i></b> debug server, <b><i>Clarity</i></b> offers a seamless development and testing experience with breakpoint management, execution stepping, and clear program data inspection using an expression-based watch.</p>
+                    </div>
+                    <div class="subitem halfpad-top">
+                        <h2>Education</h2>
+                        <p><b><i>Clarity</i></b> includes detailed documentation and work-ups to inform users about my process of designing and implementing the tool. Importantly, <i>Clarity</i> also provides extensive tutorials, explanations, and blog-form examples to teach fundamental concepts and noteworthy techniques to aspiring compiler engineers.</p>
+                        <a href="https://clarity.connorjlink.com/#learn">clarity.connorjlink.com/#learn</a>
+                    </div>
                 </div>
-                
+            </details>
 
-                <div class="subitem shadowed halfpad-top">
-                    <h2>Language Server</h2>
-    
-                    <div class="nudge-up">
-                        <p>A fully LSP-compliant language server implementation, <b><i>haze-ls</i></b> offers contextual autocomplete and custom syntax highlighting for the <i>haze</i> language in VSCode.</p>
-    
-                        <ul>
-                            <li><i><a href="https://github.com/connorjlink/haze-ls">github.com/connorjlink/haze-ls</a></i></li>
-                            <li><i><a href="https://marketplace.visualstudio.com/items?itemName=connorjlink.haze-ls">marketplace.visualstudio.com/items?itemName=connorjlink.haze-ls</a></i></li>
-                        </ul>
-    
-                        <figure class="single-image">
-                            <img src="../res/vscode_ls.jpg">
-                            <figcaption>HazeLS VSCode Extension</figcaption>
+            <details class="project-card shadowed">
+                <summary>
+                    <div class="project-card__summary">
+                        <div class="project-card__icon">
+                            <symbol-icon text="Ho" size="64" shadow-color="rgb(44, 30, 16)" foreground-top-color="rgb(255, 244, 214)" foreground-bottom-color="rgb(255, 205, 110)" background-top-color="rgb(176, 120, 55)" background-bottom-color="rgb(62, 44, 28)"></symbol-icon>
+                        </div>
+                        <div class="project-card__text">
+                            <h1 class="project-card__title" id="horizon">Horizon</h1>
+                            <p class="project-card__desc">A custom five-stage hardware-scheduled pipelined, branch-predicting, multithreaded RISC-V processor design. </p>
+                            <div class="project-card__badges">
+                                <span class="badge badge--vhdl">VHDL</span>
+                                <span class="badge badge--asmriscv">RISC-V Assembly</span>
+                                <span class="badge badge--python">Python</span>
+                            </div>
+                        </div>
+                    </div>
+                </summary>
+
+                <div class="project-card__body">
+                    <div class="subitem">
+                        <h2>Processor</h2>
+                        <p>Engineered to suit modern RISC-V&ndash;compatible operating systems up to and including Linux, the design implements the base RV32-I instruction set as well as the extensions A, M, C, Zicsr, Zicntr, and Zifencei. The architecture uses both static and dynamic table-based branch prediction and intelligent simultaneous multithreading to support true instruction-level parallelism across five standard pipeline stages with hardware-accelerated hazard detection and data forwarding.</p>
+                        <i><a href="https://github.com/connorjlink/horizon">github.com/connorjlink/horizon</a></i>
+                    </div>
+                </div>
+            </details>
+
+            <details class="project-card shadowed">
+                <summary>
+                    <div class="project-card__summary">
+                        <div class="project-card__icon">
+                            <symbol-icon text="Sr" size="64" shadow-color="rgb(15, 22, 32)" foreground-top-color="rgb(236, 246, 255)" foreground-bottom-color="rgb(171, 202, 230)" background-top-color="rgb(118, 145, 170)" background-bottom-color="rgb(30, 38, 52)"></symbol-icon>
+                        </div>
+                        <div class="project-card__text">
+                            <h1 class="project-card__title" id="clarity">Stratus</h1>
+                            <p class="project-card__desc">A basic OS kernel with virtual memory, preemptive multitasking, and a custom GPU and keyboard driver.</p>
+                            <div class="project-card__badges">
+                                <span class="badge badge--c">C</span>
+                                <span class="badge badge--asmriscv">RISC-V Assembly</span>
+                            </div>
+                        </div>
+                    </div>
+                </summary>
+
+                <div class="project-card__body">
+                    <div class="subitem">
+                        <h2>Kernel</h2>
+                        <p>Designed specifically for RISC-V (32-bit) and the QEMU "virt" platform with a VirtIO standard GPU, <b><i>Stratus</i></b> implements key features like hardware drivers, memory paging and virtual allocations, and preemptive, time-sharing scheduling. The kernel uses S-mode for critical operations and offers userland code a variety of typical system calls for assistance.</p>
+                        <i><a href="https://github.com/connorjlink/stratus">github.com/connorjlink/stratus</a></i>
+                    </div>
+
+                    <figure class="single-image halfpad-top">
+                        <img src="../res/stratus.png">
+                        <figcaption>Stratus Boot Menu</figcaption>
+                    </figure>
+                </div>
+            </details>
+
+            <details class="project-card shadowed">
+                <summary>
+                    <div class="project-card__summary">
+                        <div class="project-card__icon">
+                            <symbol-icon text="Mi" size="64" shadow-color="rgb(0, 70, 55)" foreground-top-color="rgb(215, 255, 240)" foreground-bottom-color="rgb(120, 220, 190)" background-top-color="rgb(35, 140, 110)" background-bottom-color="rgb(10, 60, 55)"></symbol-icon>
+                        </div>
+                        <div class="project-card__text">
+                            <h1 class="project-card__title" id="clarity">Mist</h1>
+                            <p class="project-card__desc">A modular software debugger for x86 <b><i>Haze</i></b> programs with support for stepping, tracing, breakpoints, and watches.</p>
+                            <div class="project-card__badges">
+                                <span class="badge badge--rust">Rust</span>
+                                <span class="badge badge--dap">DAP</span>
+                            </div>
+                        </div>
+                    </div>
+                </summary>
+
+                <div class="project-card__body">
+                    <div class="subitem">
+                        <h2>Debugger</h2>
+                        <p>Running as a standalone debug process communicating with the <b><i>Clarity</i></b> debug client via the Debug Adapter Protocol (DAP) over WebSockets and the <b><i>Haze</i></b> compiler via memory sharing, the debug server implements both hardware and software breakpoints, callstack-relative execution tracing and stepping, and memory, register, and variable watches. The server employs a custom protocol to leverage compiler symbol database information when servicing incoming requests and the Windows API debug and toolhelp libraries to facilitate kernel-level hardware debug features.</p>
+                        <i><a href="https://github.com/connorjlink/mist">github.com/connorjlink/mist</a></i>
+                    </div>
+                </div>
+            </details>
+
+            <details class="project-card shadowed">
+                <summary>
+                    <div class="project-card__summary">
+                        <div class="project-card__icon">
+                            <symbol-icon text="Ir" size="64" shadow-color="rgb(130, 60, 40)" foreground-top-color="rgb(255, 204, 128)" foreground-bottom-color="rgb(255, 183, 77)" background-top-color="rgb(255, 112, 155)" background-bottom-color="rgb(255, 138, 101)"></symbol-icon>
+                        </div>
+                        <div class="project-card__text">
+                            <h1 class="project-card__title" id="irradiance">Irradiance</h1>
+                            <p class="project-card__desc">A unidirectional path tracer with Cook-Torrance GGX BRDF global illumination and direct-light NEE with MIS. </p>
+                            <div class="project-card__badges">
+                                <span class="badge badge--cpp">C++</span>
+                                <span class="badge badge--python">Python</span>
+                            </div>
+                        </div>
+                    </div>
+                </summary>
+
+                <div class="project-card__body">
+                    <div class="subitem">
+                        <h2>Path Tracing</h2>
+                        <p>By simulating light rays with physically based materials, <b><i>irradiance</i></b> produces photorealistic scene renders with reflections, soft shadows, and global illumination. The renderer employs parallel processing and multiple importance sampling via next-event estimation and a Cook-Torrance BRDF with a bi-level BVH acceleration structure and full compatibility for ACES-alike HDR renders.</p>
+                        <i><a href="https://github.com/connorjlink/irradiance">github.com/connorjlink/irradiance</a></i>
+                    </div>
+                    <div class="subitem halfpad-top">
+                        <h2>Post-Processing</h2>
+                        <p><i>Irradiance</i> includes a post-process&ndash;pass Python script to simulate wave-based light effects like diffraction and depth-of-field. Beyond the in-render photographic modelling, the script uses dynamic PSF generation and convolution filtering to create physically based aperture diffraction spiking and blurring.</p>
+                    </div>
+
+                    <p>&nbsp;</p>
+                    <p>Depicted below are two example renders.</p>
+                    <p>&nbsp;</p>
+
+                    <div class="haze-images">
+                        <figure>
+                            <img src="../res/outdoor.jpg">
+                            <figcaption>Outdoor Render (No Post-Processing)</figcaption>
+                        </figure>
+
+                        <figure>
+                            <img src="../res/cornell.jpg">
+                            <figcaption>Cornell Box (With Post-Processing)</figcaption>
                         </figure>
                     </div>
                 </div>
+            </details>
 
-            </div>
+            <details class="project-card shadowed">
+                <summary>
+                    <div class="project-card__summary">
+                        <div class="project-card__icon">
+                            <symbol-icon text="Lu" size="64" shadow-color="rgb(43, 30, 85)" foreground-top-color="rgb(244, 238, 255)" foreground-bottom-color="rgb(205, 188, 255)" background-top-color="rgb(132, 96, 214)" background-bottom-color="rgb(62, 44, 130)"></symbol-icon>
+                        </div>
+                        <div class="project-card__text">
+                            <h1 class="project-card__title" id="clarity">Luma</h1>
+                            <p class="project-card__desc">A modern interface for real-time setup and manipulation of path tracer programs.</p>
+                            <div class="project-card__badges">
+                                <span class="badge badge--csharp">C#</span>
+                                <span class="badge badge--winui">WinUI</span>
+                            </div>
+                        </div>
+                    </div>
+                </summary>
 
-            <div class="subitem shadowed pad-top">
-                <h1>Inspector</h1>
+                <div class="project-card__body">
+                    <div class="subitem">
+                        <h2>Application</h2>
+                        <p>Using a memory-mapped file for efficient interprocess bitmap sharing, Luma presents a sleek, modern interface for real-time setup and manipulation of path tracing programs' renders with minimal latency and maximal quality.</p>
+                        <i><a href="https://github.com/connorjlink/luma">github.com/connorjlink/luma</a></i>
+                    </div>
 
-                <div class="nudge-up">
-                    <p class="nudge-up">An efficiency-first MQTT traffic monitoring client, <b><i>inspector</i></b> offers robust send/receive capabilities and high-level automation in a user-friendly WPF-based window.</p>
-                    <i><a href="https://github.com/connorjlink/inspector">github.com/connorjlink/inspector</a></i>
+                    <figure class="single-image halfpad-top">
+                        <img src="../res/luma.jpg">
+                        <figcaption>Early <b><i>Irradiance</i></b> Render</figcaption>
+                    </figure>
                 </div>
+            </details>
 
-                <figure class="single-image">
-                    <img src="../res/inspector.jpg">
-                    <figcaption>Transmit Loopback</figcaption>
-                </figure>
-            </div>
+            <details class="project-card shadowed">
+                <summary>
+                    <div class="project-card__summary">
+                        <div class="project-card__icon">
+                            <symbol-icon text="In" size="64" shadow-color="rgb(0, 96, 100)" foreground-top-color="rgb(181, 225, 245)" foreground-bottom-color="rgb(124, 190, 196)" background-top-color="rgb(69, 194, 219)" background-bottom-color="rgb(40, 74, 153)"></symbol-icon>
+                        </div>
+                        <div class="project-card__text">
+                            <h1 class="project-card__title">Inspector</h1>
+                            <p class="project-card__desc">A sleek, performant MQTT monitoring client desktop application.</p>
+                            <div class="project-card__badges">
+                                <span class="badge badge--csharp">C#</span>
+                                <span class="badge badge--wpf">WPF</span>
+                                <span class="badge badge--mqtt">MQTT</span>
+                            </div>
+                        </div>
+                    </div>
+                </summary>
 
-            <div class="subitem shadowed pad-top">
-                <h1 id="rendering">3-D Rendering</h1>
+                <div class="project-card__body">
+                    <div class="subitem">
+                        <div class="nudge-up">
+                            <p class="nudge-up">An efficiency-first MQTT traffic monitoring client, <b><i>inspector</i></b> offers robust send/receive capabilities and high-level automation in a user-friendly WPF-based window.</p>
+                            <i><a href="https://github.com/connorjlink/inspector">github.com/connorjlink/inspector</a></i>
+                        </div>
+                    </div>
+                    
+                    <figure class="single-image halfpad-top">
+                        <img src="../res/inspector.jpg">
+                        <figcaption>Transmit Loopback</figcaption>
+                    </figure>
+                </div>
+            </details>
 
-                <div class="subitem shadowed halfpad-top">
-                    <h2>Voxelization</h2>
+            <details class="project-card shadowed">
+                <summary>
+                    <div class="project-card__summary">
+                        <div class="project-card__icon">
+                            <symbol-icon text="Ra" size="64" shadow-color="rgb(60, 40, 75)" foreground-top-color="#BD9BDF" foreground-bottom-color="#9E7FEA" background-top-color="#8221EB" background-bottom-color="#341664"></symbol-icon>
+                        </div>
+                        <div class="project-card__text">
+                            <h1 class="project-card__title" id="rendering">Rasterizer</h1>
+                            <p class="project-card__desc">A pair of software- and hardware-accelerated cross-platform rasterizer programs.</p>
+                            <div class="project-card__badges">
+                                <span class="badge badge--cpp">C++</span>
+                                <span class="badge badge--glsl">GLSL</span>
+                            </div>
+                        </div>
+                    </div>
+                </summary>
 
-                    <div class="nudge-up">
+                <div class="project-card__body">
+                    <div class="subitem">
+                        <h2>Voxelization</h2>
                         <p>A modern-OpenGL&ndash;based voxel rendering program, <b><i>geo</i></b> utilizes geometry pre-generation, vertex batching, and indexed instancing for remarkable efficiency.</p>
                         <i><a href="https://github.com/connorjlink/geo">github.com/connorjlink/geo</a></i>
+
+                        <div class="subitem shadowed halfpad-top">
+                            <h2>Flux</h2>
+                            <p>A compile-time ready templated linear algebra library for C++23 with an emphasis on computer graphics, <b><i>Flux</i></b> powers the voxel renderer with speed and ease of development.</p>
+                            <i><a href="https://github.com/connorjlink/flux">github.com/connorjlink/flux</a></i>
+                        </div>
                     </div>
-                </div>
 
-                <div class="subitem shadowed halfpad-top">
-                    <h2>Ray Tracing</h2>
-
-                    <div class="nudge-up">
-                        <p>By simulating light rays with physically based materials, <b><i>raytracer</i></b> produces photorealistic scene renders with reflections, soft shadows, and global illumination.</p>
-                        <i><a href="https://github.com/connorjlink/raytracer">github.com/connorjlink/raytracer</a></i>
-                    </div>
-                </div>
-
-                <div class="subitem shadowed halfpad-top">
-                    <h2>Rasterization</h2>
-
-                    <div class="nudge-up">
+                    <div class="subitem halfpad-top">
+                        <h2>Rasterization</h2>
                         <p>Powered by a custom linear algebra library, <b><i>rasterizer</i></b> features frustum culling, depth buffering, and face-based shading to view arbitrary <i>.obj</i> models.</p>
                         <i><a href="https://github.com/connorjlink/constexpr-linear-algebra-library">github.com/connorjlink/constexpr-linear-algebra-library</a></i>
                     </div>
-                </div>
-                
-                
-                <p>&nbsp;</p>
-                <p>Depicted below are sample renders from all three programs.</p>
 
-                <div class="haze-images">
-                    <figure>
-                        <img src="../res/geo.jpg">
-                        <figcaption>Voxel Renderer</figcaption>
-                    </figure>
+                    <p>&nbsp;</p>
+                    <p>Depicted below are sample renders from both programs.</p>
+                    <p>&nbsp;</p>
 
-                    <figure>
-                        <img src="../res/raytracer.jpg">
-                        <figcaption>Ray Tracer</figcaption>
-                    </figure>
-
-                    <figure>
-                        <img src="../res/rasterizer.jpg">
-                        <figcaption>Rasterizer</figcaption>
-                    </figure>
-                </div>
-            </div>
-
-            <div class="subitem shadowed pad-top">
-                <h1 id="cl8">CL8</h1>
-                <p class="nudge-up">An entirely custom software suite for my 8-bit processor architecture, <b><i>CL8</i></b>.</p>
-
-                <div class="subitem shadowed">
-                    <h2>Titanium</h2>
-
-                    <div class="nudge-up">
-                        <p>A novel programming language compiler designed for <i>CL8</i>, <b><i>Titanium</i></b> uses the GNU Flex/Bison lexer and parser generators to transform custom source code into flat <i>CL8</i> assembly.</p>
-                        <i><a href="https://github.com/connorjlink/compiler">github.com/connorjlink/compiler</a></i>
-                    </div>
-
-                    <p>Displayed below are a sample program compilation input and output.</p>
-
-                    <div class="haze-images custom-code single-image">
+                    <div class="haze-images">
+                        <figure>
+                            <img src="../res/geo.jpg">
+                            <figcaption>Voxel Renderer</figcaption>
+                        </figure>
 
                         <figure>
-                            <code>
-                                <pre class="shadowed"><span class="preprocessor">.macro</span> <span class="macro">BIT</span> = (<span class="identifier">a</span>):
+                            <img src="../res/rasterizer.jpg">
+                            <figcaption>Rasterizer</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </details>
+
+            <details class="project-card shadowed">
+                <summary>
+                    <div class="project-card__summary">
+                        <div class="project-card__icon">
+                            <symbol-icon text="C8" size="64" shadow-color="rgb(35, 40, 65)" foreground-top-color="rgb(160, 174, 255)" foreground-bottom-color="rgb(198, 205, 255)" background-top-color="rgb(90, 100, 160)" background-bottom-color="rgb(39, 48, 124)"></symbol-icon>
+                        </div>
+                        <div class="project-card__text">
+                            <h1 class="project-card__title" id="cl8">C8</h1>
+                            <p class="project-card__desc">An entirely custom software suite for a new 8-bit processor architecture.</p>
+                            <div class="project-card__badges">
+                                <span class="badge badge--cpp">C++</span>
+                                <span class="badge badge--c">C</span>
+                                <span class="badge badge--yacc">Yacc</span>
+                                <span class="badge badge--verilog">Verilog</span>
+                            </div>
+                        </div>
+                    </div>
+                </summary>
+
+                <div class="project-card__body">
+                    <div class="subitem">
+                        <h2>Titanium</h2>
+
+                        <div class="nudge-up">
+                            <p>A novel programming language compiler designed for <i>C8</i>, <b><i>Titanium</i></b> uses the GNU Flex/Bison lexer and parser generators to transform custom source code into flat <i>C8</i> assembly.</p>
+                            <i><a href="https://github.com/connorjlink/compiler">github.com/connorjlink/compiler</a></i>
+                        </div>
+
+                        <p>Displayed below are a sample program compilation input and output.</p>
+
+                        <div class="haze-images custom-code">
+                            <figure>
+                                <code>
+                                    <pre class="shadowed"><span class="preprocessor">.macro</span> <span class="macro">BIT</span> = (<span class="identifier">a</span>):
 {
     (<span class="integer-literal">1</span> <span class="operator">&lt;&lt;</span> [<span class="identifier">a</span>])
 }
@@ -302,14 +545,14 @@
 }
 
 </pre>
-                            </code>
+                                </code>
 
-                            <figcaption>test.ti</figcaption>
-                        </figure>
+                                <figcaption>test.ti</figcaption>
+                            </figure>
 
-                        <figure>
-                            <code>
-                                <pre class="shadowed"><span class="keyword">.begin</span>
+                            <figure>
+                                <code>
+                                    <pre class="shadowed"><span class="keyword">.begin</span>
 <span class="preprocessor">.include</span> <span class="string">"def.s"</span>
 <span class="label">@function_start_test</span>:
     <span class="function">ldb</span> <span class="function-parameter">r0</span>, %<span class="integer-literal">0</span>
@@ -328,69 +571,59 @@
     <span class="function">pop</span> <span class="function-parameter">IP</span>
 <span class="keyword">.end</span>
 </pre>
-                            </code>
+                                    </code>
 
-                            <figcaption>test.ti.s</figcaption>
-                        </figure>
+                                    <figcaption>test.ti.s</figcaption>
+                                </figure>
+                            </div>
+                        </div>
 
-                    </div>
-                </div>
+                        <div class="subitem halfpad-top">
+                            <h2>Microcode</h2>
 
-                <div class="subitem shadowed halfpad-top">
-                    <h2>Microcode</h2>
+                            <div class="nudge-up">
+                                <p>Extensively utilizing the C++ preprocessor, <b><i>microcode</i></b> synthesizes and serializes the custom &mu;op sequences powering <i>C8</i> instructions.</p>
+                                <i><a href="https://github.com/connorjlink/microcode">github.com/connorjlink/microcode</a></i>
+                            </div>
+                        </div>
 
-                    <div class="nudge-up">
-                        <p>Extensively utilizing the C++ preprocessor, <b><i>microcode</i></b> synthesizes and serializes the custom &mu;op sequences powering <i>CL8</i> instructions.</p>
+                        <div class="wrap-children halfpad-top">
+                            <div class="subitem">
+                                <h2>Assembler</h2>
+                                <div class="nudge-up">
+                                    <p>Based around a GNU Flex/Bison lexer and parser, <b><i>assembler</i></b> flattens custom assembly language source code into raw <i>C8</i> machine.</p>
+                                    <i><a href="https://github.com/connorjlink/assembler">github.com/connorjlink/assembler</a></i>
+                                </div>
+                            </div>
 
-                        <i><a href="https://github.com/connorjlink/microcode">github.com/connorjlink/microcode</a></i>
-                    </div>
-                </div>
+                            <div class="subitem">
+                                <h2>Disassembler</h2>
+                                <div class="nudge-up">
+                                    <p>A fully custom binary analysis program, <b><i>disassembler</i></b> expands <i>C8</i> machine code back into human-readable assembly source for debugging.</p>
+                                    <i><a href="https://github.com/connorjlink/disassembler">github.com/connorjlink/disassembler</a></i>
+                                </div>
+                            </div>
+                        </div>
 
-                <div class="wrap-children halfpad-top">
+                        <div class="wrap-children halfpad-top">
+                            <div class="subitem">
+                                <h2>Emulator</h2>
+                                <div class="nudge-up">
+                                    <p>Designed to painlessly debug <i>C8</i> binaries, <b><i>emulator</i></b> offers a readable behavior-level simulation of the <i>C8</i> architecture.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                                    <i><a href="https://github.com/connorjlink/emulator">github.com/connorjlink/emulator</a></i>
+                                </div>
+                            </div>
 
-                    <div class="subitem shadowed">
-                        <h2>Assembler</h2>
-    
-                        <div class="nudge-up">
-                            <p>Based around a GNU Flex/Bison lexer and parser, <b><i>assembler</i></b> flattens custom assembly language source code into raw <i>CL8</i> machine.</p>
-                            <i><a href="https://github.com/connorjlink/assembler">github.com/connorjlink/assembler</a></i>
+                            <div class="subitem">
+                                <h2>Hardware</h2>
+                                <div class="nudge-up">
+                                    <p>A register-transfer-level design, <b><i>hardware</i></b> implements the <i>C8</i> architecture in SystemVerilog for ultra-precise simulation.</p>
+                                    <i><a href="https://github.com/connorjlink/hardware">github.com/connorjlink/hardware</a></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
-    
-                    <div class="subitem shadowed">
-                        <h2>Disassembler</h2>
-    
-                        <div class="nudge-up">
-                            <p>A fully custom binary analysis program, <b><i>disassembler</i></b> expands <i>CL8</i> machine code back into human-readable assembly source for debugging.</p>
-                            <i><a href="https://github.com/connorjlink/disassembler">github.com/connorjlink/disassembler</a></i>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="wrap-children halfpad-top">
-
-                    <div class="subitem shadowed">
-                        <h2>Emulator</h2>
-    
-                        <div class="nudge-up">
-                            <p>Designed to painlessly debug <i>CL8</i> binaries, <b><i>emulator</i></b> offers a readable behavior-level simulation of the <i>CL8</i> architecture.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                            <i><a href="https://github.com/connorjlink/emulator">github.com/connorjlink/emulator</a></i>
-                        </div>
-                    </div>
-    
-                    <div class="subitem shadowed">
-                        <h2>Hardware</h2>
-    
-                        <div class="nudge-up">
-                            <p>A register-transfer-level design, <b><i>hardware</i></b> implements the <i>CL8</i> architecture in SystemVerilog for ultra-precise simulation.</p>
-                            <i><a href="https://github.com/connorjlink/hardware">github.com/connorjlink/hardware</a></i>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
+            </details>
 
         </article>
 
