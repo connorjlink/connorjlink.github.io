@@ -180,7 +180,7 @@ article {
     margin-top: var(--header-height);
     padding: var(--padding);
     flex: 1;
-    overflow-y: auto; /* Enable scrolling */
+    overflow-y: auto;
 }
 
 #page {
@@ -190,7 +190,6 @@ article {
 }
 
 
-/* TODO: also fix the bug with the code size on the right column (current published website portfolio page) */
 body {
     margin: 0;
     padding: 0;
@@ -279,6 +278,9 @@ section {
 .grid {
     display: grid;
     gap: var(--padding);
+    grid-template-columns: 1fr auto;
+    grid-auto-rows: min-content;
+    align-items: start;
 }
 
 .grid-intro {
@@ -294,6 +296,25 @@ section {
 .grid-image {
     grid-column: 2;
     grid-row: 1 / 3;
+
+    justify-self: end;
+    align-self: stretch;
+
+    min-height: 0;
+    min-width: 0;
+
+    contain: size;
+    display: flex;
+
+    height: 100%;
+    width: auto;
+    aspect-ratio: 1 / 1;
+}
+
+.grid-image > img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .subitem {
@@ -342,6 +363,11 @@ section {
     .grid-image {
         grid-row: 1;
         grid-column: 1;
+
+        /* On mobile the image is alone in its row; allow it to size normally */
+        contain: none;
+        justify-self: stretch;
+        align-self: start;
     }
 
     .grid-intro {
