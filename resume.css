@@ -112,7 +112,7 @@ li {
 }
 
 .header {
-    padding-top: 10px;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -144,6 +144,10 @@ li {
     flex-direction: row;
 }
 
+.header .hstack {
+    align-items: center;
+}
+
 .vstack {
     display: flex;
     flex-direction: column;
@@ -156,6 +160,10 @@ li {
 .unbulleted-list.extras li {
     display: flex;
     align-items: center;
+}
+
+.unbulleted-list li:last-child {
+    padding-bottom: 0 !important;
 }
 
 .section {
@@ -202,6 +210,8 @@ div.force-wide {
 
 .left {
     text-align: left;
+    display: flex;
+    flex-direction: row;
 }
 
 .fancy-underline {
