@@ -205,9 +205,9 @@
                             <p class="project-card__desc">A web-based source code editor and from-scratch LSP, DAP, and LSIF clients for <i>Haze</i>.</p>
                             <div class="project-card__badges">
                                 <span class="badge badge--svelte">Svelte</span>
-                                <span class="badge badge--hmtl">HTML</span>
-                                <span class="badge badge--css">CSS</span>
                                 <span class="badge badge--ts">TypeScript</span>
+                                <span class="badge badge--html">HTML</span>
+                                <span class="badge badge--css">CSS</span>
                                 <span class="badge badge--lsp">LSP</span>
                                 <span class="badge badge--dap">DAP</span>
                                 <span class="badge badge--lsif">LSIF</span>
@@ -249,13 +249,14 @@
                 <summary>
                     <div class="project-card__summary">
                         <div class="project-card__icon">
-                            <symbol-icon text="Ho" size="64" shadow-color="rgb(44, 30, 16)" foreground-top-color="rgb(255, 244, 214)" foreground-bottom-color="rgb(255, 205, 110)" background-top-color="rgb(176, 120, 55)" background-bottom-color="rgb(62, 44, 28)"></symbol-icon>
+                            <symbol-icon text="Ho" size="64" shadow-color="rgb(0, 70, 55)" foreground-top-color="rgb(215, 255, 240)" foreground-bottom-color="rgb(120, 220, 190)" background-top-color="rgb(35, 140, 110)" background-bottom-color="rgb(10, 60, 55)"></symbol-icon>
                         </div>
                         <div class="project-card__text">
                             <h1 class="project-card__title" id="horizon">Horizon</h1>
                             <p class="project-card__desc">A custom five-stage hardware-scheduled pipelined, branch-predicting, multithreaded RISC-V processor design. </p>
                             <div class="project-card__badges">
                                 <span class="badge badge--vhdl">VHDL</span>
+                                <span class="badge badge--ada">Ada</span>
                                 <span class="badge badge--asmriscv">RISC-V Assembly</span>
                                 <span class="badge badge--python">Python</span>
                             </div>
@@ -266,8 +267,13 @@
                 <div class="project-card__body">
                     <div class="subitem">
                         <h2>Processor</h2>
-                        <p>Engineered to suit modern RISC-V&ndash;compatible operating systems up to and including Linux, the design implements the base RV32-I instruction set as well as the extensions A, M, C, Zicsr, Zicntr, and Zifencei. The architecture uses both static and dynamic table-based branch prediction and intelligent simultaneous multithreading to support true instruction-level parallelism across five standard pipeline stages with hardware-accelerated hazard detection and data forwarding.</p>
+                        <p>Engineered to suit modern RISC-V&ndash;compatible operating systems using a custom bootloader, the design implements the base RV32-I instruction set as well as the extensions A, M, C, Zicsr, Zicntr, and Zifencei. The architecture uses both static and dynamic table-based branch prediction and intelligent simultaneous multithreading to support true instruction-level parallelism across five standard pipeline stages.</p>
                         <i><a href="https://github.com/connorjlink/horizon">github.com/connorjlink/horizon</a></i>
+                    </div>
+                    <div class="subitem halfpad-top">
+                        <h2>Test Harness</h2>
+                        <p>A custom test harness for functional correctness validation of the Horizon processor core using GHDL traces, the SPIKE simulator, and a fork of the RARS simulator. <b><i>Horizon-VGA</i></b> includes testing automation for the IO subsystem with a prominent focus on draw commands, hardware compositing, and the VGA graphical output</p>
+                        <i><a href="https://github.com/connorjlink/horizon-vga">github.com/connorjlink/horizon-vga</a></i>
                     </div>
                 </div>
             </details>
@@ -292,7 +298,7 @@
                 <div class="project-card__body">
                     <div class="subitem">
                         <h2>Kernel</h2>
-                        <p>Designed specifically for RISC-V (32-bit) and the QEMU "virt" platform with a VirtIO standard GPU, <b><i>Stratus</i></b> implements key features like hardware drivers, memory paging and virtual allocations, and preemptive, time-sharing scheduling. The kernel uses S-mode for critical operations and offers userland code a variety of typical system calls for assistance.</p>
+                        <p>Designed specifically for my Horizon RISC-V (32-bit) platform with a custom MMIO interface, <b><i>Stratus</i></b> implements keyboard, graphics, and networking hardware drivers, memory paging and virtual allocations, and preemptive, time-sharing scheduling. The kernel uses S-mode for critical operations and offers userland code a variety of typical system calls for assistance.</p>
                         <i><a href="https://github.com/connorjlink/stratus">github.com/connorjlink/stratus</a></i>
                     </div>
 
@@ -307,7 +313,7 @@
                 <summary>
                     <div class="project-card__summary">
                         <div class="project-card__icon">
-                            <symbol-icon text="Mi" size="64" shadow-color="rgb(0, 70, 55)" foreground-top-color="rgb(215, 255, 240)" foreground-bottom-color="rgb(120, 220, 190)" background-top-color="rgb(35, 140, 110)" background-bottom-color="rgb(10, 60, 55)"></symbol-icon>
+                            <symbol-icon text="Mi" size="64" shadow-color="rgb(44, 30, 16)" foreground-top-color="rgb(255, 244, 214)" foreground-bottom-color="rgb(255, 205, 110)" background-top-color="rgb(176, 120, 55)" background-bottom-color="rgb(62, 44, 28)"></symbol-icon>
                         </div>
                         <div class="project-card__text">
                             <h1 class="project-card__title" id="clarity">Mist</h1>
@@ -315,6 +321,7 @@
                             <div class="project-card__badges">
                                 <span class="badge badge--rust">Rust</span>
                                 <span class="badge badge--dap">DAP</span>
+                                <span class="badge badge--websockets">WebSockets</span>
                             </div>
                         </div>
                     </div>
@@ -450,6 +457,7 @@
                             <div class="project-card__badges">
                                 <span class="badge badge--julia">Julia</span>
                                 <span class="badge badge--python">Python</span>
+                                <span class="badge badge--go">Go</span>
                             </div>
                         </div>
                     </div>
@@ -460,6 +468,11 @@
                         <h2>Geotool</h2>
                         <p>With EXIF metadata parsing and geospatial summarization capabilities, <b><i>Locator</i></b> simplifies the process of organizing and analyzing photo collections based upon location data. <b><i>Locator</i></b> takes a photo directory as input and produces a series of callout maps referencing individual points of interest and a collective summary to paint an overall geographical extent.</p>
                         <i><a href="https://github.com/connorjlink/locator">github.com/connorjlink/locator</a></i>
+                    </div>
+                    <div class="subitem halfpad-top">
+                        <h2>Arranger</h2>
+                        <p>A command-line tool for automatically organizing photo collections based on location and timing information. <b><i>Locator-Arranger</i></b> takes a photo directory as input, generates locator maps, then intelligently arranges them in a user-customizable HTML document.</p>
+                        <i><a href="https://github.com/connorjlink/locator-arranger">github.com/connorjlink/locator-arranger</a></i>
                     </div>
                 </div>
             </details>

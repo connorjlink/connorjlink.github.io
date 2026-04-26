@@ -475,6 +475,16 @@ details.project-card > summary::marker {
     border-color: color-mix(in srgb, #33FF57 55%, var(--background-l));
 }
 
+.badge--ada {
+    background: color-mix(in srgb, #02A9EA 25%, var(--background-e));
+    border-color: color-mix(in srgb, #02A9EA 55%, var(--background-l));
+}
+
+.badge--go {
+    background: color-mix(in srgb, #00ADD8 25%, var(--background-e));
+    border-color: color-mix(in srgb, #00ADD8 55%, var(--background-l));
+}
+
 .project-card__media {
     width: 180px;
     height: 72px;
