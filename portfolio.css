@@ -207,19 +207,13 @@ code {
     }
 }
 
-.portfolio-cards {
-    display: flex;
-    flex-direction: column;
-    gap: var(--half-padding);
-}
-
 details.project-card {
     overflow: clip;
     background: var(--background);
     border-radius: 10px;
     border: 1px solid var(--background-l);
-
     transition: border-color 160ms ease;
+    margin-bottom: var(--half-padding);
 }
 
 details.project-card > summary {
