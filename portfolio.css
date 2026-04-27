@@ -479,6 +479,21 @@ details.project-card > summary::marker {
     border-color: color-mix(in srgb, #00ADD8 55%, var(--background-l));
 }
 
+.badge--tcp {
+    background: color-mix(in srgb, #e57429 25%, var(--background-e));
+    border-color: color-mix(in srgb, #b25b21 55%, var(--background-l));
+}
+
+.badge--kotlin {
+    background: color-mix(in srgb, #A97BFF 25%, var(--background-e));
+    border-color: color-mix(in srgb, #A97BFF 55%, var(--background-l));
+}
+
+.badge--zig {
+    background: color-mix(in srgb, #d8b712 25%, var(--background-e));
+    border-color: color-mix(in srgb, #d8b712 55%, var(--background-l));
+}
+
 .project-card__media {
     width: 180px;
     height: 72px;

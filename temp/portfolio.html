@@ -292,7 +292,7 @@
                 <summary>
                     <div class="project-card__summary">
                         <div class="project-card__icon">
-                            <symbol-icon text="Ho" size="64" shadow-color="rgb(0, 70, 55)" foreground-top-color="rgb(215, 255, 240)" foreground-bottom-color="rgb(120, 220, 190)" background-top-color="rgb(35, 140, 110)" background-bottom-color="rgb(10, 60, 55)"></symbol-icon>
+                            <symbol-icon text="Hr" size="64" shadow-color="rgb(0, 70, 55)" foreground-top-color="rgb(215, 255, 240)" foreground-bottom-color="rgb(120, 220, 190)" background-top-color="rgb(35, 140, 110)" background-bottom-color="rgb(10, 60, 55)"></symbol-icon>
                         </div>
                         <div class="project-card__text">
                             <h1 class="project-card__title" id="horizon">Horizon</h1>
@@ -325,7 +325,7 @@
                 <summary>
                     <div class="project-card__summary">
                         <div class="project-card__icon">
-                            <symbol-icon text="Sr" size="64" shadow-color="rgb(15, 22, 32)" foreground-top-color="rgb(236, 246, 255)" foreground-bottom-color="rgb(171, 202, 230)" background-top-color="rgb(118, 145, 170)" background-bottom-color="rgb(30, 38, 52)"></symbol-icon>
+                            <symbol-icon text="St" size="64" shadow-color="rgb(15, 22, 32)" foreground-top-color="rgb(236, 246, 255)" foreground-bottom-color="rgb(171, 202, 230)" background-top-color="rgb(118, 145, 170)" background-bottom-color="rgb(30, 38, 52)"></symbol-icon>
                         </div>
                         <div class="project-card__text">
                             <h1 class="project-card__title" id="stratus">Stratus</h1>
@@ -356,7 +356,39 @@
                 <summary>
                     <div class="project-card__summary">
                         <div class="project-card__icon">
-                            <symbol-icon text="Mi" size="64" shadow-color="rgb(44, 30, 16)" foreground-top-color="rgb(255, 244, 214)" foreground-bottom-color="rgb(255, 205, 110)" background-top-color="rgb(176, 120, 55)" background-bottom-color="rgb(62, 44, 28)"></symbol-icon>
+                            <symbol-icon text="Ps" size="64" shadow-color="rgb(10, 25, 40)" foreground-top-color="rgb(220, 245, 255)" foreground-bottom-color="rgb(120, 200, 230)" background-top-color="rgb(40, 120, 160)" background-bottom-color="rgb(10, 40, 70)"></symbol-icon>
+                        </div>
+                        <div class="project-card__text">
+                            <h1 class="project-card__title" id="prism">Prism</h1>
+                            <p class="project-card__desc">A from-scratch web browser supporting a limited subset of HTML 5, CSS 3, and ECMAScript 16.</p>
+                            <div class="project-card__badges">
+                                <span class="badge badge--zig">Zig</span>
+                                <span class="badge badge--tcp">TCP</span>
+                                <span class="badge badge--kotlin">Kotlin</span>
+                            </div>
+                        </div>
+                    </div>
+                </summary>
+
+                <div class="project-card__body">
+                    <div class="subitem">
+                        <h2>Engine</h2>
+                        <p>Designed specifically for my <b><i>Horizon</i></b> RISC-V processor and custom GPU platform, <b><i>Prism</i></b> implements a custom TCP/IP/EthernetII stack for network communication, a multithreaded rendering engine comprising custom layout, styling, and compositing subsystems with a focus minimizing memory footprint.</p>
+                        <i><a href="https://github.com/connorjlink/prism">github.com/connorjlink/prism</a></i>
+                    </div>
+                    <div class="subitem halfpad-top">
+                        <h2>Typeface Renderer</h2>
+                        <p>A custom TrueType-to-SDF typeface renderer written in Kotlin. <b><i>Prism-TTF</i></b> processes glyphs as batches, then packs and writes the results to a texture atlas for efficient rendering on a GPU. Render bit depth and resolution are optimized for <b><i>Horizon</i></b> GPU hardware running the <b><i>Prism</i></b> browser.</p>
+                        <i><a href="https://github.com/connorjlink/prism-ttf">github.com/connorjlink/prism-ttf</a></i>
+                    </div>
+                </div>
+            </details>
+
+            <details class="project-card shadowed">
+                <summary>
+                    <div class="project-card__summary">
+                        <div class="project-card__icon">
+                            <symbol-icon text="Mi" size="64" shadow-color="rgb(45, 25, 20)" foreground-top-color="rgb(255, 230, 210)" foreground-bottom-color="rgb(240, 160, 130)" background-top-color="rgb(180, 100, 90)" background-bottom-color="rgb(70, 40, 50)"></symbol-icon>
                         </div>
                         <div class="project-card__text">
                             <h1 class="project-card__title" id="mist">Mist</h1>
@@ -429,37 +461,6 @@
                 <summary>
                     <div class="project-card__summary">
                         <div class="project-card__icon">
-                            <symbol-icon text="Lu" size="64" shadow-color="rgb(43, 30, 85)" foreground-top-color="rgb(244, 238, 255)" foreground-bottom-color="rgb(205, 188, 255)" background-top-color="rgb(132, 96, 214)" background-bottom-color="rgb(62, 44, 130)"></symbol-icon>
-                        </div>
-                        <div class="project-card__text">
-                            <h1 class="project-card__title" id="luma">Luma</h1>
-                            <p class="project-card__desc">A modern interface for real-time setup and manipulation of path tracer programs.</p>
-                            <div class="project-card__badges">
-                                <span class="badge badge--csharp">C#</span>
-                                <span class="badge badge--winui">WinUI</span>
-                            </div>
-                        </div>
-                    </div>
-                </summary>
-
-                <div class="project-card__body">
-                    <div class="subitem">
-                        <h2>Application</h2>
-                        <p>Using a memory-mapped file for efficient interprocess bitmap sharing, Luma presents a sleek, modern interface for real-time setup and manipulation of path tracing programs' renders with minimal latency and maximal quality.</p>
-                        <i><a href="https://github.com/connorjlink/luma">github.com/connorjlink/luma</a></i>
-                    </div>
-
-                    <figure class="single-image halfpad-top">
-                        <img src="../res/luma.jpg">
-                        <figcaption>Early <b><i>Irradiance</i></b> Render</figcaption>
-                    </figure>
-                </div>
-            </details>
-
-            <details class="project-card shadowed">
-                <summary>
-                    <div class="project-card__summary">
-                        <div class="project-card__icon">
                             <symbol-icon text="Av" size="64" shadow-color="rgb(0, 45, 55)" foreground-top-color="rgb(235, 255, 253)" foreground-bottom-color="rgb(170, 235, 230)" background-top-color="rgb(70, 180, 170)" background-bottom-color="rgb(10, 80, 90)"></symbol-icon>
                         </div>
                         <div class="project-card__text">
@@ -517,6 +518,37 @@
                         <p>A command-line tool for automatically organizing photo collections based on location and timing information. <b><i>Locator-Arranger</i></b> takes a photo directory as input, generates locator maps, then intelligently arranges them in a user-customizable HTML document.</p>
                         <i><a href="https://github.com/connorjlink/locator-arranger">github.com/connorjlink/locator-arranger</a></i>
                     </div>
+                </div>
+            </details>
+
+            <details class="project-card shadowed">
+                <summary>
+                    <div class="project-card__summary">
+                        <div class="project-card__icon">
+                            <symbol-icon text="Lu" size="64" shadow-color="rgb(50, 60, 50)" foreground-top-color="rgb(255, 255, 255)" foreground-bottom-color="rgb(210, 230, 210)" background-top-color="rgb(170, 210, 180)" background-bottom-color="rgb(90, 140, 110)"></symbol-icon>
+                        </div>
+                        <div class="project-card__text">
+                            <h1 class="project-card__title" id="luma">Luma</h1>
+                            <p class="project-card__desc">A modern interface for real-time setup and manipulation of path tracer programs.</p>
+                            <div class="project-card__badges">
+                                <span class="badge badge--csharp">C#</span>
+                                <span class="badge badge--winui">WinUI</span>
+                            </div>
+                        </div>
+                    </div>
+                </summary>
+
+                <div class="project-card__body">
+                    <div class="subitem">
+                        <h2>Application</h2>
+                        <p>Using a memory-mapped file for efficient interprocess bitmap sharing, Luma presents a sleek, modern interface for real-time setup and manipulation of path tracing programs' renders with minimal latency and maximal quality.</p>
+                        <i><a href="https://github.com/connorjlink/luma">github.com/connorjlink/luma</a></i>
+                    </div>
+
+                    <figure class="single-image halfpad-top">
+                        <img src="../res/luma.jpg">
+                        <figcaption>Early <b><i>Irradiance</i></b> Render</figcaption>
+                    </figure>
                 </div>
             </details>
 
